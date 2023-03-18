@@ -6,7 +6,7 @@
   "scripts": {
     "start": "eleventy --watch --serve",
     "publish": "npm run styles && eleventy",
-    "styles": "npx tailwindcss -i src/styles.css -o _site/styles.css",
+    "styles": "npx tailwindcss -i src/assets/styles.css -o _site/assets/styles.css",
     "styles-watch": "npx tailwindcss -i src/assets/styles.css -o _site/assets/styles.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
