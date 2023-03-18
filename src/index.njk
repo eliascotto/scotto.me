@@ -1,0 +1,14 @@
+---
+layout: page
+title: Elia Scotto
+name: Home
+---
+
+<h2 class="mt-0 mb-3">
+  Latest posts
+</h2>
+
+{% set latest_posts = collections.posts | reverse %}
+{%- for post in latest_posts.slice(0,3) -%}
+  {% include 'components/posts.njk' %}
+{%- endfor -%}

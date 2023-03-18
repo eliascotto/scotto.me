@@ -1,0 +1,11 @@
+---
+layout: page
+title: Blog
+name: Blog
+---
+
+<div class="flex flex-col">
+    {%- for post in collections.posts | reverse -%}
+    {% include 'components/posts.njk' %}
+    {%- endfor -%}
+</div>

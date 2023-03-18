@@ -1,0 +1,28 @@
+---
+layout: page
+templateEngineOverride: njk, md
+permalink: "/blog/{{ page.fileSlug }}/index.html"
+tags: posts
+---
+
+<article>
+  <div class="mb-6">
+    <h1 class="leading-snug mb-4">
+      <center class="font-medium hidden sm:block">/</center>
+      {{ title }}
+    </h1>
+
+    <div class="text-neutral-600 dark:text-gray-400">
+      <small>
+        <time>{{ date | humanDate }}</time>
+      </small>
+      <small class="ml-3">
+        Tagged: {{ tags | tagList | safe }}
+      </small>
+    </div>
+  </div>
+
+  <div class="leading-relaxed post">
+    {{ content | safe }}
+  </div>
+</article>

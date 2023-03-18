@@ -1,0 +1,26 @@
+{% set socialImage = [metadata.url, metadata.image] | join %} {% set altTitle = "Elia Scotto | scotto.me" %}
+    <meta name="description" content="{{ meta.description }}">
+    <meta name="author" content="{{ meta.author }}">
+
+    <meta property="og:title" content="{{ title or metadata.title or altTitle }}">
+    <meta property="og:type" content="{% if "/blog" in page.url %}article{% else %}website{% endif %}">
+    <meta property="og:url" content="{{ meta.url }}{{ page.url }}">
+    <meta property="og:description" content="{{ description or metadata.description }}">
+    <meta property="og:image" content="{{ meta.url }}{{ meta.image }}">
+
+    <meta name="twitter:title" content="{{ title or metadata.title or altTitle }}">
+    <meta name="twitter:description" content="{{ description or metadata.description }}">
+    <meta name="twitter:image" content="{{ meta.url }}{{ meta.image }}">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/favicon/apple-touch-icon.png' | url }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/favicon/android-chrome-192x192.png' | url }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ '/assets/favicon/android-chrome-512x512.png' | url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon/favicon-32x32.png' | url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/favicon/favicon-16x16.png' | url }}">
+    <link rel="manifest" href="{{ '/assets/favicon/site.webmanifest' | url }}">
+    <link rel="mask-icon" href="{{ '/assets/favicon/safari-pinned-tab.svg' | url }}" color="#5bbad5">
+
+    <meta name="msapplication-TileColor" content="{{ meta.lightBackground }}" media="(prefers-color-scheme: light)">
+    <meta name="msapplication-TileColor" content="{{ meta.darkBackground }}" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="{{ meta.lightBackground }}" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="{{ meta.darkBackground }}" media="(prefers-color-scheme: dark)">

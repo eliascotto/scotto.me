@@ -1,0 +1,22 @@
+<nav class="flex flex-col items-center md:items-start min-w-[100px]
+md:border-l dark:border-gray-700 border-neutral-300 pl-4 h-fit py-2">
+
+<div class="flex items-center ">
+  <img
+    class="rounded-lg h-16 w-16 object-cover mb-2"
+    title="Elia Scotto"
+    src="{{ meta.image }}"
+  />
+</div>
+
+<div class="mb-4">
+    <h2 class="text-lg title m-0">Elia Scotto</h2>
+</div>
+
+  <div class="flex flex-row md:flex-col gap-3 md:gap-1 text-base font-normal">
+    <a href="/"      {% if page.url == "/" %}class="text-red-600 dark:text-red-500"{% endif %}>Home</a>
+    <a href="/about" {% if "/about" in page.url  %}class="text-red-600 dark:text-red-500"{% endif %}>About</a>
+    <a href="/blog"  {% if "/blog" in page.url %}class="text-red-600 dark:text-red-500"{% endif %}>Blog</a>
+    <a href="/tags"  {% if "/tags" in page.url %}class="text-red-600 dark:text-red-500"{% endif %}>Tags</a>
+  </div>
+</nav>

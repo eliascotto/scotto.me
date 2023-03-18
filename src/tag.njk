@@ -1,0 +1,24 @@
+---
+layout: page
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+  - all
+  - posts
+permalink: /tags/{{ tag | slug }}/
+title: "Tags"
+---
+
+<h1 class="leading-none mb-4">
+  #{{ tag }}
+</h1>
+
+<section>
+  {% set taglist = collections[ tag ] %}
+  
+  {% for post in taglist | reverse %}
+    {% include 'components/posts.njk' %}
+  {% endfor %}
+</section>

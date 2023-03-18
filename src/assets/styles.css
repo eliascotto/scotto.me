@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  p {
+    @apply text-[1.1rem] leading-relaxed;
+    margin: 1rem 0;
+  }
+
+  h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    @apply font-semibold tracking-tight font-title;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    @apply font-semibold
+           tracking-tight
+           font-title
+           mt-14
+           mb-5;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  a:hover {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  strong {
+    @apply font-bold;
+  }
+
+  blockquote {
+    @apply bg-gray-200
+           text-gray-600
+           dark:bg-gray-600
+           dark:text-gray-300
+           py-2
+           px-6
+           rounded-md;
+  }
+
+  blockquote p {
+    font-size: 1rem !important;
+  }
+
+  code:not([class^='language']) {
+    @apply dark:bg-gray-700
+           bg-gray-500
+           text-white
+           px-1 py-0.5
+           rounded-[.3rem]
+           whitespace-nowrap
+           text-base;
+  }
+
+  code[class^='language'] {
+    @apply text-[1rem];
+  }
+
+  figcaption {
+    @apply text-center
+           italic
+           text-sm
+           mt-2
+           dark:text-gray-400 text-gray-500;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+}
+
+@layer components {
+  .post {
+    font-size: 18px;
+  }
+
+  .post a {
+    @apply underline;
+  }
+
+  .post h1 a,
+  .post h2 a,
+  .post h3 a {
+    @apply no-underline;
+  }
+
+  .home-p {
+    @apply text-[1.125rem]
+           my-[0.5rem]
+           leading-relaxed;
+  }
+
+  .home-p a {
+    @apply underline;
+  }
+}
+
+
+.footnotes-sep {
+  @apply  border-gray-700 dark:border-gray-500
+          mt-12
+          border-dashed;
+}
+
+.footnotes-list {
+  @apply list-disc pl-6;
+}
