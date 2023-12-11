@@ -1,43 +1,15 @@
-<!doctype html>
-<html lang="{{ metadata.language or "en-US" }}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+---
+layout: base
+templateEngineOverride: njk, md
+---
 
-    <title>{{ title or metadata.title }}</title>
-    {% include "../components/metadata.njk" %}
+<section>
+  <div class="mb-6">
+    <h1 class="leading-snug mb-4">
+      <center class="font-medium hidden sm:block text-specialred">/</center>
+      {{ title }}
+    </h1>
+  </div>
 
-    <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet preload prefetch" as="style" type="text/css" href="https://rsms.me/inter/inter.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-    <link rel="stylesheet preload prefetch" as="style" type="text/css"
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap">
-
-    <link rel="stylesheet" href="{{ '/assets/styles.css' | url }}" />
-    <link rel="stylesheet" href="{{ '/assets/css/prism-theme.css' | url }}" />
-  </head>
-
-  <body class="dark:bg-[#111025] dark:text-white">
-    <div class="md:p-8 p-6 pt-12 flex flex-col">
-
-      {% include "../components/header.njk" %}
-
-      <div class="m-0 md:mx-auto w-full max-w-[780px] flex md:flex-row-reverse flex-col justify-start gap-8">
-
-        {% include "../components/menu.njk" %}
-
-        <main role="main" class="flex flex-col min-w-0 flex-1">
-
-            {{ content | safe }}
-
-            {% include "../components/footer.njk" %}
-            
-        </main>
-
-      </div>
-
-    </div>
-  </body>
-</html>
+  {{ content | safe }}
+</section>

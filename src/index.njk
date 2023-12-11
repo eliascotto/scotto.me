@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: base
 title: Elia Scotto
 name: Home
 ---
@@ -17,7 +17,7 @@ name: Home
   Latest posts
 </h2>
 
-{% set latest_posts = collections.posts | reverse %}
+{% set latest_posts = collections.all | reverse %}
 {%- for post in latest_posts.slice(0,3) -%}
   {% include 'components/posts.njk' %}
 {%- endfor -%}

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: base
 title: Elia Scotto
 name: About
 ---
@@ -18,13 +18,17 @@ name: About
 </div>
 
 <p class="home-p">
-  My background has been primarily in developing <strong>web applications</strong> from the ground up.
-  Today I mainly use <strong>Clojure</strong> and Clojurescript, but I've been
-  working extensively with modern JS frameworks for years.
+   I have a life-long passion for computers and technology in general.
+   My love for building things led me to work with
+   startups around the world, where I could take an active role in creating new products.
 </p>
 
 <p class="home-p">
-  I've worked in multiple startups from Silicon Valley, to Switzerland, to Australia.
+   My background has been primarily in developing <strong>web
+   applications</strong> from the ground up. I've been working extensively with
+   modern JS frameworks for years. Today I work as a
+   full-stack engineer, focusing on Clojure backend development.
+   In the past, I've worked in multiple startups from Silicon Valley, to Switzerland, to Australia.
 </p>
 
 <p class="home-p">
@@ -32,9 +36,8 @@ name: About
   <a href="{{ meta.github }}">@eliascotto</a>.
 </p>
 
-<h2 class="mt-16 mb-3">
-  Open Invite
-</h2>
+## Open Invite
+
 
 <p class="home-p">
   If you have something interesting to discuss or collaborate on,

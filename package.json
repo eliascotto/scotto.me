@@ -4,25 +4,31 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "eleventy --watch --serve",
-    "publish": "npm run styles && eleventy",
-    "styles": "npx tailwindcss -i src/assets/styles.css -o _site/assets/styles.css",
-    "styles-watch": "npx tailwindcss -i src/assets/styles.css -o _site/assets/styles.css --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm-run-all -p dev:*",
+    "build": "run-s build:*",
+    "dev:11ty": "npx @11ty/eleventy --serve --quiet",
+    "dev:css": "npx tailwindcss -i src/assets/styles.css -o _site/assets/styles.css --watch --postcss",
+    "build:11ty": "npx @11ty/eleventy",
+    "build:css": "npx tailwindcss -i src/assets/styles.css -o _site/assets/styles.css --postcss",
+    "debug": "DEBUG=Eleventy* npx @11ty/eleventy",
+    "debugstart": "DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
+    "benchmark": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Elia Scotto",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0",
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-img": "^3.1.0",
+		"@11ty/eleventy-plugin-bundle": "^1.0.4",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
-    "tailwindcss": "^3.2.6"
-  },
-  "dependencies": {
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "autoprefixer": "^10.4.16",
     "luxon": "^3.2.1",
     "markdown-it-anchor": "^8.6.7",
     "markdown-it-footnote": "^3.0.3",
-    "markdown-it-image-figures": "^2.1.1"
+    "markdown-it-image-figures": "^2.1.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.2.6"
   }
 }

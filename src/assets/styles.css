@@ -4,7 +4,7 @@
 
 @layer base {
   p {
-    @apply text-[1.1rem] leading-relaxed;
+    @apply text-[1.1rem] leading-[1.725];
     margin: 1rem 0;
   }
 
@@ -29,7 +29,7 @@
   }
 
   a:hover {
-    @apply text-red-600 dark:text-red-500;
+    @apply text-red-600 dark:text-specialred;
   }
 
   strong {
@@ -37,12 +37,12 @@
   }
 
   blockquote {
-    @apply bg-gray-200
-           text-gray-600
-           dark:bg-gray-600
+    @apply text-gray-600
            dark:text-gray-300
+           italic
            py-2
-           px-6
+           pl-10
+           pr-0
            rounded-md;
   }
 
@@ -61,7 +61,7 @@
   }
 
   code[class^='language'] {
-    @apply text-[1rem];
+    @apply font-mono text-[0.9rem];
   }
 
   figcaption {
@@ -74,6 +74,10 @@
 
   ul {
     @apply list-disc;
+  }
+
+  li {
+    @apply text-[1.1rem] leading-[1.725];
   }
 }
 

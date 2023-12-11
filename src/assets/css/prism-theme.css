@@ -320,13 +320,13 @@ code[class*="language-"],
 pre[class*="language-"] {
   color: var(--ctp-mocha-text);
   background: none;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: Consolas, Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
-  line-height: 1.5;
+  line-height: 20px;
 
   -moz-tab-size: 4;
   -o-tab-size: 4;

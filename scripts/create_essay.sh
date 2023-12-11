@@ -15,7 +15,7 @@ slug=$(echo "$input_string" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
 # Generate file path and name
 today=$(date +%Y-%m-%d)
 file_name="$today-$slug.md"
-file_path="./src/posts/$file_name"
+file_path="./src/essays/$file_name"
 
 # Write file contents
 echo "---" >> "$file_path"
