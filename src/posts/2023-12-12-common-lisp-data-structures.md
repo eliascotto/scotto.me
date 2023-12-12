@@ -167,4 +167,5 @@ cl-user> (makunbound '*person*)
 
 ## References
 
-https://github.com/foxsae/The-One-True-Lisp-Style-Guide
+- https://github.com/foxsae/The-One-True-Lisp-Style-Guide
+- https://lispcookbook.github.io/cl-cookbook/data-structures.html#sequences
