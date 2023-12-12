@@ -142,7 +142,7 @@ cl-user> (setf (elt *vector* 3) 5)
 ;; To delete elements, consider creating a new vector without the unwanted elements.
 ```
 
-## Structrue
+## Structure
 Structures are user-defined data structures created using `defstruct`, allowing the grouping of different data types together.
 ```lisp
 ;; Declaration
