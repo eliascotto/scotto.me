@@ -2,6 +2,7 @@
 layout: page
 title: Now
 tags: now
+eleventyExcludeFromCollections: true
 ---
 
 ## 11/12/2023

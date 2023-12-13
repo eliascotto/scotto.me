@@ -2,6 +2,7 @@
 layout: page
 title: Quotes
 name: Quotes
+eleventyExcludeFromCollections: true
 ---
 
 ### William Shakespeare
