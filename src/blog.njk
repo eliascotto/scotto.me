@@ -8,7 +8,7 @@ name: Blog
   <h2 class="leading-snug mb-4">Articles</h2>
 </div>
 
-{%- for post in collections.essays | reverse -%}
+{%- for post in collections.articles | reverse -%}
 {% include 'components/posts.njk' %}
 {%- endfor -%}
 
