@@ -2,6 +2,7 @@
 layout: base
 title: Elia Scotto
 name: About
+eleventyExcludeFromCollections: true
 ---
 
 <p class="home-p font-medium">
