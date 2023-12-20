@@ -5,7 +5,7 @@ if [ "$#" -eq 1 ]; then
   input_string=$1
 else
   # Get input string from user input
-  echo "Enter post title: "
+  echo "Enter article title: "
   read input_string
 fi
 
@@ -15,7 +15,7 @@ slug=$(echo "$input_string" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
 # Generate file path and name
 today=$(date +%Y-%m-%d)
 file_name="$today-$slug.md"
-file_path="./src/essays/$file_name"
+file_path="./src/articles/$file_name"
 
 # Write file contents
 echo "---" >> "$file_path"
