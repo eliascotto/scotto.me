@@ -26,6 +26,11 @@
 
   h3 {
     font-size: 1.5rem;
+    @apply font-medium
+           tracking-tight
+           font-title
+           mt-8
+           mb-5;
   }
 
   a:hover {

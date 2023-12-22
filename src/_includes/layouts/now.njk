@@ -1,0 +1,17 @@
+---
+layout: base
+templateEngineOverride: njk, md
+---
+
+<section>
+  <div class="mb-6">
+    <h1 class="leading-snug mb-4">
+      <center class="font-medium hidden sm:block text-specialred">/</center>
+      {{ title }}
+    </h1>
+  </div>
+  
+  <div class="leading-relaxed post">
+    {{ content | safe }}
+  </div>
+</div>

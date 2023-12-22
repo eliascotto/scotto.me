@@ -1,15 +1,24 @@
 ---
-layout: page
+layout: now
 title: Now
 tags: now
 eleventyExcludeFromCollections: true
+today: 22/12/2023
 ---
 
 This is a [/now](https://nownownow.com) page, a snapshot of what's happening in my life right now. 
-An idea by [Derek Sivers](https://nownownow.com/about).
+If you have your own site, [you should make one](https://nownownow.com/about), too.
 
-## 11/12/2023
+Updated: *{{ today | defaultDate }}*
 
-- Writing the first draft of a novel. I'm slowly replacing vscode with Scrivener.
-- Trying to complete and publish some essays, currently in a draft state.
-- Translate the essays and, and if they're engaging, send them to web magazines withing the respective field.
+- Preparing a schema for the plot of my first novel.
+- Writing the first chapters of the draft.
+- Cooking potato gnocchi for Christmas day, on the lake.
+- Thinking about [Saved by Infinite Jest](https://aeon.co/essays/how-infinite-jest-tethered-me-to-life-when-i-almost-let-it-go).
+
+### Currently reading
+
+- Treasure Island, Robert Louis Stevenson
+- Swann's way, Marcel Proust
+- The Buried Giant, Kazuo Ishiguro
+- Perdido Street Station, China Miéville

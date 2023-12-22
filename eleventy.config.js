@@ -17,12 +17,16 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addLayoutAlias("base", "layouts/base")
   eleventyConfig.addLayoutAlias("page", "layouts/page")
   eleventyConfig.addLayoutAlias("article", "layouts/article")
+  eleventyConfig.addLayoutAlias("now", "layouts/now")
 
   // Make it possible to set the "post" tag in the "post.njk" layout while still assigning further tags in the individual post.
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true)
 
   // Date filters
+  eleventyConfig.addFilter("defaultDate", dateObj => {
+    return luxon.DateTime.fromFormat(dateObj, "d/MM/yyyy").toFormat("LLLL d, y")
+  })
   eleventyConfig.addFilter("humanDate", dateObj => {
     return luxon.DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("LLLL d, y")
   })
