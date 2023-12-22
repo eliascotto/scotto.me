@@ -39,7 +39,6 @@ eleventyExcludeFromCollections: true
 
 ## Open Invite
 
-
 <p class="home-p">
   If you have something interesting to discuss or collaborate on,
   feel free to send me a message at <strong>elia@scotto.me</strong> .
