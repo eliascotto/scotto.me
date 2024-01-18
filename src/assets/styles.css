@@ -52,7 +52,7 @@
   }
 
   blockquote p {
-    font-size: 1rem !important;
+    font-size: 1.1rem;
   }
 
   code:not([class^='language']) {
@@ -109,6 +109,16 @@
 
   .home-p a {
     @apply underline;
+  }
+
+  .post-large-text {
+    p {
+      @apply text-[1.2rem];
+    }
+
+    blockquote p {
+      @apply text-[1.1rem];
+    }
   }
 }
 

@@ -1,0 +1,314 @@
+[
+  {
+    "bookId": 136196728,
+    "title": "Story",
+    "author": "Robert McKee",
+    "rating": 4
+  },
+  {
+    "bookId": 28454954,
+    "title": "L'isola del tesoro",
+    "author": "Robert Louis Stevenson",
+    "rating": 4
+  },
+  {
+    "bookId": 15881,
+    "title": "Harry Potter and the Chamber of Secrets",
+    "author": "J.K. Rowling",
+    "rating": 4
+  },
+  {
+    "bookId": 9999,
+    "title": "The Box Man",
+    "author": "Kōbō Abe",
+    "rating": 3
+  },
+  {
+    "bookId": 22396872,
+    "title": "Delitto e castigo",
+    "author": "Fyodor Dostoevsky",
+    "rating": 4
+  },
+  {
+    "bookId": 9654264,
+    "title": "La scopa del sistema",
+    "author": "David Foster Wallace",
+    "rating": 2
+  },
+  {
+    "bookId": 12745235,
+    "title": "L'incantatore",
+    "author": "Vladimir Nabokov",
+    "rating": 4
+  },
+  {
+    "bookId": 30070039,
+    "title": "Una risata nel buio",
+    "author": "Vladimir Nabokov",
+    "rating": 5
+  },
+  {
+    "bookId": 44009124,
+    "title": "La straniera",
+    "author": "Claudia Durastanti",
+    "rating": 4
+  },
+  {
+    "bookId": 44065565,
+    "title": "Il meglio",
+    "author": "Charles Bukowski",
+    "rating": 4
+  },
+  {
+    "bookId": 38588764,
+    "title": "Tokyo Express",
+    "author": "Seichō Matsumoto",
+    "rating": 3
+  },
+  {
+    "bookId": 8880922,
+    "title": "Tokyo Soup",
+    "author": "Ryū Murakami",
+    "rating": 5
+  },
+  {
+    "bookId": 41086877,
+    "title": "Normal People",
+    "author": "Sally Rooney",
+    "rating": 3
+  },
+  {
+    "bookId": 16002966,
+    "title": "Guida il tuo carro sulle ossa dei morti",
+    "author": "Olga Tokarczuk",
+    "rating": 4
+  },
+  {
+    "bookId": 3564225,
+    "title": "Estensione del dominio della lotta",
+    "author": "Michel Houellebecq",
+    "rating": 5
+  },
+  {
+    "bookId": 57110629,
+    "title": "Come funzionano i romanzi",
+    "author": "James  Wood",
+    "rating": 5
+  },
+  {
+    "bookId": 35857027,
+    "title": "La peste",
+    "author": "Albert Camus",
+    "rating": 3
+  },
+  {
+    "bookId": 15824579,
+    "title": "La nuvola in calzoni",
+    "author": "Vladimir Mayakovsky",
+    "rating": 2
+  },
+  {
+    "bookId": 176238910,
+    "title": "Lady Lazarus e altre poesie",
+    "author": "Sylvia Plath",
+    "rating": 5
+  },
+  {
+    "bookId": 36374604,
+    "title": "Le notti di Salem",
+    "author": "Stephen King",
+    "rating": 4
+  },
+  {
+    "bookId": 27280707,
+    "title": "Macbeth",
+    "author": "William Shakespeare",
+    "rating": 5
+  },
+  {
+    "bookId": 60291347,
+    "title": "Le tre stigmate di Palmer Eldritch",
+    "author": "Philip K. Dick",
+    "rating": 5
+  },
+  {
+    "bookId": 20559463,
+    "title": "Tito di Gormenghast",
+    "author": "Mervyn Peake",
+    "rating": 5
+  },
+  {
+    "bookId": 3828372,
+    "title": "La solitudine dei numeri primi",
+    "author": "Paolo Giordano",
+    "rating": 2
+  },
+  {
+    "bookId": 3738515,
+    "title": "Il sentiero dei nidi di ragno",
+    "author": "Italo Calvino",
+    "rating": 4
+  },
+  {
+    "bookId": 18887299,
+    "title": "La fine del mondo e il paese delle meraviglie",
+    "author": "Haruki Murakami",
+    "rating": 3
+  },
+  {
+    "bookId": 56884734,
+    "title": "Forse dovresti parlarne con qualcuno",
+    "author": "Lori Gottlieb",
+    "rating": 4
+  },
+  {
+    "bookId": 50786753,
+    "title": "Se i gatti scomparissero dal mondo",
+    "author": "Genki Kawamura",
+    "rating": 3
+  },
+  {
+    "bookId": 3400697,
+    "title": "101 storie Zen",
+    "author": "Unknown",
+    "rating": 3
+  },
+  {
+    "bookId": 39989980,
+    "title": "Vita 3.0",
+    "author": "Max Tegmark",
+    "rating": 4
+  },
+  {
+    "bookId": 33313,
+    "title": "Kitchen Confidential",
+    "author": "Anthony Bourdain",
+    "rating": 4
+  },
+  {
+    "bookId": 17617213,
+    "title": "Pulp. Una storia del XX secolo",
+    "author": "Charles Bukowski",
+    "rating": 5
+  },
+  {
+    "bookId": 9660569,
+    "title": "L'arte di correre",
+    "author": "Haruki Murakami",
+    "rating": 4
+  },
+  {
+    "bookId": 25610880,
+    "title": "Di cosa parliamo quando parliamo d'amore",
+    "author": "Raymond Carver",
+    "rating": 4
+  },
+  {
+    "bookId": 53920370,
+    "title": "Tieni presente che",
+    "author": "Chuck Palahniuk",
+    "rating": 5
+  },
+  {
+    "bookId": 25980653,
+    "title": "Get Real, Get Gone",
+    "author": "Rick  Page",
+    "rating": 4
+  },
+  {
+    "bookId": 7881201,
+    "title": "Non lasciarmi",
+    "author": "Kazuo Ishiguro",
+    "rating": 4
+  },
+  {
+    "bookId": 17937487,
+    "title": "La lucina",
+    "author": "Antonio Moresco",
+    "rating": 2
+  },
+  {
+    "bookId": 23593649,
+    "title": "La morte del padre",
+    "author": "Karl Ove Knausgård",
+    "rating": 3
+  },
+  {
+    "bookId": 15718173,
+    "title": "Come Proust può cambiarvi la vita",
+    "author": "Alain de Botton",
+    "rating": 5
+  },
+  {
+    "bookId": 17840743,
+    "title": "La canzone di Achille",
+    "author": "Madeline Miller",
+    "rating": 1
+  },
+  {
+    "bookId": 28143710,
+    "title": "La vera storia del pirata Long John Silver",
+    "author": "Björn Larsson",
+    "rating": 5
+  },
+  {
+    "bookId": 28257707,
+    "title": "The Subtle Art of Not Giving a F*ck",
+    "author": "Mark Manson",
+    "rating": 5
+  },
+  {
+    "bookId": 51555026,
+    "title": "Storie della farfalla",
+    "author": "William T. Vollmann",
+    "rating": 4
+  },
+  {
+    "bookId": 21893937,
+    "title": "Rumore bianco",
+    "author": "Don DeLillo",
+    "rating": 4
+  },
+  {
+    "bookId": 20518872,
+    "title": "The Three-Body Problem",
+    "author": "Liu Cixin",
+    "rating": 2
+  },
+  {
+    "bookId": 9654370,
+    "title": "La ragazza dai capelli strani",
+    "author": "David Foster Wallace",
+    "rating": 5
+  },
+  {
+    "bookId": 444555,
+    "title": "Siddhartha",
+    "author": "Hermann Hesse",
+    "rating": 5
+  },
+  {
+    "bookId": 60798109,
+    "title": "La torre",
+    "author": "Bae Myung-hoon",
+    "rating": 2
+  },
+  {
+    "bookId": 30245312,
+    "title": "Io sono vivo, voi siete morti",
+    "author": "Emmanuel Carrère",
+    "rating": 5
+  },
+  {
+    "bookId": 55366004,
+    "title": "Figure",
+    "author": "Riccardo Falcinelli",
+    "rating": 5
+  },
+  {
+    "bookId": 40668314,
+    "title": "Le sorelle Donguri",
+    "author": "Banana Yoshimoto",
+    "rating": 2
+  }
+]

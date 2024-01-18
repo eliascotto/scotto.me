@@ -4,11 +4,12 @@
   "eleventyExcludeFromCollections": true,
   "metadata": {
     "title": "Elia Scotto",
-    "subtitle": "",
+    "subtitle": "Essays and tech articles",
     "language": "en",
     "url": "https://www.scotto.me/",
     "author": {
-      "name": "EliaScotto"
+      "name": "Elia Scotto",
+      "email": "elia@scotto.me"
     }
   }
 }
@@ -19,12 +20,12 @@
   <subtitle>{{ metadata.subtitle }}</subtitle>
   <link href="{{ permalink | absoluteUrl(metadata.url) }}" rel="self"/>
   <link href="{{ metadata.url }}"/>
-  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <updated>{{ collections.all | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
   <id>{{ metadata.url }}</id>
   <author>
     <name>{{ metadata.author.name }}</name>
   </author>
-  {%- for post in collections.posts | reverse %}
+  {%- for post in collections.all | reverse %}
   {%- set absolutePostUrl = post.url | absoluteUrl(metadata.url) %}
   <entry>
     <title>{{ post.data.title }}</title>

@@ -59,6 +59,11 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginBundle)
   eleventyConfig.addPlugin(syntaxHighlight, prismLanguageConfig)
 
+  // ===============================================
+  // Shortcodes
+
+  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
   //
   // MarkdownIt
   // Custom Markdown parser configuration.
