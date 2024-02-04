@@ -111,9 +111,23 @@
     @apply underline;
   }
 
-  .post-large-text {
+  .article {
     p {
-      @apply text-[1.2rem];
+      @apply font-serif text-[1.2rem];
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a::after {
+      position: relative;
+      content: "\FEFF°";
+      margin-left: 0.10em;
+      top: -0.10em;
+      @apply text-red-600;
+      font-feature-settings: "caps";
+      font-variant-numeric: normal;
     }
 
     blockquote p {
@@ -122,6 +136,11 @@
   }
 }
 
+@media print {
+  a::after {
+    display: none;
+  }
+}
 
 .footnotes-sep {
   @apply  border-gray-700 dark:border-gray-500

@@ -39,7 +39,7 @@ permalink: "/blog/{{ page.fileSlug }}/index.html"
     </div>
   </div>
 
-  <div class="leading-relaxed post {% if tags.includes("articles") %}font-serif post-large-text{% endif %}">
+  <div class="leading-relaxed post {% if tags.includes("articles") %}article{% endif %}">
     {{ content | safe }}
   </div>
 </article>
