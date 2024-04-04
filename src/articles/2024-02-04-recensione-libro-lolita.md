@@ -1,11 +1,12 @@
 ---
 title: Recensione libro - Lolita
-description: Recensione libro - Lolita
+description: Il capolavoro di Nabokov
 date: 2024-02-04
 tags:
  - nabokov
  - literature
  - reviews
+ - book
 ---
 
 Alla domanda su cos’è che rende un libro un successo, [Ken Follett ha risposto](https://www.youtube.com/watch?v=1Q1NEmOZdgw) che il fattore chiave è la capacità dello scrittore di far condividere al lettore le emozioni che vivono i personaggi. Per questo motivo Lolita è da considerarsi uno dei romanzi più importanti del XX secolo. Perché farci immergere nella mente di un pedofilo, e farci provare emozioni come empatia, pena, rabbia, per un protagonista maledetto, è una delle fatiche più ardue che un scrittore possa compiere. Vladimir Nabokov, con Lolita, ha creato un capolavoro. 

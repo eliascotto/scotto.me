@@ -84,6 +84,10 @@
   li {
     @apply text-[1.1rem] leading-[1.725];
   }
+
+  img {
+    @apply mx-auto rounded-md;
+  }
 }
 
 @layer components {
