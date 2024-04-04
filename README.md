@@ -1,11 +1,10 @@
 # [scotto.me](https://www.scotto.me)
 
-Built with eleventy.
+Built with 11ty.
 
 ## Run dev
 
 - `npm start`
-- `npm run styles-watch`
 
 ## Publish 
 
@@ -14,3 +13,4 @@ Built with eleventy.
 ## Scripts
 
 - create a new post: `./scripts/create_post.sh`
+- create a new article: `./scripts/create_article.sh`
