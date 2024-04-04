@@ -27,3 +27,6 @@ eleventyExcludeFromCollections: true
 
 ### Ursula K. Le Guin
 > I think hard times are coming when we will be wanting the voices of writers who can see alternatives to how we live now and can see through our fear-stricken society and its obsessive technologies. We will need writers who can remember freedom. Poets, visionaries – the realists of a larger reality.
+
+### Tiziano Terzani
+> Dopo il Medioevo del materialismo, l’umanità dovrà ricominciare a mettere altri valori nella propria esistenza.

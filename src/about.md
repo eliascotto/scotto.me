@@ -27,13 +27,14 @@ eleventyExcludeFromCollections: true
 <p class="home-p">
    My background has been primarily in developing <strong>web
    applications</strong> from the ground up. I've been working extensively with
-   modern JS frameworks for years. Today I work as a
-   full-stack engineer, focusing on Clojure backend development.
-   In the past, I've worked in multiple startups from Silicon Valley, to Switzerland, to Australia.
+   modern JS frameworks for years, including React, Vue, and Node.js or Python backends.
+   Today, I work as a full-stack engineer, mostly focusing on Clojure backend development, and I've become passionate about functional programming in general. I've worked in multiple startups from Silicon Valley 🇺🇸, to Italy 🍝, to Switzerland 🧀, to Australia 🦘, and have also developed websites and small mobile apps as side projects.
 </p>
 
+
+
 <p class="home-p">
-  Most of the code I released is available on my github account
+  Most of the projects I've worked on are available on my GitHub account
   <a href="{{ meta.github }}">@eliascotto</a>.
 </p>
 
