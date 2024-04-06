@@ -42,7 +42,7 @@
   }
 
   blockquote {
-    @apply text-gray-600
+    @apply text-gray-400
            dark:text-gray-300
            italic
            py-2
@@ -135,7 +135,7 @@
     }
 
     blockquote p {
-      @apply text-[1.1rem];
+      @apply text-[1.2rem];
     }
   }
 }
