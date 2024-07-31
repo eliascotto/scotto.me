@@ -8,14 +8,6 @@ we of course apply color-scheme: dark, as usual */
   html {
     color-scheme: dark;
   }
-
-  hr {
-    @apply bg-gradient-to-r from-transparent via-gray-400 to-transparent;
-  }
-
-  hr::before {
-    @apply bg-[#ffffff90];
-  }
 }
 
 /* If the user prefers light mode, 
@@ -123,12 +115,8 @@ we still enforce color-scheme: dark, despite the user preference */
   }
 
   hr {
-    @apply my-10 h-px relative overflow-visible border-none
-           bg-gradient-to-r from-transparent via-gray-800 to-transparent;
-  }
-  
-  hr::before {
-    @apply content-[''] absolute left-[46.2%] right-[54%] h-full bg-gray-900;
+    @apply my-10 mx-10 h-px relative overflow-visible border-none
+            bg-gradient-to-r from-transparent via-neutral-300 via-50% dark:via-gray-700 to-transparent;
   }
 }
 
@@ -159,7 +147,7 @@ we still enforce color-scheme: dark, despite the user preference */
 
   .article {
     p {
-      @apply font-serif text-[1.25rem];
+      @apply font-serif text-[1.2rem] sm:text-[1.25rem];
     }
 
     a {

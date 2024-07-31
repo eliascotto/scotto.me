@@ -11,7 +11,7 @@ permalink: "/blog/{{ page.fileSlug }}/index.html"
       {{ title }}
     </h1>
 
-    <div class="flex flex-row justify-between">
+    <div class="flex flex-col sm:flex-row justify-between">
       <div class="flex flex-col">
         <small>
           <time>{{ date | humanDate }}</time>
@@ -22,7 +22,7 @@ permalink: "/blog/{{ page.fileSlug }}/index.html"
       </div>
 
       {% if translation %}
-      <div class="self-end justify-self-end">
+      <div class="sm:self-end sm:justify-self-end">
         {% if translation == 'en' %}
         <a 
           title="Traduzione italiano"

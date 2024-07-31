@@ -5,12 +5,6 @@
         class="font-base text-lg font-title font-medium"
         href="{{ post.url }}"
       >{{ post.data.title }}</a>
-      
-      {% if post.data.language %}
-        <div class="uppercase h-min text-xs dark:bg-gray-700 rounded ml-2 mt-1.5 px-1">
-          {{ post.data.language }}
-        </div>
-      {% endif %}
     </div>
 
     <div class="text-xs sm:text-sm">{{ post.date | humanDate }}</div>
@@ -39,6 +33,12 @@
       </p>
       {% endif %}
     </div>
+    {% endif %}
+
+    {% if post.data.language %}
+      <div class="uppercase h-min text-xs leading-none dark:bg-gray-700 rounded px-1 py-0.5">
+        {{ post.data.language }}
+      </div>
     {% endif %}
   </div>
 </div>
