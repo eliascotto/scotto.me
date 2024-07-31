@@ -1,16 +1,44 @@
 <div class="my-2 first:mt-0">
-  <div class="flex flex-col sm:flex-row justify-between sm:items-start">
-    <a 
-      class="font-base text-lg sm:max-w-[75%] font-title font-medium"
-      href="{{ post.url }}"
-    >
-      {{ post.data.title }}
-    </a>
-    <span class="text-xs sm:text-sm">
-      {{ post.date | humanDate }}
-    </span>
+  <div class="flex flex-row justify-between sm:items-start">
+    <div class="flex flex-row flex-1">
+      <a 
+        class="font-base text-lg font-title font-medium"
+        href="{{ post.url }}"
+      >{{ post.data.title }}</a>
+      
+      {% if post.data.language %}
+        <div class="uppercase h-min text-xs dark:bg-gray-700 rounded ml-2 mt-1.5 px-1">
+          {{ post.data.language }}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="text-xs sm:text-sm">{{ post.date | humanDate }}</div>
   </div>
-  <span class="text-xs text-gray-600 dark:text-gray-400 leading-none">
-    {{ post.data.description }}
-  </span>
+
+  <div class="flex flex-row items-center justify-between mt-2">
+    <span class="text-xs text-gray-600 dark:text-gray-400 leading-none">
+      {{ post.data.description }}
+    </span>
+
+    {% if post.data.translation %}
+    <div class="text-gray-300">
+      {% if post.data.translation == 'en' %}
+      <p class="m-0" style="line-height: 0">
+        <a 
+          title="Traduzione italiano"
+          class="text-xs" 
+          href="{{ post.url }}/ita">In italiano</a>
+      </p>
+      {% elif post.data.translation == 'ita' %}
+      <p class="m-0" style="line-height: 0">
+        <a 
+          title="English translation"
+          class="text-xs" 
+          href="{{ post.url }}">English version</a>
+      </p>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
 </div>

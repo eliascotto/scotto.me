@@ -2,6 +2,7 @@
 title: Un indovino mi disse
 description: Il viaggio in Asia di Tiziano Terzani
 date: 2024-04-03
+language: ita
 tags:
  - terzani
  - literature
@@ -9,7 +10,7 @@ tags:
  - book
 ---
 
-![terzani](/assets/img/terzani.jpg "Tiziano Terzani")
+![terzani](/assets/img/terzani3.webp "Tiziano Terzani")
 
 _Un indovino mi disse_, racconta il viaggio che Tiziano Terzani compie attraverso l’Asia all’inizio degli anni novanta, evitando gli aerei per sfuggire alla morte, come gli era stato suggerito di fare da un veggente. Con la scusa di consultare gli indovini più rinomati in tutti i paesi in cui si ferma, Terzani racconta i cambiamenti che il continente ha dovuto affrontare a causa della ricerca smodata di modernità. Molte città si stavano trasformando da paradisi di pace e tranquillità in metropoli occidentali, i colletti bianchi e l’abbigliamento alla moda stavano sostituendo gli abiti tradizionali e i sandali, mentre grattacieli sorgevano in pochi mesi al posto di luoghi sacri e giardini centenari. Terzani intuisce le conseguenze che una corsa sconsiderata al progresso avrebbe lasciato su un continente antico come l’Asia e sulla sua popolazione inadeguata al cambiamento; la scomparsa delle culture e delle tradizioni, lo sfruttamento del lavoro e delle risorse naturali, il turismo aggressivo che avrebbe rovinato l’unicità e la sacralità di molti luoghi rendendoli uguali a qualsiasi altra attrazione nel resto del mondo. Secondo Terzani, l’Asia avrebbe presto perso quella magia che la rendeva speciale.
 > "Tutti corrono, ma verso dove? Perché? Molti sentono che questo correre non ci si addice e che ci fa perdere tanti vecchi piaceri." - Tiziano Terzani
@@ -18,4 +19,7 @@ Nel viaggio avventuroso tra i molteplici paesi del continente, Terzani viene a c
 > "Dopo il Medioevo del materialismo, l’umanità dovrà ricominciare a mettere altri valori nella propria esistenza." - Tiziano Terzani
 
 *Tutti corrono, ma verso dove?* Terzani non parla solo della corsa al progresso o della corsa al successo, ma anche di quanto vanno di corsa i turisti. Arrivano in massa con aerei e in 7/14 giorni vogliono vivere tutte le esperienze possibili, conoscere tutto con tour organizzati, scattare le foto migliori per mostrare che anche loro amano viaggiare e poi tornarsene a casa di nuovo in aereo. All’apparenza non c’è nulla di male; chi dice che non si può prendere un aereo per andare ovunque nel mondo? Esistono tanti servizi fatti apposta per questo, come B&B, tour operator, viaggi last-minute etc. Viaggiare in quel modo invece, è semplicemente un'altra manifestazione del consumismo. È irrealistico pretendere di conoscere un paese e la sua tradizione in soli dieci giorni di viaggio, soprattutto se tutto è già stato organizzato. Si tende a visitare le principali attrazioni turistiche, vivendo un'esperienza superficiale. Non si riesce a comprendere appieno la vita quotidiana e il pensiero degli abitanti locali, né ci si avvicina (e forse neanche si desidera farlo) alla vera diversità culturale che si trova al di là delle immagini condivise sui social media. Terzani, nel libro, viene a conoscenza di molte curiosità proprio perché sceglie di usare treni e navi, dove è costretto a condividere il viaggio, ricevendo in regalo del tempo per parlare con le persone che incontra. Tutto questo in aereo non accade perché circondati da negozi che vendono di tutto, fast-food e posti numerati. 
+
+![terzani](/assets/img/terzani.jpg "Tiziano Terzani in viaggio")
+
 Se si viaggia in paesi economicamente ricchi, ci sono organizzazioni che promuovono il mantenimento del territorio come risorsa per il futuro, se si viaggia in paesi poveri si vedono gli effetti distruttivi che il turismo di massa ha portato. Chi pensa di fare del bene portando soldi nei paesi poveri, in verità ingrassa solo una piccola parte degli abitanti, aumentando ancora di più la disuguaglianza che prima dell’arrivo della modernità quasi non esisteva. Erano tutti più poveri e allo stesso tempo più ricchi. Questi paesi orientali con una storia e una mentalità uniche, a cui non interessava molto lo sviluppo e il progresso moderno, dove la modernità è stata imposta e la popolazione indottrinata, hanno perso il fascino della bellezza dei loro luoghi. Presto, quando si costruirà sempre di più nel resto del mondo, ci si accorgerà che valore avrebbe avuto la natura incontaminata gratuita se fosse rimasta intatta.

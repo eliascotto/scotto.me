@@ -2,10 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+/* If the user prefers dark mode, 
+we of course apply color-scheme: dark, as usual */
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+
+  hr {
+    @apply bg-gradient-to-r from-transparent via-gray-400 to-transparent;
+  }
+
+  hr::before {
+    @apply bg-[#ffffff90];
+  }
+}
+
+/* If the user prefers light mode, 
+we still enforce color-scheme: dark, despite the user preference */
+@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: ligth;
+  }
+}
+
 @layer base {
   p {
     @apply text-[1.1rem] leading-[1.725];
     margin: 1rem 0;
+  }
+
+  p:empty {
+    display: none;
   }
 
   h1 {
@@ -70,6 +98,10 @@
     @apply font-mono text-[0.9rem];
   }
 
+  figure {
+    @apply my-6;
+  }
+
   figcaption {
     @apply text-center
            italic
@@ -89,21 +121,30 @@
   img {
     @apply mx-auto rounded-md;
   }
+
+  hr {
+    @apply my-10 h-px relative overflow-visible border-none
+           bg-gradient-to-r from-transparent via-gray-800 to-transparent;
+  }
+  
+  hr::before {
+    @apply content-[''] absolute left-[46.2%] right-[54%] h-full bg-gray-900;
+  }
 }
 
 @layer components {
   .post {
     font-size: 18px;
-  }
 
-  .post a {
-    @apply underline;
-  }
-
-  .post h1 a,
-  .post h2 a,
-  .post h3 a {
-    @apply no-underline;
+    a {
+      @apply underline;
+    }
+  
+    h1 a,
+    h2 a,
+    h3 a {
+      @apply no-underline;
+    }
   }
 
   .home-p {
@@ -118,7 +159,7 @@
 
   .article {
     p {
-      @apply font-serif text-[1.2rem];
+      @apply font-serif text-[1.25rem];
     }
 
     a {

@@ -8,18 +8,22 @@ pagination:
   - all
   - posts
 permalink: /tags/{{ tag | slug }}/
-title: "Tags"
 eleventyExcludeFromCollections: true
 ---
 
-<h1 class="leading-none mb-4">
-  #{{ tag }}
-</h1>
-
 <section>
+  <div class="mb-6">
+    <h1 class="leading-snug mb-4">
+      <center class="font-medium hidden sm:block text-specialred">/</center>
+      #{{ tag }}
+    </h1>
+  </div>
+
   {% set taglist = collections[ tag ] %}
   
+  <div class="flex flex-col">
   {% for post in taglist | reverse %}
     {% include 'components/posts.njk' %}
   {% endfor %}
+  </div>
 </section>

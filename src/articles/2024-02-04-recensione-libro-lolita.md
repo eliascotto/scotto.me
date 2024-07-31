@@ -1,7 +1,8 @@
 ---
-title: Recensione libro - Lolita
+title: Lolita
 description: Il capolavoro di Nabokov
 date: 2024-02-04
+language: ita
 tags:
  - nabokov
  - literature

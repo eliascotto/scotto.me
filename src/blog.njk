@@ -9,11 +9,13 @@ eleventyExcludeFromCollections: true
   <h2 class="leading-snug mb-4">Articles</h2>
 </div>
 
+<div class="flex flex-col">
 {%- for post in collections.articles | reverse -%}
 {% include 'components/posts.njk' %}
 {%- endfor -%}
+</div>
 
-<div class="mb-6 mt-12">
+<div class="mb-6">
   <h2 class="leading-snug mb-4">Tech</h2>
 </div>
 

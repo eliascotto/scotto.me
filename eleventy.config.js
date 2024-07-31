@@ -40,7 +40,7 @@ module.exports = (eleventyConfig) => {
     const properTags = list.filter(x => x != "posts")
 
     if (!!properTags) {
-      return properTags.map(tag => `<a href="/tags/${slug(tag)}">${tag}</a>`).join(", ")
+      return properTags.map(tag => `<a href="/tags/${slug(tag)}">#${tag}</a>`).join(" ")
     }
   })
 
@@ -71,7 +71,7 @@ module.exports = (eleventyConfig) => {
   //
   const md = markdownIt({
     html: true,
-    breaks: true,
+    breaks: false,
     linkify: true,
     typographer: true,
   })
