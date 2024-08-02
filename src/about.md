@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: page
 title: Elia Scotto
 name: About
 eleventyExcludeFromCollections: true
