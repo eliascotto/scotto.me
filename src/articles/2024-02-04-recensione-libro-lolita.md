@@ -1,5 +1,5 @@
 ---
-title: Lolita
+title: Lolita - Vladimir Nabokov
 description: Il capolavoro di Nabokov
 date: 2024-02-04
 language: ita

@@ -1,6 +1,6 @@
 ---
-title: Time Out of Joint
-description: Book review of Philip K. Dick novel
+title: Time Out of Joint - Philip K. Dick
+description: The original Truman Show
 date: 2024-07-31
 translation: en
 tags:
@@ -16,7 +16,7 @@ The mystery in the novel begins when Vic, the husband of Ragle's sister Margo, g
 
 ![Philip K. Dick](/assets/img/pkd.png "Philip K. Dick")
 
-Following Philip Dick's narrative style, the characters are minimally characterized, the setting is a 1950s American town, and the protagonists are fearful of the threats of those years, such as the atomic conflict. The entire story serves as a backdrop for the science fiction theater that Dick stages, creating a suspense that keeps readers glued to the pages..
+Following Philip Dick's narrative style, the characters are minimally characterized, the setting is a 1950s American town, and the protagonists are fearful of the threats of those years, such as the atomic conflict. The entire story serves as a backdrop for the science fiction theater that Dick stages, creating a suspense that keeps readers glued to the pages.
 
 One last curiosity is that the plot of _The Truman Show_, a 1998 film, was inspired by the novel. But in the book case, it's not about a TV show.
 

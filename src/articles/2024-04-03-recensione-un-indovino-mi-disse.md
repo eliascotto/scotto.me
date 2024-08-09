@@ -1,6 +1,6 @@
 ---
-title: Un indovino mi disse
-description: Il viaggio in Asia di Tiziano Terzani
+title: Un indovino mi disse - Tiziano Terzani
+description: Racconto del suo viaggio in Asia
 date: 2024-04-03
 language: ita
 tags:

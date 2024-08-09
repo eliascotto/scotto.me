@@ -1,6 +1,6 @@
 ---
-title: Tempo fuor di sesto
-description: Recensione libro di Philip K. Dick
+title: Tempo fuor di sesto - Philip K. Dick
+description: Dick spezza ancora una volta la realtà
 date: 2024-07-31
 translation: ita
 tags:
