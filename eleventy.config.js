@@ -98,10 +98,12 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.setLibrary("md", md)
 
+  // 
   // Copy folder to _site
-  eleventyConfig.addPassthroughCopy("src/assets/css")
-  eleventyConfig.addPassthroughCopy("src/assets/img")
-  eleventyConfig.addPassthroughCopy("src/assets/favicon")
+  // 
+  eleventyConfig.addPassthroughCopy("assets/css")
+  eleventyConfig.addPassthroughCopy("assets/img")
+  eleventyConfig.addPassthroughCopy("assets/favicon")
 
   return {
     dir: {

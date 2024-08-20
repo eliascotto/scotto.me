@@ -54,6 +54,16 @@ we still enforce color-scheme: dark, despite the user preference */
            mb-5;
   }
 
+  h4 {
+    font-size: 1.25rem;
+    line-height: 0.7em;
+    @apply font-medium
+           tracking-tight
+           font-title
+           mt-8
+           mb-5;
+  }
+
   a:hover {
     @apply text-red-600 dark:text-specialred;
   }
@@ -115,8 +125,14 @@ we still enforce color-scheme: dark, despite the user preference */
   }
 
   hr {
-    @apply my-10 mx-10 h-px relative overflow-visible border-none
-            bg-gradient-to-r from-transparent via-neutral-300 via-50% dark:via-gray-700 to-transparent;
+    @apply my-10 mx-10 h-px relative overflow-visible border-none text-center bg-neutral-300 dark:bg-gray-700
+            /* bg-gradient-to-r from-transparent via-neutral-300 via-50% dark:via-gray-700 to-transparent */
+            ;
+  }
+
+  hr::after {
+    content: "⟁";
+    @apply dark:text-red-600 relative -top-[15px] p-4 bg-white dark:bg-[#111025];
   }
 }
 

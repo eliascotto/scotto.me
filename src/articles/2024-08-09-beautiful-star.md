@@ -2,7 +2,7 @@
 title: Beautiful star - Yukio Mishima
 description: An alien family dealing with the atomic bomb
 date: 2024-08-09
-translation: en
+translation: eng
 tags:
  - book
  - reviews
