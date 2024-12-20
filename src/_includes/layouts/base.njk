@@ -6,13 +6,14 @@
     <title>{{ title or metadata.title }} | Elia Scotto</title>
     {% include "../components/metadata.njk" %} <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet preload prefetch" as="style" type="text/css" href="https://rsms.me/inter/inter.css">
+
+    {# Google Fonts #}
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-    <link
-      rel="stylesheet preload prefetch"
-      as="style"
-      type="text/css"
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&family=EB+Garamond:ital,opsz@0,8..60;1,8..60&display=swap">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Sora&display=swap" rel="stylesheet">
+    {# End #}
+
+
     <link rel="stylesheet" href="{{ '/styles/styles.css' | url }}"/>
     <link rel="stylesheet" href="{{ '/assets/css/prism-theme.css' | url }}"/>
   </head>

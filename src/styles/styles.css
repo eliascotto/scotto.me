@@ -138,7 +138,7 @@ we still enforce color-scheme: dark, despite the user preference */
 
   hr::after {
     content: "⟁";
-    @apply dark:text-red-600 relative -top-[15px] p-4 bg-white dark:bg-[#111025];
+    @apply dark:text-red-600 relative -top-[15px] p-4 bg-[#f5f5f5] dark:bg-[#111025];
   }
 }
 

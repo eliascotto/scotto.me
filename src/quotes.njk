@@ -12,14 +12,10 @@ eleventyExcludeFromCollections: true
 
   {% if q.quotes %}
     {% for qq in q.quotes %}
-      <blockquote class="border-l dark:border-gray-700 border-neutral-300 rounded-none ml-6 pl-4 py-0 my-2 text-[1.02rem] leading-relaxed mt-5 first:mt-0">
-        {{ qq }}
-      </blockquote>
+      <blockquote class="border-l dark:border-gray-700 border-neutral-300 rounded-none ml-6 pl-4 py-0 my-2 text-[1.02rem] leading-relaxed mt-5 first:mt-0">{{ qq }}</blockquote>
     {% endfor %}
   {% else %}
-    <blockquote class="border-l dark:border-gray-700 border-neutral-300 rounded-none ml-6 pl-4 py-0 mt-4 text-[1.02rem] leading-relaxed">
-        {{ q.quote }}
-    </blockquote>
+    <blockquote class="border-l dark:border-gray-700 border-neutral-300 rounded-none ml-6 pl-4 py-0 mt-4 text-[1.02rem] leading-relaxed">{{ q.quote }}</blockquote>
    {% endif %}
    
 {% endfor %}
