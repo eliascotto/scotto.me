@@ -7,30 +7,32 @@ permalink: "/blog/{{ page.fileSlug }}/index.html"
 <article>
   <div class="mb-8 sm:mb-12">
     <h1 class="leading-snug mb-4">
-      <center class="font-medium hidden sm:block text-specialred">/</center>
+      <center class="font-medium hidden sm:block text-specialred mb-5">/</center>
       {{ title }}
     </h1>
 
     <div class="flex flex-col sm:flex-row justify-between">
-      <div class="flex flex-col">
+      <div class="flex flex-col justify-center">
         <small>
           <time>{{ date | humanDate }}</time>
         </small>
-        <small class="dark:text-gray-400 flex flex-row gap-2">
+
+        {# TAGS #}
+        {# <small class="dark:text-gray-400 flex flex-row gap-2">
           {{ tags | tagList | safe }}
-        </small>
+        </small> #}
       </div>
 
       {% if translation %}
       <div class="sm:self-end sm:justify-self-end">
         {% if translation == 'eng' %}
         <a 
-          title="Traduzione italiano"
+          title="Versione italiana"
           class="text-sm" 
           href="/blog/{{ page.fileSlug }}/ita">Versione italiana</a>
         {% elif translation == 'ita' %}
         <a 
-          title="English translation"
+          title="English version"
           class="text-sm" 
           href="/blog/{{ page.fileSlug }}">English version</a>
         {% endif %}

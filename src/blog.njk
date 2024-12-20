@@ -10,7 +10,18 @@ eleventyExcludeFromCollections: true
 </div>
 
 <div class="flex flex-col">
-{%- for post in collections.articles | reverse -%}
+{%- for post in collections.general | reverse -%}
+{% include 'components/posts.njk' %}
+{%- endfor -%}
+</div>
+
+
+<div class="mb-6">
+  <h2 class="leading-snug mb-4">Reviews</h2>
+</div>
+
+<div class="flex flex-col">
+{%- for post in collections.reviews | reverse -%}
 {% include 'components/posts.njk' %}
 {%- endfor -%}
 </div>

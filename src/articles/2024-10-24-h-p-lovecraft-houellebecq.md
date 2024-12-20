@@ -1,6 +1,6 @@
 ---
-title: H. P. Lovecraft - Against the World, Against Life
-description: H. P. Lovecraft - Against the World, Against Life
+title: H. P. Lovecraft - Michel Houellebecq
+description: Against the World, Against Life
 date: 2024-10-24
 translation: eng
 tags:
@@ -27,7 +27,7 @@ In New York, Lovecraft sought work, responding to hundreds of ads and attending 
 
 > Howard Phillips Lovecraft serves as an example for anyone who wishes to fail in life and, eventually, succeed in art.
 
-Lovecraft failed in life, but succeeded in writing. Houellebecq didn’t choose Lovecraft just because his stories fascinated him as a boy. He chose Lovecraft because, like him, he doesn’t feel part of this world, like him, he harbors a deep anger toward a society that doesn’t understand him, and both choose to fight it through literature. One thing I like about biographies written by good writers is when they include personal references in the story. In Carrère's case, the allusions to himself are more explicit, while in Houellebecq’s book, knowing today the future themes of his literary production, we can see the conclusions about Lovecraft’s work, expressed with intense passion, as veiled allusions to the feelings the two writers share. Houellebecq writes about Lovecraft because he recognizes in him the same fate, the same force that will push him to make his life a work of art through dissident literature.
+Lovecraft failed in life, but succeeded in writing. Houellebecq didn’t choose Lovecraft just because his stories fascinated him as a boy. He chose Lovecraft because, like him he doesn’t feel part of this world, like him he harbors a deep anger toward a society that doesn’t understand him, and both choose to fight it through literature. One thing I like about biographies written by good writers is when they include personal references in the story. In Carrère's case, the allusions to himself are more explicit, while in Houellebecq’s book, knowing today the future themes of his literary production, we can see the conclusions about Lovecraft’s work, expressed with intense passion, as veiled allusions to the feelings the two writers share. Houellebecq writes about Lovecraft because he recognizes in him the same fate, the same force that will push him to make his life a work of art through dissident literature.
 
 > Writers of the fantastic are generally reactionaries, simply because they are particularly, or one might say professionally, conscious of the existence of Evil.
 

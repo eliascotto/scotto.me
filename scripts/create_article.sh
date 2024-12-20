@@ -9,8 +9,9 @@ else
     read input_string
 fi
 
-# Convert to lowercase and replace spaces with hyphens
-slug=$(echo "$input_string" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
+# Convert to lowercase, replace spaces with hyphens, and remove/replace non-SEO-friendly characters
+slug=$(echo "$input_string" | tr '[:upper:]' '[:lower:]' | tr ' ' '-') # Replace spaces with hyphens
+slug=$(echo "$slug" | tr -cd '[:alnum:]-') # Keep only alphanumeric characters and hyphens
 
 # Generate file path and name
 today=$(date +%Y-%m-%d)

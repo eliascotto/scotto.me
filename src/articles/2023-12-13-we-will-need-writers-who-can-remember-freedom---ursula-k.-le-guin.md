@@ -3,6 +3,7 @@ title: We will need writers who can remember freedom
 description: Ursula K. Le Guin receiving The National Book Foundation Medal
 date: 2023-12-13
 tags:
+ - general
  - speech
  - freedom
 ---

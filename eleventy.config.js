@@ -16,6 +16,7 @@ module.exports = (eleventyConfig) => {
   // Add alias for layouts
   eleventyConfig.addLayoutAlias("base", "layouts/base")
   eleventyConfig.addLayoutAlias("page", "layouts/page")
+  eleventyConfig.addLayoutAlias("default", "layouts/default")
   eleventyConfig.addLayoutAlias("article", "layouts/article")
   eleventyConfig.addLayoutAlias("now", "layouts/now")
 
@@ -47,9 +48,9 @@ module.exports = (eleventyConfig) => {
   // Filter tags and return a string of html list elements
   eleventyConfig.addFilter("tagsListHtml", (obj) => {
     return Object.keys(obj)
-                 .filter(tag => tag !== 'all' && tag !== 'posts')
-                 .map(tag => `<li class="my-1.5"><a href="/tags/${slug(tag)}">#${tag}</a></li>`)
-                 .join("")
+      .filter(tag => tag !== 'all' && tag !== 'posts')
+      .map(tag => `<li class="my-1.5"><a href="/tags/${slug(tag)}">#${tag}</a></li>`)
+      .join("")
   })
 
   // ===============================================

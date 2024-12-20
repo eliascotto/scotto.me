@@ -1,6 +1,6 @@
 ---
-title: H. P. Lovecraft - Against the World, Against Life
-description: H. P. Lovecraft - Against the World, Against Life
+title: H. P. Lovecraft - Michel Houellebecq
+description: Contro il mondo, contro la vita
 date: 2024-10-24
 translation: ita
 tags:

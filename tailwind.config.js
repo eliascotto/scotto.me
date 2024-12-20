@@ -12,7 +12,7 @@ module.exports = {
       },
       fontFamily: {
         'sans': ['Inter var', ...defaultTheme.fontFamily.sans],
-        'serif': ['"Source Serif 4"', ...defaultTheme.fontFamily.serif],
+        'serif': ['"EB Garamond"', ...defaultTheme.fontFamily.serif],
         'title': ['Sora', ...defaultTheme.fontFamily.sans],
       },
     },
