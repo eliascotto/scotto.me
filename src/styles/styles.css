@@ -170,8 +170,9 @@ we still enforce color-scheme: dark, despite the user preference */
   .article {
     p {
       @apply font-serif 
-             text-[17px]
-             lg:text-[21px]
+             text-[22px]
+             md:text-[24px]
+             xl:text-[22px]
              mb-0;
       text-indent: 1em;
     }
