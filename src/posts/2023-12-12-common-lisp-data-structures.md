@@ -43,20 +43,23 @@ cl-user> (setf *list* (remove 1 *list*))
 Association lists are lists, implemented using cons cells, which are used to store key-value pairs where the key is a symbol. They are slower than hash-tables for large amount of data.
 ```lisp
 ;; Declaration
-cl-user> (defparameter *alist* '((key1 . value1) (key2 . value2)))
+cl-user> (defparameter *alist* '((:a . 1) (:b . 2)))
 *alist*
 
 ;; Access
-cl-user> (cdr (assoc 'key1 *alist*))
-value1
+cl-user> (assoc :a *alist*)
+(A . 1)
+
+cl-user> (cdr (assoc :a *alist*))
+1
 
 ;; Adding
-cl-user> (push '(key3 . value3) *alist*)
-((key3 . value3) (key1 . value1) (key2 . value2))
+cl-user> (push '(:c . 3) *alist*)
+((C . 3) (A . 1) (B . 2))
 
 ;; Deleting
-cl-user> (setf *alist* (remove 'key1 *alist* :key #'car))
-((key3 . value3) (key2 . value2))
+cl-user> (setf *alist* (remove :c *alist* :key #'car))
+((A . 1) (B . 2))
 ```
 
 ## Property list - plist
