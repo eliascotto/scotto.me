@@ -13,7 +13,7 @@ I got inspired after trying the cool project [Try Haskell](https://tryhaskell.or
 
 There are various way to achieve this. The old method was using the  [self-hosted cljs compiler](https://code.thheller.com/blog/shadow-cljs/2017/10/14/bootstrap-support.html), but there's a simpler approach. Thanks to SCI, the [Small Clojure Interpreter](https://github.com/babashka/sci) is now possible to write and execute Clojurescript code on top of Javascript; this means it can be executed in the browser.
 
-You can try the REPL with a tutorial at [TryClojure](https://tryclojure.org/).
+You can *try* the Clojure REPL with a tutorial at [TryClojure.org](https://tryclojure.org/).
 
 ## SCI
 
