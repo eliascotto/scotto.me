@@ -50,7 +50,7 @@ we still enforce color-scheme: dark, despite the user preference */
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     line-height: 1em;
     @apply font-medium
            tracking-tight
