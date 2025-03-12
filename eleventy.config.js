@@ -1,6 +1,6 @@
-const fs = require('fs')
-const path = require('path')
-
+const fs = require("fs")
+const path = require("path")
+const CleanCSS = require("clean-css")
 const luxon = require("luxon")
 
 const slug = require("@11ty/eleventy/src/Filters/Slug")
@@ -9,7 +9,7 @@ const pluginBundle = require("@11ty/eleventy-plugin-bundle")
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
 
 const markdownIt = require("markdown-it")
-const markdownItAnchor = require('markdown-it-anchor')
+const markdownItAnchor = require("markdown-it-anchor")
 const markdownItFootnote = require("markdown-it-footnote")
 const markdownItImageFigures = require("markdown-it-image-figures")
 
@@ -52,7 +52,7 @@ module.exports = (eleventyConfig) => {
   // Filter tags and return a string of html list elements
   eleventyConfig.addFilter("tagsListHtml", (obj) => {
     return Object.keys(obj)
-      .filter(tag => tag !== 'all' && tag !== 'posts')
+      .filter(tag => tag !== "all" && tag !== "posts")
       .map(tag => `<li class="my-1.5"><a href="/tags/${slug(tag)}">#${tag}</a></li>`)
       .join("")
   })
@@ -113,6 +113,53 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy("assets/fonts")
   eleventyConfig.addPassthroughCopy("assets/favicon")
 
+  // 
+  // Minify CSS after build
+  // 
+  eleventyConfig.on("afterBuild", () => {
+    const inputDir = "assets/css"
+    const outputDir = "_site/assets/css"
+    const outputFilename = "out.min.css"
+    const sourceMapFilename = "out.css.map"
+
+    // Ensure the input directory exists
+    if (!fs.existsSync(inputDir)) {
+      console.error("Missing CSS input directory.")
+      return
+    }
+
+    // Ensure the output directory exists
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true })
+    }
+
+    const sourceFiles = fs.readdirSync(inputDir).map(file => path.join(inputDir, file))
+    const outputFile = path.join(outputDir, outputFilename)
+    const mapFile = path.join(outputDir, sourceMapFilename)
+
+    const output = new CleanCSS({
+      // Skip the source map in production
+      sourceMap: process.env.NODE_ENV !== "production",
+      rebaseTo: outputDir
+    })
+      .minify(sourceFiles)
+
+    if (output.errors.length) {
+      console.error(`Error minifying ${sourceFiles}:`, output.errors);
+      return;
+    }
+
+    // Write the minified CSS file with a source map reference
+    fs.writeFileSync(outputFile, output.styles + `\n/*# sourceMappingURL=${path.basename(mapFile)} */`)
+    console.log(`Minified ${sourceFiles} → ${outputFile}`)
+
+    if (process.env.NODE_ENV !== "production") {
+      // Write the source map file
+      fs.writeFileSync(mapFile, output.sourceMap.toString())
+      console.log(`Source map generated for ${sourceFiles} → ${mapFile}`)
+    }
+  })
+
   return {
     dir: {
       input: "src",
@@ -123,4 +170,4 @@ module.exports = (eleventyConfig) => {
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
   }
-};
+}
