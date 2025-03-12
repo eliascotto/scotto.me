@@ -1,8 +1,8 @@
 ---
 title: Time Out of Joint - Philip K. Dick
-description: The original Truman Show
+description: The original Truman Show.
 date: 2024-07-31
-translation: eng
+language: eng
 tags:
  - scifi
  - philipdick

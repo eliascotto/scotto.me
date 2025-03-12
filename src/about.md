@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: generic
 title: About
 name: About
 eleventyExcludeFromCollections: true
@@ -12,20 +12,13 @@ eleventyExcludeFromCollections: true
     title="Me and Opal"
     src="{{ meta.image }}"
   />
-  <figcaption>With my dog Opal</figcaption>
+  <figcaption>Me with Opal at the beach</figcaption>
 </div>
 
-<p class="home-p">
-   I have a passion for programming computers, as well as reading books. In the <a href="/blog">blog</a> section you can find some tech notes, some books and movies reviews, and essays on various topics that interest me.
-</p>
+I have a passion for programming computers, as well as reading books. In the <a href="/blog">blog/</a> section you can find some tech notes, some books and movies reviews, and essays on various topics that interest me.
 
-<p class="home-p">
-  Some of the open source projects I've worked on are available on my GitHub account <a href="{{ meta.github }}">@eliascotto</a>.
-</p>
+Some of the projects I've worked on are available on <a href="{{ meta.github }}">github</a>.
 
 ## Open Invite
 
-<p class="home-p">
-  If you have something interesting to discuss or collaborate on,
-  feel free to send me a message at <strong>elia@scotto.me</strong> .
-</p>
+If you have something interesting to discuss or collaborate on, feel free to send me a message at <strong>elia@scotto.me</strong> .

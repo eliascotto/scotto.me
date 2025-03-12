@@ -19,6 +19,6 @@ eleventyExcludeFromCollections: true
 </h2>
 
 {% set latest_posts = collections.all | reverse %}
-{%- for post in latest_posts.slice(0,3) -%}
+{%- for post in latest_posts.slice(0,5) -%}
   {% include 'components/posts.njk' %}
 {%- endfor -%}

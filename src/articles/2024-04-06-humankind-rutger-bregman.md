@@ -1,8 +1,7 @@
 ---
 title: Humankind - Rutger Bregman
-description: Una nuova storia (non cinica) dell'umanità
+description: Una nuova storia (non cinica) dell'umanità.
 date: 2024-04-06
-language: ita
 tags:
  - humankind
  - sapiens

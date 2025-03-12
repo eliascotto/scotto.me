@@ -23,17 +23,17 @@ permalink: "/blog/{{ page.fileSlug }}/index.html"
         </small> #}
       </div>
 
-      {% if translation %}
+      {% if language %}
       <div class="sm:self-end sm:justify-self-end">
-        {% if translation == 'eng' %}
+        {% if language == 'eng' %}
         <a 
           title="Versione italiana"
-          class="text-sm" 
+          class="text-sm"
           href="/blog/{{ page.fileSlug }}/ita">Versione italiana</a>
-        {% elif translation == 'ita' %}
+        {% elif language == 'ita' %}
         <a 
           title="English version"
-          class="text-sm" 
+          class="text-sm"
           href="/blog/{{ page.fileSlug }}">English version</a>
         {% endif %}
       </div>

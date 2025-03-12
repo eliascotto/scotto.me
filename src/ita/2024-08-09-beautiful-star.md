@@ -2,7 +2,7 @@
 title: Stella Meravigliosa - Yukio Mishima
 description: Una famiglia aliena alle prese con la bomba atomica
 date: 2024-08-09
-translation: ita
+language: ita
 tags:
  - book
  - reviews

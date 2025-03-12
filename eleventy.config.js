@@ -1,3 +1,6 @@
+const fs = require('fs')
+const path = require('path')
+
 const luxon = require("luxon")
 
 const slug = require("@11ty/eleventy/src/Filters/Slug")
@@ -18,6 +21,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addLayoutAlias("page", "layouts/page")
   eleventyConfig.addLayoutAlias("default", "layouts/default")
   eleventyConfig.addLayoutAlias("article", "layouts/article")
+  eleventyConfig.addLayoutAlias("generic", "layouts/generic")
   eleventyConfig.addLayoutAlias("now", "layouts/now")
 
   // Make it possible to set the "post" tag in the "post.njk" layout while still assigning further tags in the individual post.
@@ -97,6 +101,8 @@ module.exports = (eleventyConfig) => {
     return `${Number(meta.id + 1)}${meta.subId > 0 ? `:${meta.subId}` : ""}`
   }
 
+  md.linkify.set({ fuzzyEmail: false })  // disables converting email to link
+
   eleventyConfig.setLibrary("md", md)
 
   // 
@@ -104,6 +110,7 @@ module.exports = (eleventyConfig) => {
   // 
   eleventyConfig.addPassthroughCopy("assets/css")
   eleventyConfig.addPassthroughCopy("assets/img")
+  eleventyConfig.addPassthroughCopy("assets/fonts")
   eleventyConfig.addPassthroughCopy("assets/favicon")
 
   return {

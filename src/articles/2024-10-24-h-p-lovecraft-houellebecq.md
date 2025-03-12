@@ -1,8 +1,8 @@
 ---
 title: H. P. Lovecraft - Michel Houellebecq
-description: Against the World, Against Life
+description: Against the World, Against Life.
 date: 2024-10-24
-translation: eng
+language: eng
 tags:
  - book
  - reviews

@@ -2,7 +2,7 @@
 title: Tempo fuor di sesto - Philip K. Dick
 description: Dick spezza ancora una volta la realtà
 date: 2024-07-31
-translation: ita
+language: ita
 tags:
  - scifi
  - philipdick

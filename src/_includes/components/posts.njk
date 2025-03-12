@@ -15,19 +15,19 @@
       {{ post.data.description }}
     </span>
 
-    {% if post.data.translation %}
+    {% if post.data.language %}
     <div class="text-gray-300">
-      {% if post.data.translation == 'eng' %}
+      {% if post.data.language == 'eng' %}
       <p class="m-0" style="line-height: 0">
         <a 
           title="Traduzione italiano"
           class="text-xs" 
           href="{{ post.url }}/ita">In italiano</a>
       </p>
-      {% elif post.data.translation == 'ita' %}
+      {% elif post.data.language == 'ita' %}
       <p class="m-0" style="line-height: 0">
         <a 
-          title="English translation"
+          title="English language"
           class="text-xs" 
           href="{{ post.url }}">English version</a>
       </p>
