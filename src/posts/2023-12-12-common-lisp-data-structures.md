@@ -202,9 +202,12 @@ person
 cl-user> (make-person :name 'Alice :age 30)
 #S(PERSON :NAME ALICE :AGE 30)
 
+cl-user> (defvar *person* (make-person :name 'Bob :age 25))
+*PERSON*
+
 ;; Access
-cl-user> (person-name (make-person :name 'Bob :age 25))
-Bob
+cl-user> (person-name *person*)
+BOB
 
 ;; Modifying
 cl-user> (setf (person-age *person*) 40)
@@ -212,6 +215,7 @@ cl-user> (setf (person-age *person*) 40)
 
 ;; Deleting
 cl-user> (makunbound '*person*)
+*PERSON*
 ```
 
 ## References
