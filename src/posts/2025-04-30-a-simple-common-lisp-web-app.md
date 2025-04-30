@@ -1,9 +1,10 @@
 ---
 title: A simple Common Lisp web app
-description: A simple Common Lisp web app
+description: A tutorial for the web
 date: 2025-04-30
 tags:
- - 
+ - common-lisp
+ - tutorial
 ---
 
 One of the drawbacks of dealing with Common Lisp is the lack of documentation available. Too often, I find published libraries without an explanation of how to use them or only partially documented, and I need to dig into the source code to understand how they work or if that method is present or not. Although reading source code is a proven technique to improve one's grasp of a programming language, most other languages come with extensively documented libraries, which are appreciated by beginners and contribute to their popularity.
