@@ -12,8 +12,9 @@ const markdownIt = require("markdown-it")
 const markdownItAnchor = require("markdown-it-anchor")
 const markdownItFootnote = require("markdown-it-footnote")
 const markdownItImageFigures = require("markdown-it-image-figures")
+const markdownItLinkAttributes = require("markdown-it-link-attributes")
 
-const prismLanguageConfig = require("./prism.languages")
+const prismConfig = require("./prism.config")
 
 module.exports = (eleventyConfig) => {
   // Add alias for layouts
@@ -62,7 +63,7 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addPlugin(pluginRss)
   eleventyConfig.addPlugin(pluginBundle)
-  eleventyConfig.addPlugin(syntaxHighlight, prismLanguageConfig)
+  eleventyConfig.addPlugin(syntaxHighlight, prismConfig)
 
   // ===============================================
   // Shortcodes
@@ -88,11 +89,21 @@ module.exports = (eleventyConfig) => {
       level: 2,
       permalink: markdownItAnchor.permalink.headerLink(),
     })
-    // Use figcaption
+    // Use figcaption for images
     .use(markdownItImageFigures, {
       figcaption: true,
       lazy: true,
       async: true,
+    })
+    // Use link attributes to open external links in new tabs
+    .use(markdownItLinkAttributes, {
+      matcher: (href, type, title, text) => {
+        return href.match(/^https?:\/\//); // Match external URLs
+      },
+      attrs: {
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
     })
 
   // Style the footnote
