@@ -78,7 +78,7 @@ we still enforce color-scheme: dark, despite the user preference */
   }
 
   code[class^='language'] {
-    @apply font-mono text-[0.9rem];
+    @apply font-mono text-[14px];
   }
 
   figure {
