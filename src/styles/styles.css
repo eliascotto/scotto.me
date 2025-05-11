@@ -1,20 +1,147 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-/* If the user prefers dark mode, 
-we of course apply color-scheme: dark, as usual */
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@theme {
+  --color-specialred: #cd123f;
+
+  --font-sans:
+    InterVariable, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif:
+    'EB Garamond', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-title:
+    Sora, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
   }
 }
 
-/* If the user prefers light mode, 
+@utility post {
+  font-size: 18px;
+
+  a {
+    @apply underline;
+  }
+
+  h1 a,
+  h2 a,
+  h3 a {
+    @apply no-underline;
+  }
+}
+
+@utility home-p {
+  @apply text-[1.125rem] my-2 leading-relaxed;
+
+  & a {
+    @apply underline;
+  }
+}
+
+@utility article {
+  p {
+    @apply mb-0;
+    text-indent: 1em;
+  }
+
+  blockquote p {
+    @apply text-[1.2rem];
+  }
+  a {
+    text-decoration: none;
+  }
+
+  a:visited,
+  a:active,
+  a:focus {
+    outline: none;
+  }
+
+  h1 a::after,
+  h2 a::after,
+  h3 a::after {
+    content: none;
+  }
+
+  a::after {
+    @apply text-red-600;
+    position: relative;
+    content: '\FEFF°';
+    margin-left: 0.1em;
+    top: -0.1em;
+    font-feature-settings: 'caps';
+    font-variant-numeric: normal;
+  }
+}
+
+@utility generic {
+  a {
+    text-decoration: none;
+  }
+
+  a:visited,
+  a:active,
+  a:focus {
+    outline: none;
+  }
+
+  h1 a::after,
+  h2 a::after,
+  h3 a::after {
+    content: none;
+  }
+
+  a::after {
+    @apply text-red-600;
+    position: relative;
+    content: '\FEFF°';
+    margin-left: 0.1em;
+    top: -0.1em;
+    font-feature-settings: 'caps';
+    font-variant-numeric: normal;
+  }
+}
+
+@utility no-indent {
+  p {
+    text-indent: 0;
+  }
+
+  p:first-of-type {
+    margin-top: 20px;
+  }
+}
+
+@layer utilities {
+  /* If the user prefers dark mode, 
+we of course apply color-scheme: dark, as usual */
+  @media (prefers-color-scheme: dark) {
+    html {
+      color-scheme: dark;
+    }
+  }
+
+  /* If the user prefers light mode, 
 we still enforce color-scheme: dark, despite the user preference */
-@media (prefers-color-scheme: light) {
-  html {
-    color-scheme: ligth;
+  @media (prefers-color-scheme: light) {
+    html {
+      color-scheme: ligth;
+    }
   }
 }
 
@@ -110,75 +237,6 @@ we still enforce color-scheme: dark, despite the user preference */
   hr::after {
     content: "⟁";
     @apply dark:text-red-600 relative -top-[15px] p-4 bg-[#f5f5f5] dark:bg-[#0e0d1e];
-  }
-}
-
-@layer components {
-  .post {
-    font-size: 18px;
-
-    a {
-      @apply underline;
-    }
-
-    h1 a,
-    h2 a,
-    h3 a {
-      @apply no-underline;
-    }
-  }
-
-  .home-p {
-    @apply text-[1.125rem] my-[0.5rem] leading-relaxed;
-  }
-
-  .home-p a {
-    @apply underline;
-  }
-
-  .article {
-    p {
-      @apply mb-0;
-      text-indent: 1em;
-    }
-
-    blockquote p {
-      @apply text-[1.2rem];
-    }
-  }
-
-  .generic, .article {
-    a {
-      text-decoration: none;
-    }
-
-    a:visited, a:active, a:focus {
-      outline: none;
-    }
-
-    h1 a::after, h2 a::after, h3 a::after {
-      content: none;
-    }
-
-    a::after {
-      @apply text-red-600;
-      position: relative;
-      content: "\FEFF°";
-      margin-left: 0.10em;
-      top: -0.10em;
-      font-feature-settings: "caps";
-      font-variant-numeric: normal;
-    }
-  }
-
-  .no-indent {
-    p {
-      text-indent: 0;
-    }
-
-    p:first-of-type {
-      margin-top: 20px;
-    }
   }
 }
 
