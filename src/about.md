@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
 
 <div class="hidden overflow-hidden md:flex flex-col justify-center my-8">
   <img
-    class="object-cover rounded-md max-h-[22rem] w-3/4"
+    class="object-cover rounded-md max-h-88 w-3/4"
     style="object-position: 50% 35%"
     title="Me and Opal"
     src="{{ meta.image }}"
