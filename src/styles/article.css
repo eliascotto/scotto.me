@@ -1,0 +1,69 @@
+@utility article {
+  p {
+    @apply mb-0;
+    text-indent: 1em;
+  }
+
+  blockquote p {
+    @apply text-[1.2rem];
+  }
+  a {
+    text-decoration: none;
+  }
+
+  a:visited,
+  a:active,
+  a:focus {
+    outline: none;
+  }
+
+  h1 a::after,
+  h2 a::after,
+  h3 a::after {
+    content: none;
+  }
+
+  a::after {
+    @apply text-red-600;
+    position: relative;
+    content: '\FEFF°';
+    margin-left: 0.1em;
+    top: -0.1em;
+    font-feature-settings: 'caps';
+    font-variant-numeric: normal;
+  }
+}
+
+@utility no-indent {
+  p {
+    text-indent: 0;
+  }
+
+  p:first-of-type {
+    margin-top: 20px;
+  }
+}
+
+.footnotes-sep {
+  @apply border-gray-700 dark:border-gray-500 mt-12;
+
+  &::after {
+    display: inline-block;
+    transform: rotate(180deg) translateY(15px);
+  }
+}
+
+.footnotes-list {
+  @apply list-decimal pl-6;
+
+  ::marker {
+    font-size: 0.95rem;
+  }
+}
+
+.footnote-item {
+  p {
+    text-indent: 0;
+    font-size: 0.95rem;
+  }
+} 
