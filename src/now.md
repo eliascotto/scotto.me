@@ -1,5 +1,5 @@
 ---
-layout: now
+layout: title
 title: Now
 tags: now
 eleventyExcludeFromCollections: true

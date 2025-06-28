@@ -24,6 +24,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addLayoutAlias("article", "layouts/article")
   eleventyConfig.addLayoutAlias("generic", "layouts/generic")
   eleventyConfig.addLayoutAlias("now", "layouts/now")
+  eleventyConfig.addLayoutAlias("title", "layouts/title")
 
   // Make it possible to set the "post" tag in the "post.njk" layout while still assigning further tags in the individual post.
   // https://www.11ty.dev/docs/data-deep-merge/
