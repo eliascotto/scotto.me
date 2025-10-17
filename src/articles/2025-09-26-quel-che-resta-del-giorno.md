@@ -8,7 +8,7 @@ tags:
   - book
 ---
 
-La sera è ciò che resta del giorno, come la vecchiaia è ciò che ti resta della vita. Il protagonista dell’opera di Kazuo Ishiguro uscita nel 1989, è un maggiordomo oramai anziano che decide di intraprendere un viaggio, sia fisico guidando la sua auto nelle campagne del sud-ovest dell’Inghilterra, sia nella sua memoria, ripercorrendo scene della sua carriera presso la dimora Darlington.  *Quel che resta del giorno* è stato il primo successo dello scrittore inglese, che vince il Booker Prize, e gli permise di esser riconosciuto a livello internazionale anche grazie alla trasposizione cinematografica con Anthony Hopkins come attore protagonista.
+La sera è ciò che resta del giorno, come la vecchiaia è ciò che ti resta della vita. Il protagonista dell’opera di Kazuo Ishiguro uscita nel 1989, è un maggiordomo oramai anziano che decide di intraprendere un viaggio, sia fisico guidando la sua auto nelle campagne del sud-ovest dell’Inghilterra, sia nella sua memoria, ripercorrendo scene della sua carriera presso la dimora Darlington. *Quel che resta del giorno* è stato il primo successo dello scrittore inglese, grazie al quale vinse il *Booker Prize* che gli permise di esser riconosciuto a livello internazionale, anche grazie alla trasposizione cinematografica con Anthony Hopkins come attore protagonista.
 
 <figure>
   <source type="image/avif" srcset="/assets/img/2721.avif" />
