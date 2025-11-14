@@ -2,7 +2,7 @@ const Image = require("@11ty/eleventy-img");
 
 module.exports = (eleventyConfig) => {
   // Image optimization
-  eleventyConfig.addShortcode("image", async function(src, alt, sizes = "100vw") {
+  eleventyConfig.addShortcode("image", async (src, alt, sizes = "100vw") => {
     let metadata = await Image(src, {
       widths: [300, 600, 900, 1200],
       formats: ["avif", "webp", "jpeg"],
@@ -21,7 +21,7 @@ module.exports = (eleventyConfig) => {
   });
 
   // Responsive image shortcode
-  eleventyConfig.addShortcode("responsiveImage", async function(src, alt, sizes = "(max-width: 768px) 100vw, 50vw") {
+  eleventyConfig.addShortcode("responsiveImage", async (src, alt, sizes = "(max-width: 768px) 100vw, 50vw") => {
     let metadata = await Image(src, {
       widths: [300, 600, 900, 1200, 1800],
       formats: ["avif", "webp", "jpeg"],
@@ -39,4 +39,3 @@ module.exports = (eleventyConfig) => {
     return Image.generateHTML(metadata, imageAttributes);
   });
 }
-

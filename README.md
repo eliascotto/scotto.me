@@ -1,6 +1,6 @@
 # [scotto.me](https://www.scotto.me)
 
-A personal blog built with Eleventy, featuring articles, technical posts, and bilingual content (English/Italian).
+A personal website built with 11ty, featuring articles, technical posts, and bilingual content (English/Italian).
 
 ## Quick Start
 
@@ -18,6 +18,8 @@ npm run build
 ## Project Structure
 
 ```
+config/                 # 11ty configuration
+scripts/                # Internal scripts
 src/
 ├── _data/              # Global data files
 ├── _includes/          # Templates and components
@@ -31,43 +33,23 @@ src/
 └── styles/             # Source styles
 ```
 
-## 🛠️ Development
+## Development
 
 ### Available Commands
 
-- `npm run dev` - Start development server
+- `npm start` - Start development server
 - `npm run build` - Build for production
 - `npm run clean` - Clean build directory
 - `npm run preview` - Preview production build
-- `npm run lint:md` - Lint markdown files
 - `npm run format` - Format code with Prettier
-- `npm run validate` - Validate content structure
 
 ### Content Creation
 
-**Create a new post:**
-```bash
-./scripts/create_post.sh "My Post Title" -t "tag1,tag2" -d
-```
-
-**Create a new article:**
-```bash
-./scripts/create_article.sh "My Article Title" -t "tag1,tag2"
-```
-
-**Using npm scripts:**
 ```bash
 npm run new:post "My Post Title"
 npm run new:article "My Article Title"
+npm run new:page "My New Page"
 ```
-
-### Enhanced Scripts
-
-The creation scripts now support:
-- `-d, --draft` - Create as draft
-- `-t, --tags` - Comma-separated tags
-- `--no-ita` - Skip Italian version (articles only)
-- `-h, --help` - Show help
 
 ## Features
 
@@ -101,7 +83,7 @@ draft: false  # Optional
 - **Pages** (`src/content/pages/`): Static pages (about, now, projects)
 - **Translations** (`src/content/translations/ita/`): Italian versions
 
-## 🔧 Configuration
+## Configuration
 
 The project uses modular configuration in the `config/` directory:
 - `config/filters.js` - Custom filters

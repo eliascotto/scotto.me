@@ -19,7 +19,7 @@
     "clean": "rm -rf _site",
     "serve": "npx @11ty/eleventy --serve",
     "preview": "npm run build && npx serve _site",
-    "format": "npx prettier --write src/**/*.{md,njk,js,css}",
+    "format": "npx prettier --write src/**/*.{js,css}",
     "new:post": "node scripts/new-content.js post",
     "new:article": "node scripts/new-content.js article",
     "new:page": "node scripts/new-content.js page"
