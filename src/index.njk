@@ -20,5 +20,7 @@ eleventyExcludeFromCollections: true
 
 {% set latest_posts = collections.all | reverse %}
 {%- for post in latest_posts.slice(0,5) -%}
-  {% include 'components/posts.njk' %}
+  {% if post.data.title and post.data.title != '' %}
+    {% include 'components/posts.njk' %}
+  {% endif %}
 {%- endfor -%}

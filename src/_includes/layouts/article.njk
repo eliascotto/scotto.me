@@ -12,10 +12,9 @@ permalink: "/blog/{{ page.fileSlug }}/index.html"
     </h1>
 
     <div class="flex flex-col sm:flex-row justify-between">
-      <div class="flex flex-col justify-center">
-        <small>
+      <div class="flex flex-col justify-center text-sm text-gray-500 dark:text-gray-400">
           <time>{{ date | humanDate }}</time>
-        </small>
+
 
         {# TAGS #}
         {# <small class="dark:text-gray-400 flex flex-row gap-2">
@@ -24,7 +23,7 @@ permalink: "/blog/{{ page.fileSlug }}/index.html"
       </div>
 
       {% if language %}
-      <div class="sm:self-end sm:justify-self-end">
+      <div class="sm:self-end sm:justify-self-end text-sm text-gray-500 dark:text-gray-400">
         {% if language == 'eng' %}
         <a 
           title="Versione italiana"
