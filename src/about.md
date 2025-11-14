@@ -12,7 +12,7 @@ eleventyExcludeFromCollections: true
     title="Me and Opal"
     src="{{ meta.image }}"
   />
-  <figcaption>Me with Opal at the beach</figcaption>
+  <figcaption>With my dog Opal</figcaption>
 </div>
 
 I have a passion for programming computers, as well as reading books. In the [blog](/blog) section you can find some tech notes, some reviews, and essays on various topics. 
