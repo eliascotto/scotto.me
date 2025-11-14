@@ -7,6 +7,7 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development npm-run-all -p dev:*",
+    "dev": "npm start",
     "build": "NODE_ENV=production run-s build:*",
     "dev:11ty": "npx @11ty/eleventy --serve --quiet",
     "dev:css": "npx @tailwindcss/cli -i src/styles/styles.css -o _site/styles/styles.css --watch --postcss",
@@ -14,7 +15,14 @@
     "build:css": "npx @tailwindcss/cli -i src/styles/styles.css -o _site/styles/styles.css --minify --postcss",
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy",
     "debugstart": "DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
-    "benchmark": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"
+    "benchmark": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
+    "clean": "rm -rf _site",
+    "serve": "npx @11ty/eleventy --serve",
+    "preview": "npm run build && npx serve _site",
+    "format": "npx prettier --write src/**/*.{md,njk,js,css}",
+    "new:post": "node scripts/new-content.js post",
+    "new:article": "node scripts/new-content.js article",
+    "new:page": "node scripts/new-content.js page"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
@@ -25,6 +33,7 @@
     "@tailwindcss/postcss": "^4.1.6",
     "@tailwindcss/cli": "^4.1.6",
     "clean-css": "^5.3.3",
+    "js-yaml": "^4.1.0",
     "luxon": "^3.2.1",
     "markdown-it-anchor": "^8.6.7",
     "markdown-it-footnote": "^3.0.3",
@@ -32,6 +41,9 @@
     "markdown-it-link-attributes": "^4.0.1",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.31",
-    "tailwindcss": "^4.1.6"
+    "prettier": "^3.0.0",
+    "serve": "^14.0.0",
+    "tailwindcss": "^4.1.6",
+    "html-minifier": "^4.0.0"
   }
 }
