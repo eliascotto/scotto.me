@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title or metadata.title }} | Elia Scotto</title>
+    <title>{{ title or metadata.title }}</title>
 
     {% include "components/metadata.njk" %} 
 
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ '/assets/css/out.min.css' | url }}"/>
     <link rel="stylesheet" href="{{ '/styles/styles.css' | url }}"/>
   </head>
-  <body class="dark:bg-[#0e0d1e] bg-[#f5f5f5] text-gray-800 dark:text-gray-100">
+  <body class="dark:bg-[#0e0d1e] bg-[#f5f5f5] text-gray-800 dark:text-gray-100/95">
     <div class="md:p-8 p-6 pt-12 flex flex-col">
       {% include "components/header.njk" %}
       <div class="m-0 md:mx-auto w-full max-w-[780px] flex md:flex-row-reverse flex-col justify-start gap-8">

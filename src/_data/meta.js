@@ -1,7 +1,7 @@
 module.exports = {
   url: 'https://www.scotto.me',
   siteName: 'scotto.me',
-  description: 'Elia Scotto',
+  description: 'Personal writings and projects',
   author: 'Elia Scotto (hello@scotto.me)',
   image: '/assets/img/profile2.png',
   imageXS: '/assets/img/profile2.webp',

@@ -30,9 +30,10 @@
     "@11ty/eleventy-plugin-bundle": "^1.0.4",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-    "@tailwindcss/postcss": "^4.1.6",
     "@tailwindcss/cli": "^4.1.6",
+    "@tailwindcss/postcss": "^4.1.6",
     "clean-css": "^5.3.3",
+    "html-minifier": "^4.0.0",
     "js-yaml": "^4.1.0",
     "luxon": "^3.2.1",
     "markdown-it-anchor": "^8.6.7",
@@ -43,7 +44,6 @@
     "postcss": "^8.4.31",
     "prettier": "^3.0.0",
     "serve": "^14.0.0",
-    "tailwindcss": "^4.1.6",
-    "html-minifier": "^4.0.0"
+    "tailwindcss": "^4.1.6"
   }
 }

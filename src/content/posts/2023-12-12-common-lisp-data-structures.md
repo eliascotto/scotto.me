@@ -7,9 +7,9 @@ tags:
  - data-structures
 ---
 
-Quick reference for the main data structures in Common Lisp. Each instruction can be evaluated in the REPL, using *SBCL*.
+Quick reference for the main data structures in Common Lisp. The code has been tested using *SBCL*.
 
-Some general rules good to follow are:
+Some good rules for picking a data struture in Lisp that I found helpful are:
 
 - **Use the appropriate data structure for the situation.**
 - **Favor iteration over recursion. Recursion is good for recursive data structures.**

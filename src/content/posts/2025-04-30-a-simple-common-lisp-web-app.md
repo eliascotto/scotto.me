@@ -7,20 +7,23 @@ tags:
  - tutorial
 ---
 
-One of the drawbacks of dealing with Common Lisp is the lack of documentation available. Too often, I find published libraries without an explanation of how to use them or only partially documented, and I need to dig into the source code to understand how they work or if that method is present or not. Although reading source code is a proven technique to improve one's grasp of a programming language, most other languages come with extensively documented libraries, which are appreciated by beginners and contribute to their popularity.
+One of the drawbacks that I found of dealing with Common Lisp is the lack of documentation available. Too often, I find published libraries without an explanation of how I meant to use them or only partially documented, and I need to dig into the source code to understand what they do and to see all the functions available. Even though reading source code is a proven technique to improve one's grasp of a programming language, most of other systems come with extensively documented libraries, something appreciated by beginners and a factor that often contribute to a language's popularity.
 
-This lack of great documentation is one of the main reasons Common Lisp is considered a difficult language, resulting in it being less popular than it deserves.[^1]
+In my opinion, this lack of good documentation is one of the reasons Common Lisp is often seen as challenging for beginners, which can make it harder for the language to become popular.
 
-![](/assets/img/lisp.jpg "[https://xkcd.com/224/](https://xkcd.com/224)")
+![](/assets/img/lisp_cycles.png "[xkcd.com/224](https://xkcd.com/224)")
 
-Whether it's due to a lack of time or because Common Lisp code is not too difficult to read, _Lispers_ don’t particularly like publishing code with examples and tutorials for beginners. Some time ago, when I looked for guidance on writing a web app, I was surprised by the absence of a quickstart page to help me set up a simple server — something the Python community has provided for [Flask](https://flask.palletsprojects.com/en/stable/quickstart/) for many years.
+Some time ago, when I looked for guidance on writing a generic web app, I was surprised by the absence of a quickstart page to help me set up a simple server, something the Python community has provided for [Flask](https://flask.palletsprojects.com/en/stable/quickstart/) for many years.
 
 >“The most underrated skill to learn as an engineer is how to document. Fuck, someone please teach me how to write good documentation. Seriously, if there's any recommendations, I'd seriously pay for a course (like probably a lot of money, maybe 1k for a course if it guaranteed that I could write good docs.)”
 > [A drunk dev on reddit](https://www.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/)
 
-So I will write a simple tutorial to create the first web app. The goal is to write a guestbook demo, involving templates *rendering*, connecting to a database to run queries, and exposing routes to the webpage.
+So I decided to put together a short tutorial on how to build a simple web app in Common Lisp, inspired by the Clojure tutorial written for [Luminus](https://luminusweb.com/docs/guestbook). The goal is to write a guestbook demo, involving templates *rendering*, connecting to a database to run queries, and exposing routes to the webpage.
 
-The requirements are: having a Common Lisp implementation, like SBCL, with Quicklisp, the dependencies manager. Also you’ll need a REPL integrated into your IDE, like SLY for Emacs or Alive for VSCode. For this tutorial, I’ll use some of the modern libraries that provide an interface similar to other modern languages, so it would be a bit easier to follow along.
+To follow the tutorial you need a Common Lisp implementation, like [SBCL](https://www.sbcl.org/), with [Quicklisp](https://www.quicklisp.org/index.html), the dependencies manager. Also I recommend having a REPL integrated with your IDE, like [SLY](https://github.com/joaotavora/sly) for Emacs or [Alive](https://marketplace.visualstudio.com/items?itemName=rheller.alive) for VSCode.
+
+I’ll use more modern CL libraries that have an interface similar to what you can find in other languages, so it might be a bit easier to follow along.
+
 ## The server
 
 First thing first, I created a new Common Lisp project. To do that with a simple boilerplate, I loaded `cl-project` in the environment, and called the function `make-project` with a path and a name for the project.
@@ -553,12 +556,11 @@ Then I added some database helpers to perform a few CRUD actions on the db.
 
 To recap, in this tutorial I used the latest libraries in Common Lisp to create a simple guestbook webapp. Then I wrote a simple reusable wrapper to make our code more concise, aiming to challenge the Flask framework in Python. You can find the full source code of the two versions [here](https://github.com/eliascotto/cl-guestbook) and [here](https://github.com/eliascotto/cl-guestbook-v2).
 
-Ultimately I would give my opinion on using Common Lisp as a web server. Despite the fact that it can handle web requests well, with performant server libraries (hunchentooth and woo), I would say that there are better languages for developing generic modern web apps. 
+Ultimately I would like to give my opinion on using Common Lisp to write a web server. 
+Common Lisp shines when dealing with low-level tasks like [small systems programming](https://blog.funcall.org/lisp%20psychoacoustics/2024/05/01/worlds-loudest-lisp-program/) or performing [intensive computation](https://www.grammarly.com/blog/engineering/running-lisp-in-production/) at scale. When these complex systems need to communicate with the outside world, perhaps via an API, writing a server is the correct way and Common Lisp is capable of delivering that.
 
-Common Lisp shines when dealing with low-level tasks like [small systems programming](https://blog.funcall.org/lisp%20psychoacoustics/2024/05/01/worlds-loudest-lisp-program/) or performing [intensive computation](https://www.grammarly.com/blog/engineering/running-lisp-in-production/) at scale. When these complex systems need to communicate with the outside world, perhaps via an API, creating a server is the correct way. However, the advantages of using it to write ordinary backends for modern web applications are limited. REPL-driven programming is probably the only benefit since hot reloading has already been implemented in all high-level languages, but the iteration with the REPL is still mostly limited to Emacs, with SLIME and SLY, which are all examples of great software, but their usability doesn’t reflect that of other modern editors.
+But despite the fact that the language it's easily adaptable, and comes with performant server libraries (hunchentooth and woo), I would say that there are better alternatives for developing generic modern web apps. Hot-reloading is now a feature present in many web frameworks and Common Lisp is not really shining for being ergonomic nor comes with many built-ins. Clojure in contrary, is a modern Lisp dialect with great web frameworks with nice documentation and tons of stable libraries. I would definetly choose the latter for a fresh web project since with CL I've a feeling I would end up writing way more code for custom features and middlewares.
 
-I would like to give a shout-out to [Alive](https://marketplace.visualstudio.com/items?itemName=rheller.alive) which is the only Common Lisp extension for VSCode that implements the REPL with features similar to what SLIME and SLY bring to Emacs. The extension is still under development and not yet a full replacement for Emacs, especially during debugging, but it has great features and a lot of potential thanks to the VSCode interface, which is web-based, compared to Emacs's buffers.
+I would like to give a shout-out to [Alive](https://marketplace.visualstudio.com/items?itemName=rheller.alive) which is the only Common Lisp extension for VSCode that implements the REPL with features similar to what SLIME and SLY bring to Emacs. The extension is still under development and not yet a full replacement for Emacs, especially during debugging, but it has great features and a lot of potential thanks to the VSCode web interface.
 
-Feel free to email me if you have any questions and/or recommendations.
-
-[^1]: Parenthesis are great.
+Feel free to email me if you have any questions, recommendations, or even complains.

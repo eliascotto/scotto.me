@@ -80,6 +80,10 @@ we still enforce color-scheme: dark, despite the user preference */
 }
 
 @layer base {
+  .title-heading {
+    @apply leading-snug mb-4 text-white;
+  }
+
   p {
     @apply text-[1.1rem] leading-relaxed;
     margin: 20px 0;
