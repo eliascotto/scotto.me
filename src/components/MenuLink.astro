@@ -1,0 +1,15 @@
+---
+interface Props {
+  href: string;
+  isActive: boolean;
+}
+
+const { href, isActive: isCurrentlyActive } = Astro.props;
+---
+
+<div class="relative w-fit">
+  <a href={href} class=`w-fit ${isCurrentlyActive ? 'text-main' : undefined}`>
+    <slot />
+  </a>
+</div>
+

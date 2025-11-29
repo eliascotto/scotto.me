@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostsList from '../components/PostsList.astro';
+import { getAllPosts, getTranslationsMap, getTranslationUrl } from '../lib/content';
+
+const posts = await getAllPosts();
+const translationMap = await getTranslationsMap();
+const latestPosts = posts.slice(0, 5);
+---
+<BaseLayout title="Elia Scotto" currentPath="/">
+  <section>
+    <h1 class="font-light mb-4">
+      Hi there, I'm <strong class="font-semibold">Elia Scotto</strong>
+    </h1>
+
+    <p>
+      I write articles, I write code, but I'm not that great at writing short presentation of myself.
+      In the <a class="underline italic" href="/blog">blog</a> section you can find a curated collection of posts about interesting topics, which at the moment are mostly book reviews and tech articles.
+    </p>
+
+    <h2 class="mb-3">Latest posts</h2>
+
+    <div class="flex flex-col">
+      {latestPosts.map((post) => (
+        <PostsList
+          post={post}
+          translationUrl={translationMap.get(post.slug) ? getTranslationUrl(translationMap.get(post.slug)!) : undefined}
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

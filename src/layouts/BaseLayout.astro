@@ -1,0 +1,41 @@
+---
+import Menu from '../components/Menu.astro';
+import Footer from '../components/Footer.astro';
+import HeadMetadata from '../components/HeadMetadata.astro';
+import { meta } from '../data/meta';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  isArticle?: boolean;
+  currentPath?: string;
+}
+
+const { title, description, isArticle = false, currentPath } = Astro.props as Props;
+const pathname = currentPath ?? Astro.url.pathname;
+const computedTitle = title ?? meta.siteName;
+---
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{computedTitle}</title>
+    <HeadMetadata title={title} description={description} isArticle={isArticle} pathname={pathname} />
+    <link rel="preload" href="/assets/fonts/Sora.woff" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2?v=4.1" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/assets/fonts/InterVariable-Italic.woff2?v=4.1" as="font" type="font/woff2" crossorigin="anonymous" />
+  </head>
+  <body>
+    <div class="p-6 pt-16 flex flex-col">
+      <div class="m-0 md:mx-auto w-full max-w-5xl flex md:flex-row flex-col justify-start gap-8">
+        <Menu currentPath={pathname} />
+        <main role="main" class="max-w-2xl flex flex-col min-w-0 flex-1">
+          <slot />
+          <Footer />
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

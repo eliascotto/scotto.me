@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleContent from '../../../components/ArticleContent.astro';
+import { getAllPosts, getPostBySlug, getTranslationBySlug, getTranslationUrl } from '../../../lib/content';
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+  }));
+}
+
+const slug = Astro.params.slug ?? '';
+const post = await getPostBySlug(slug);
+
+if (!post) {
+  throw new Response(null, { status: 404 });
+}
+
+const { Content } = await post.render();
+const translation = await getTranslationBySlug(slug);
+const isArticle = post.collection === 'articles';
+const articleClass = isArticle ? 'article' : 'post';
+---
+<BaseLayout title={post.data.title} description={post.data.description} isArticle currentPath={`/blog/${slug}/`}>
+  <ArticleContent
+    title={post.data.title}
+    date={post.data.date}
+    content={Content}
+    articleClass={articleClass}
+    translationLink={translation ? {
+      href: getTranslationUrl(translation),
+      text: 'Versione italiana',
+      title: 'Versione italiana'
+    } : undefined}
+  />
+</BaseLayout>

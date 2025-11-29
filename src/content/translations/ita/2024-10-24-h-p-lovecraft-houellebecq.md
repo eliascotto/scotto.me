@@ -1,0 +1,40 @@
+---
+title: H. P. Lovecraft - Michel Houellebecq
+description: Contro il mondo, contro la vita
+date: 2024-10-24
+language: ita
+tags:
+ - book
+ - reviews
+ - lovecraft
+---
+
+Ho trovato un nuovo genere letterario con cui mi sento particolarmente affine: le biografie degli scrittori scritte da altri scrittori. Definendolo “nuovo”, non intendo dire che sia un trend emergente, ma piuttosto un genere di romanzo di cui non avevo mai sperimentato prima il potere evocativo. Ho iniziato con la fantascienza di **Philip Dick**, quando ho letto il libro su di lui scritto da Emmanuel Carrère, piaciutomi al tal punto da appassionarmi a entrambi gli scrittori. Ora, grazie la biografia di Michel Houellebecq su H. P. Lovecraft che ho appena terminato, ho davvero voglia di immergermi nella lettura del rinomato *Necronomicon*, anche noto come il Libro dei Morti.
+
+Quella scritta da Houellebecq non è un resoconto completo della vita dell’autore, come Carrère ha fatto con Dick, ma si tratta piuttosto di un’analisi degli avvenimenti più significativi della sua esistenza, che nel caso di Lovecraft sono davvero pochi. Fin da giovane legge romanzi dell’orrore e nutre una grande passione per Edgar Allan Poe, al punto da iniziare a scrivere racconti per conto suo. Ha una “crisi” nervosa appena raggiunta la maggior età, che lo costringe a ritirarsi dall'università per rinchiudersi in casa per diversi anni, periodo nel quale non fa nient’altro che leggere. Proviene da una famiglia benestante finita in rovina e, alla morte dei genitori, si ritrova in tasca un’eredità minima ma sufficiente per vivere senza doversi impegnare in un lavoro. Lovecraft dedica tutto se stesso alla scrittura, manda i suoi racconti agli editori senza chiedere compensi. Intrattiene centinaia di scambi epistolari e riesce a crearsi una piccola cerchia di estimatori delle sue opere. Si sposa con una donna affascinante, ma il matrimonio, inizialmente felice, va in fumo dopo qualche anno per colpa dell’instabilità economica e della mancanza di un lavoro fisso — Lovecraft trova nessun impiego stabile a New York. Torna quindi a Providence da solo, alla residenza di famiglia, e trascorre gli ultimi anni in povertà assieme alla sorella, lavorando come ghost-writer e scrivendo le sue opere migliori. Muore di cancro a 46 anni, praticamente sul lastrico. Il successo arriva troppo tardi, ma quando arriva è grandioso.
+
+
+![H. P. Lovecraft](/assets/img/lovecraft.jpeg "H. P. Lovecraft")
+
+> “L’unica cosa che non faccio mai è sedermi e prendere una penna con l’intenzione deliberata di scrivere una storia. Da ciò non nasce altro che un lavoro meccanico. Le uniche storie che scrivo sono quelle le cui idee centrali, immagini e atmosfere mi vengono in mente spontaneamente.” — H. P. Lovecraft. 
+
+Lovecraft appariva come un individuo piatto, tranquillo e dai modi riservati, ma in realtà conduceva una doppia vita. Nei racconti del terrore, la sua fervida immaginazione si ispirava all’odio profondo che provava per i burocrati inetti incapaci di dargli un lavoro onesto, per i neri, che infestavano New York come mostri e per una società così complessa e profondamente sbagliata da farlo sentire un disadattato e un fallito. Lovecraft era un misantropo che passò buona parte della vita da recluso, a scrivere racconti del terrore.
+La sua educazione da borghese di alta classe gli aveva insegnato a disprezzare, oltre che il vile denaro, anche tutte le classi, o razze, che non erano alla sua altezza. A New York crebbe il suo odio e disgusto per le persone di colore che affollavano la città, cosa a cui non era abituato provenendo dalla provincia. Quando tornò a casa, queste esperienze di odio che lo esasperarono, divennero la fonte di ispirazione per le sue storie terrificanti e mostruose, dove i protagonisti, solitamente degli studiosi bianchi e raffinati, vengono crudelmente attaccati senza alcuna speranza di salvezza.
+
+> “La lettura di Lovecraft costituisce un paradossale refrigerio per tutti coloro che, per una ragione o per l'altra, siano arrivati a provare un'autentica avversione per la vita in tutte le sue forme.” — Michel Houellebecq.
+
+A New York, Lovecraft cercò lavoro, rispondendo a centinaia di annunci e presentandosi a centinaia di colloqui, ottenendo un fiasco totale. Non trovare lavoro lo rese sempre più deluso dalla vita, proprio nel momento in cui si era sposato con l’unica donna che lo avesse mai amato, e con cui immaginava un futuro “normale” assieme, e magari una famiglia. Il mercato del lavoro lo rifiutò perché gli mancavano le competenze e l’esperienza, nonostante possedeva un’istruzione accademica e delle facoltà intellettuali superiori alla norma. Per lui la sua inadeguatezza rimase un mistero. Voglio qui citare uno stralcio di una circolare che spedì a molteplici datori di lavoro: *“Il concetto secondo il quale una persona colta e di buona intelligenza non potrebbe acquisire rapidamente una qualsivoglia competenza in un campo leggermente al di fuori delle sue abitudini mi sembra quantomeno ingenuo; tuttavia una serie di fatti recenti mi ha dimostrato in maniera inequivocabile a qual punto sia diffusa tale superstizione.”*. L’eleganza con cui sottolinea la stupidità irrazionale di questi datori di lavoro è notevole. Essi non vedono le potenzialità individuali a meno che quest’ultime non siano certificate da qualche tipo di istituzione.
+
+> “Howard Phillips Lovecraft costituisce un esempio per chiunque desideri fallire nella vita e, eventualmente, riuscire nell'arte.” — Michel Houellebecq. 
+
+Lovecraft ha fallito nella vita, ma ha avuto successo nella scrittura. Houellebecq, non ha scelto Lovecraft solo perché le sue storie lo hanno appassionato quando era ragazzo. Ha scelto Lovecraft, perché come lui non si sente parte di questo mondo, come lui porta una rabbia dentro per una società sbagliata che non lo capisce e che entrambi scelgono di contrastare con la letteratura. Una cosa che mi piace delle biografie scritte da bravi scrittori è quando quest’ultimi mettono nel racconto dei riferimenti personali. Nel caso di Carrère i cenni a se stesso sono più espliciti, mentre nel libro di Houellebecq, conoscendo oggi i temi futuri della sua produzione letteraria, possiamo vedere le conclusioni sull’opera di Lovecraft, espresse con intensa passione, come allusioni velate ai sentimenti che i due scrittori condividono. Houellebecq scrive di Lovecraft perché riconosce in lui lo stesso destino, la stessa forza che lo spingerà a fare della sua vita un opera d’arte tramite una letteratura dissidente.
+
+> “Gli scrittori del fantastico sono in genere dei reazionari, per il semplice fatto che sono particolarmente, ma si potrebbe anche dire professionalmente, coscienti dell'esistenza del Male.” — Michel Houellebecq. 
+
+Questo breve saggio sull’opera e sulla vita di Lovecraft offre uno spaccato sulla sua psicologia che non potremmo catturare tramite la sola lettura dei suoi libri. Houellebecq, da fervente ammiratore, ci offre un’analisi suggestiva in grado di farci provare al tempo stesso sia pena, sia rispetto per lo scrittore di Providence, mentre ci incoraggia, tramite l’opera esemplare di Lovecraft, a opporci anche noi all’ostilità della vita moderna nei confronti dei veri artisti.
+
+> “È lì il segreto profondo del genio di Lovecraft, e la sorgente pura della sua poesia: è riuscito a trasformare il proprio disgusto per la vita in un’ostilità attiva. Offrire un’alternativa alla vita in tutte le sue forme, costruire un’opposizione permanente, un permanente rimedio alla vita: questa è la missione più alta del poeta. Questa missione Howard Phillips Lovecraft l’ha compiuta.” — Michel Houellebecq. 
+
+Merita una menzione la copertina molto azzeccata in questa edizione inglese, sfortunatamente abbandonata in quelle successive. Con una sessantina d’anni di differenza, i due artisti sono accomunati dal malessere interiore che li spinge a volersi schierare, con la loro opera, contro il mondo e contro la vita stessa.
+
+![H. P. Lovecraft book cover](/assets/img/Lovecraft_Against_the_World_Against_Life.png "Lovecraft e Houellebecq, contro il mondo, contro la vita.")

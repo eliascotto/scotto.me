@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostsList from '../../components/PostsList.astro';
+import { getAllPosts, getTagCounts, getTranslationsMap, getTranslationUrl } from '../../lib/content';
+import { slugifyTag } from '../../lib/slug';
+
+export async function getStaticPaths() {
+  const counts = await getTagCounts();
+  return Array.from(counts.keys()).map((tag) => ({
+    params: { tag: slugifyTag(tag) },
+  }));
+}
+
+const param = Astro.params.tag ?? '';
+const posts = (await getAllPosts()).filter((entry) =>
+  (entry.data.tags ?? []).some((tag) => slugifyTag(tag) === param)
+);
+
+if (posts.length === 0) {
+  throw new Response(null, { status: 404 });
+}
+
+const translationMap = await getTranslationsMap();
+const resolvedTag = posts[0].data.tags?.find((tag) => slugifyTag(tag) === param) ?? param;
+---
+<BaseLayout title={`#${resolvedTag}`} currentPath={`/tags/${param}/`}>
+  <section>
+    <div class="mb-6">
+      <h1 class="title-heading">
+        <center class="font-medium hidden sm:block text-main">/</center>
+        #{resolvedTag}
+      </h1>
+    </div>
+
+    <div class="flex flex-col">
+      {posts.map((post) => (
+        <PostsList
+          post={post}
+          translationUrl={translationMap.get(post.slug) ? getTranslationUrl(translationMap.get(post.slug)!) : undefined}
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

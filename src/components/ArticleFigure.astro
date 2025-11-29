@@ -1,0 +1,10 @@
+---
+// This component handles <figure> tags from markdown
+// It preserves the structure including <source>, <img>, and <figcaption> elements
+// Images inside figures should not be wrapped in another figure, so we preserve them as-is
+---
+
+<figure class="my-6">
+  <slot />
+</figure>
+

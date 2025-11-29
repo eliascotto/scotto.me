@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getTagCounts } from '../lib/content';
+import { slugifyTag } from '../lib/slug';
+import HeaderSlug from '../components/HeaderSlug.astro';
+
+const tagCounts = await getTagCounts();
+const tags = Array.from(tagCounts.entries()).sort(([a], [b]) => a.localeCompare(b));
+---
+<BaseLayout title="Tags" currentPath="/tags/">
+  <section>
+    <HeaderSlug />
+
+    <ul class="list-none">
+      {tags.map(([name, count]) => (
+        <li class="my-1.5 text-base font-light">
+          <a href={`/tags/${slugifyTag(name)}/`}>#{name}</a> 
+          <span class="text-gray-500 dark:text-gray-400 text-sm">({count})</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import ArticleContent from '../../../../components/ArticleContent.astro';
+import { getAllPosts, getPostBySlug, getTranslationBySlug } from '../../../../lib/content';
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+  const translations = await Promise.all(
+    posts.map(async (post) => {
+      const translation = await getTranslationBySlug(post.slug);
+      return translation ? post.slug : null;
+    })
+  );
+
+  return translations
+    .filter((slug): slug is string => Boolean(slug))
+    .map((slug) => ({
+      params: { slug },
+    }));
+}
+
+const slug = Astro.params.slug ?? '';
+const translation = await getTranslationBySlug(slug);
+
+if (!translation) {
+  throw new Response(null, { status: 404 });
+}
+
+const { Content } = await translation.render();
+const originalPost = await getPostBySlug(slug);
+const articleClass = translation.data.tags?.includes('articles') ? 'post article' : 'post';
+---
+<BaseLayout
+  title={translation.data.title}
+  description={translation.data.description}
+  isArticle
+  currentPath={`/blog/${slug}/ita/`}
+>
+  <ArticleContent
+    title={translation.data.title}
+    date={translation.data.date}
+    content={Content}
+    articleClass={articleClass}
+    translationLink={originalPost ? {
+      href: `/blog/${slug}/`,
+      text: 'English version',
+      title: 'English version'
+    } : undefined}
+    showTitleDivider={true}
+  />
+</BaseLayout>

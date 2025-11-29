@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostsList from '../components/PostsList.astro';
+import { getCollection } from 'astro:content';
+import { filterPostsByTag, getAllPosts, getTranslationsMap, getTranslationUrl } from '../lib/content';
+import HeaderSlug from '../components/HeaderSlug.astro';
+
+const posts = await getAllPosts();
+const techPosts = await getCollection('posts', (entry) => !entry.data.draft);
+const translationMap = await getTranslationsMap();
+
+const withTranslations = (list: typeof posts) =>
+  list.map((post) => ({
+    post,
+    translationUrl: translationMap.get(post.slug)
+      ? getTranslationUrl(translationMap.get(post.slug)!)
+      : undefined,
+  }));
+
+const articles = withTranslations(filterPostsByTag(posts, 'general'));
+const reviews = withTranslations(filterPostsByTag(posts, 'reviews'));
+const tech = withTranslations(techPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()));
+---
+<BaseLayout title="Blog" currentPath="/blog/">
+  <section>
+    <HeaderSlug />
+
+    <div class="">
+      <h2 class="title-heading text-gray-400 font-light text-base">Articles</h2>
+    </div>
+    <div class="flex flex-col">
+      {articles.map(({ post, translationUrl }) => (
+        <PostsList post={post} translationUrl={translationUrl} />
+      ))}
+    </div>
+
+    <div class="mt-6">
+      <h2 class="title-heading text-gray-400 font-light text-base">Reviews</h2>
+    </div>
+    <div class="flex flex-col">
+      {reviews.map(({ post, translationUrl }) => (
+        <PostsList post={post} translationUrl={translationUrl} />
+      ))}
+    </div>
+
+    <div class="mt-6">
+      <h2 class="title-heading text-gray-400 font-light text-base">Tech</h2>
+    </div>
+    <div class="flex flex-col">
+      {tech.map(({ post, translationUrl }) => (
+        <PostsList post={post} translationUrl={translationUrl} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

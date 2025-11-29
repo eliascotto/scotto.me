@@ -1,0 +1,22 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+ 
+type Props = {
+  src: string | ImageMetadata;
+  // src will be ImageMetadata type in case you use an image from your content and string in case you use some external image
+  alt?: string;
+};
+
+const { src, alt } = Astro.props;
+const imageAlt = alt || '';
+// Note: Images with titles are converted to figures by the rehype plugin (rehype-figure-images.ts)
+// This component only handles standalone images without titles
+---
+{
+  typeof src === 'string' ? (
+    <img src={src} alt={imageAlt} class="rounded-3xl" />
+  ) : (
+    <Image {src} alt={imageAlt} class="rounded-3xl" />
+  )
+}

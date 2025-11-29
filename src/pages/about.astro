@@ -1,0 +1,22 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeaderSlug from '../components/HeaderSlug.astro';
+
+const entry = await getEntry('pages', 'about');
+
+if (!entry) {
+  throw new Error('About page content missing');
+}
+
+const { Content } = await entry.render();
+---
+<BaseLayout title={entry.data.title} currentPath="/about/">
+  <section class="generic">
+    <HeaderSlug />
+
+    <div class="normal-text">
+      <Content />
+    </div>
+  </section>
+</BaseLayout>

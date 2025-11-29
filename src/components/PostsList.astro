@@ -1,0 +1,44 @@
+---
+import type { BlogEntry } from '../lib/content';
+import { getPostUrl } from '../lib/content';
+import { formatHumanDate } from '../lib/dates';
+
+interface Props {
+  post: BlogEntry;
+  translationUrl?: string;
+}
+
+const { post, translationUrl } = Astro.props as Props;
+const isEnglish = post.data.language === 'eng';
+const isItalian = post.data.language === 'ita';
+const translationLabel = isEnglish ? 'In italiano' : 'English version';
+const translationTitle = isEnglish ? 'Traduzione italiano' : 'English language';
+const translationHref = translationUrl ?? (isEnglish ? `/blog/${post.slug}/ita/` : `/blog/${post.slug}/`);
+---
+<div class="my-2 first:mt-0">
+  <div class="flex flex-row justify-between sm:items-start">
+    <div class="flex flex-row flex-1">
+      <a class="font-base text-lg font-title font-medium" href={getPostUrl(post)}>{post.data.title}</a>
+    </div>
+
+    <div class="text-xs text-gray-400">{formatHumanDate(post.data.date)}</div>
+  </div>
+
+  <!-- <div class="flex flex-row items-center justify-between mt-1.5 mb-0.5">
+    {post.data.description && (
+      <span class="text-xs text-gray-600 dark:text-gray-400 leading-none">
+        {post.data.description}
+      </span>
+    )}
+
+    {post.data.language && translationUrl && (
+      <div class="text-neutral-500 dark:text-gray-300">
+        <p class="m-0" style="line-height: 0">
+          <a title={translationTitle} class="text-xs" href={translationHref}>
+            {translationLabel}
+          </a>
+        </p>
+      </div>
+    )}
+  </div> -->
+</div>

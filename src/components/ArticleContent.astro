@@ -1,0 +1,66 @@
+---
+import ArticleImage from "./ArticleImage.astro";
+import ArticleFigure from "./ArticleFigure.astro";
+import { formatHumanDate } from "../lib/dates";
+
+interface Props {
+  title: string;
+  date: Date;
+  content: any;
+  articleClass: string;
+  translationLink?: {
+    href: string;
+    text: string;
+    title: string;
+  };
+  showTitleDivider?: boolean;
+}
+
+const {
+  title,
+  date,
+  content: Content,
+  articleClass,
+  translationLink,
+  showTitleDivider = false,
+} = Astro.props;
+---
+
+<article>
+  <div class="mb-8 sm:mb-12">
+    <h1 class="title-heading">
+      {
+        showTitleDivider && (
+          <center class="font-medium hidden sm:block text-main mb-5">/</center>
+        )
+      }
+      {title}
+    </h1>
+
+    <div class="flex flex-col sm:flex-row justify-between">
+      <div
+        class="flex flex-col justify-center text-sm text-gray-500 dark:text-gray-400"
+      >
+        <time>{formatHumanDate(date)}</time>
+      </div>
+
+      {
+        translationLink && (
+          <div class="sm:self-end sm:justify-self-end text-sm text-gray-500 dark:text-gray-400">
+            <a
+              title={translationLink.title}
+              class="text-sm"
+              href={translationLink.href}
+            >
+              {translationLink.text}
+            </a>
+          </div>
+        )
+      }
+    </div>
+  </div>
+
+  <div class={articleClass}>
+    <Content components={{ img: ArticleImage, figure: ArticleFigure }} />
+  </div>
+</article>

@@ -1,0 +1,32 @@
+---
+import MenuLink from "./MenuLink.astro";
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props as Props;
+
+const withTrailingSlash = (value: string) => (value.endsWith('/') ? value : `${value}/`);
+const normalizedPath = withTrailingSlash(currentPath);
+
+const isActive = (path: string) => {
+  if (path === '/') {
+    return normalizedPath === '/';
+  }
+  return normalizedPath.startsWith(withTrailingSlash(path));
+};
+---
+<nav class="flex flex-col items-center md:items-start lg:sticky lg:top-10 min-w-[100px] pr-8 h-fit">
+  <div class="mb-4">
+    <h2 class="text-lg title m-0 font-semibold">Elia Scotto</h2>
+  </div>
+
+  <div class="flex flex-row md:flex-col gap-3 md:gap-1 text-sm font-normal dark:text-gray-400 font-light">
+    <MenuLink href="/" isActive={isActive('/')}>Home</MenuLink>
+    <MenuLink href="/about/" isActive={isActive('/about/')}>About</MenuLink>
+    <MenuLink href="/blog/" isActive={isActive('/blog/')}>Blog</MenuLink>
+    <MenuLink href="/quotes/" isActive={isActive('/quotes/')}>Quotes</MenuLink>
+    <MenuLink href="/tags/" isActive={isActive('/tags/')}>Tags</MenuLink>
+  </div>
+</nav>
