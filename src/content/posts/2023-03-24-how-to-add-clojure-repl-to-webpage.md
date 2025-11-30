@@ -7,11 +7,30 @@ tags:
  - SCI
 ---
 
-One of the advantages of working with Clojure is that it can be used on top of the JVM as well as in the browser. This is possible thanks to the Clojurescript compiler, which takes your `.cljs` files and turns them into optimized Javascript with the help of the [Google Closure compiler](https://github.com/google/closure-compiler). The compilation is run during the project build stage, creating large `.js` files that will then be embedded into a webpage. Other than using the same language for backend and frontend development, a great advantage is that, in theory, you can even run Clojurescript directly in the client browser.
+One of the advantages of working with Clojure is that it can be used on top of the JVM as well as in the browser. This is possible thanks to the Clojurescript compiler, which takes your `.cljs` files and turns them into optimized Javascript with the help of the [Google Closure compiler](https://github.com/google/closure-compiler), ready to be embedded into a webpage. Since Clojurescript translate Clojure code to Javascript, in theory, it should be possible to run Clojurescript directly in the browser, since Javascript interpreter is exposed to the user.
 
-I got inspired after trying the cool project [Try Haskell](https://tryhaskell.org/) and it made me thinking about how I could replicate it, allowing users to try Clojure syntax in a REPL on a web page. So I started searching for a way to embed a working Clojure REPL in a small web app.
+I got inspired after experimenting with a cool project to present the Haskell language called [Try Haskell](https://tryhaskell.org/), which allows to run Haskell in the browser. It made me thinking about how I could replicate it using Clojure, so that users can type in a REPL on a web page. I started searching for a way to embed a working Clojure REPL in a small web app and this is what I found. There are various way to achieve this. The old method was using the  [self-hosted cljs compiler](https://code.thheller.com/blog/shadow-cljs/2017/10/14/bootstrap-support.html), but there's a simpler approach. Thanks to SCI, the [Small Clojure Interpreter](https://github.com/babashka/sci) is now possible to write and execute Clojurescript code on top of Javascript; this means it can be executed in the browser.
 
-There are various way to achieve this. The old method was using the  [self-hosted cljs compiler](https://code.thheller.com/blog/shadow-cljs/2017/10/14/bootstrap-support.html), but there's a simpler approach. Thanks to SCI, the [Small Clojure Interpreter](https://github.com/babashka/sci) is now possible to write and execute Clojurescript code on top of Javascript; this means it can be executed in the browser.
+The simplest way to try it is to add the library via CDN. Just include [Scittle](https://github.com/babashka/scittle) library, same as _SCI_ but loaded with a script tag into a webpage. It doesn't need any additional library or Clojurescript.
+
+```html
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/scittle@0.5.14/dist/scittle.js"
+></script>
+```
+
+Then you can write your Clojure code into a script tag, or load a clojurescript file.
+
+```html
+<script type="application/x-scittle">
+  (println "Hello Wolrd")
+</script>
+<!-- or -->
+<script src="app.cljs" type="application/x-scittle"></script>
+```
+
+For the rest of the tutorial, I'll be using _SCI_ so the library get's loaded via Clojurescript. Refer to _SCI_ docs to learn how to do it.
 
 You can *try* the Clojure REPL with a tutorial at [TryClojure.org](https://tryclojure.org/).
 

@@ -9,8 +9,6 @@ const tags = Array.from(tagCounts.entries()).sort(([a], [b]) => a.localeCompare(
 ---
 <BaseLayout title="Tags" currentPath="/tags/">
   <section>
-    <HeaderSlug />
-
     <ul class="list-none">
       {tags.map(([name, count]) => (
         <li class="my-1.5 text-base font-light">

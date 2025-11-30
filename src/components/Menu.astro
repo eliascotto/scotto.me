@@ -17,12 +17,12 @@ const isActive = (path: string) => {
   return normalizedPath.startsWith(withTrailingSlash(path));
 };
 ---
-<nav class="flex flex-col items-center md:items-start lg:sticky lg:top-10 min-w-[100px] pr-8 h-fit">
+<nav class="flex flex-col items-center md:items-start xl:sticky xl:top-10 min-w-[100px] pr-8 h-fit">
   <div class="mb-4">
     <h2 class="text-lg title m-0 font-semibold">Elia Scotto</h2>
   </div>
 
-  <div class="flex flex-row md:flex-col gap-3 md:gap-1 text-sm font-normal dark:text-gray-400 font-light">
+  <div class="flex flex-row md:flex-col gap-3 md:gap-1 text-base md:text-sm font-normal dark:text-gray-400 font-light">
     <MenuLink href="/" isActive={isActive('/')}>Home</MenuLink>
     <MenuLink href="/about/" isActive={isActive('/about/')}>About</MenuLink>
     <MenuLink href="/blog/" isActive={isActive('/blog/')}>Blog</MenuLink>

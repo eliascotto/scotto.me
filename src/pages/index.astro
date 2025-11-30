@@ -5,7 +5,7 @@ import { getAllPosts, getTranslationsMap, getTranslationUrl } from '../lib/conte
 
 const posts = await getAllPosts();
 const translationMap = await getTranslationsMap();
-const latestPosts = posts.slice(0, 5);
+const latestPosts = posts.slice(0, 7);
 ---
 <BaseLayout title="Elia Scotto" currentPath="/">
   <section>
@@ -15,18 +15,21 @@ const latestPosts = posts.slice(0, 5);
 
     <p>
       I write articles, I write code, but I'm not that great at writing short presentation of myself.
-      In the <a class="underline italic" href="/blog">blog</a> section you can find a curated collection of posts about interesting topics, which at the moment are mostly book reviews and tech articles.
+      In the <a class="underline italic" href="/blog">blog</a> section you can find a curated 
+      collection of tech articles and some reviews of interesting content that I come across.
     </p>
 
-    <h2 class="mb-3">Latest posts</h2>
-
-    <div class="flex flex-col">
-      {latestPosts.map((post) => (
-        <PostsList
-          post={post}
-          translationUrl={translationMap.get(post.slug) ? getTranslationUrl(translationMap.get(post.slug)!) : undefined}
-        />
-      ))}
+    <div class="mt-10">
+      <h2 class="mb-6">Latest posts</h2>
+  
+      <div class="flex flex-col">
+        {latestPosts.map((post) => (
+          <PostsList
+            post={post}
+            translationUrl={translationMap.get(post.slug) ? getTranslationUrl(translationMap.get(post.slug)!) : undefined}
+          />
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>

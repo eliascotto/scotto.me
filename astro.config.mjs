@@ -23,6 +23,17 @@ export default defineConfig({
   },
 
   integrations: [expressiveCode({
-    themes: [idxXcodeImprovedTheme]
+    themes: [idxXcodeImprovedTheme],
+    styleOverrides: {
+      textMarkers: {
+        markBorderColor: 'oklch(0.75 0.183 55.934)',
+      },
+      frames: {
+        editorTabBarBackground: 'transparent',
+        editorTabBarBorderColor: 'transparent',
+        editorActiveTabIndicatorTopColor: 'oklch(0.75 0.183 55.934)',
+        frameBoxShadowCssValue: 'none',
+      },
+    }
   })],
 });

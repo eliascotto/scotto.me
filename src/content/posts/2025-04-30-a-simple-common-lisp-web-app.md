@@ -7,26 +7,26 @@ tags:
  - tutorial
 ---
 
-One of the drawbacks that I found of dealing with Common Lisp is the lack of documentation available. Too often, I find published libraries without an explanation of how I meant to use them or only partially documented, and I need to dig into the source code to understand what they do and to see all the functions available. Even though reading source code is a proven technique to improve one's grasp of a programming language, most of other systems come with extensively documented libraries, something appreciated by beginners and a factor that often contribute to a language's popularity.
+One of the drawbacks I’ve found when dealing with Common Lisp is the lack of documentation available. Too often, I find published libraries without an explanation of how they are meant to be used or only partially documented, and I need to dig into the source code to understand what they do and to see all the functions available. Even though reading source code is a proven technique to improve one's grasp of a programming language, most other systems come with extensively documented libraries, something appreciated by beginners and a factor that often contributes to a language's popularity.
 
-In my opinion, this lack of good documentation is one of the reasons Common Lisp is often seen as challenging for beginners, which can make it harder for the language to become popular.
+In my opinion, this lack of good documentation is one of the reasons Common Lisp is often seen as challenging for beginners, which makes it harder for the language to become popular.
 
-![](/assets/img/lisp_cycles.png "[xkcd.com/224](https://xkcd.com/224)")
+![xkcd.com/224](/assets/img/lisp_cycles.png "xkcd.com/224")
 
-Some time ago, when I looked for guidance on writing a generic web app, I was surprised by the absence of a quickstart page to help me set up a simple server, something the Python community has provided for [Flask](https://flask.palletsprojects.com/en/stable/quickstart/) for many years.
+Some time ago, when I looked for guidance on writing a generic web app, I was surprised by the absence of a quickstart page to help me set up a simple server—something the Python community has provided for [Flask](https://flask.palletsprojects.com/en/stable/quickstart/) for many years.
 
 >“The most underrated skill to learn as an engineer is how to document. Fuck, someone please teach me how to write good documentation. Seriously, if there's any recommendations, I'd seriously pay for a course (like probably a lot of money, maybe 1k for a course if it guaranteed that I could write good docs.)”
 > [A drunk dev on reddit](https://www.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/)
 
-So I put together a short tutorial on how to build a simple web app in Common Lisp, inspired by the Clojure tutorial written for [Luminus](https://luminusweb.com/docs/guestbook). The goal is to write a guestbook demo, involving templates *rendering*, connecting to a database to run queries, and exposing routes to the webpage.
+So I put together a short tutorial on how to build a simple web app in Common Lisp, inspired by the Clojure tutorial written for [Luminus](https://luminusweb.com/docs/guestbook). The goal is to write a guestbook demo, involving template *rendering*, connecting to a database to run queries, and exposing routes to the webpage.
 
-To follow the tutorial you need a Common Lisp implementation, like [SBCL](https://www.sbcl.org/), with [Quicklisp](https://www.quicklisp.org/index.html), the dependencies manager. Also I recommend having a REPL integrated with your IDE, like [SLY](https://github.com/joaotavora/sly) for Emacs or [Alive](https://marketplace.visualstudio.com/items?itemName=rheller.alive) for VSCode.
+To follow the tutorial, you need a Common Lisp implementation, like [SBCL](https://www.sbcl.org/), with [Quicklisp](https://www.quicklisp.org/index.html), the dependency manager. I also recommend having a REPL integrated with your IDE, like [SLY](https://github.com/joaotavora/sly) for Emacs or [Alive](https://marketplace.visualstudio.com/items?itemName=rheller.alive) for VSCode.
 
 I’ll use more modern CL libraries that have an interface similar to what you can find in other languages, so it might be a bit easier to follow along.
 
 ## The server
 
-First thing first, I created a new Common Lisp project. To do that with a simple boilerplate, I loaded `cl-project` in the environment, and called the function `make-project` with a path and a name for the project.
+First things first, I created a new Common Lisp project. To do that with a simple boilerplate, I loaded `cl-project` in the environment and called the function `make-project` with a path and a name for the project.
 
 ```lisp
 > (ql:quickload :cl-project)
@@ -47,45 +47,47 @@ writing ~/guestbook/tests/main.lisp
 T
 ```
 
-Then I run this command to let Quicklisp know where my new project is located.
+Then I ran this command to let Quicklisp know where my new project is located.
 
 ```lisp
 > (pushnew #P"~/guestbook/" asdf:*central-registry* :test #'equal)
 ```
 
-Opening the project file `guestbook.asd`, I declared the required libraries into the `:depens-on` property so that Quicklisp would download them from the repo and load them into the environment.
+I declared the required libraries in the `:depends-on` property so that Quicklisp would download them from the repo and load them into the environment.
 
-```lisp
-;; portion of guestbook.asd
-:depends-on (;; Generic
-			 :alexandria
-			 :uiop
-			 ;; Perl style Regex
-			 :cl-ppcre
-			 ;; To use @export annotation
-			 :cl-syntax-annot
-			 ;; Web app protocols libraries
-			 :clack
-			 :lack
-			 ;; Web framework
-			 :caveman2
-			 ;; Template engine
-			 :djula
-			 ;; Database
-			 :cl-dbi)
+```lisp title="guestbook.asd" {4-12}
+(defsystem "guestbook"
+  :version "0.0.1"
+  :license "MIT"
+  :depends-on (:alexandria        ;; utils
+               :uiop
+               :cl-ppcre          ;; regex library
+               :cl-syntax-annot   ;; for @export annotation
+               :clack             ;; Web libraries
+               :lack
+               :caveman2          ;; Web framework
+               :djula             ;; Template engine
+               :cl-dbi)           ;; Database
+  :components ((:module "src"
+                :components
+                ((:file "config") ;; files into src/
+                 (:file "db")
+                 (:file "web")
+                 (:file "core"))))
 ```
 
-Now, inside `src/core.lisp` (I renamed the file from `main` to `core`) I added two new functions, to start and stop the server, which we will be helpful to use from the REPL.
+Now, inside `src/core.lisp` (I renamed the file from `main` to `core`) I added two new functions, to start and stop the server, which will be helpful to use from the REPL.
 
-```lisp
-;; src/core.lisp
+```lisp title="src/core.lisp"
 (defvar *server* nil)
 
 (defparameter *app*
   (lack:builder
 	  (:static
       :path (lambda (path)
-              (if (ppcre:scan "^(?:/images/|/css/|/js/|/robot\\.txt$|/favicon\\.ico$)" path)
+              (if (ppcre:scan 
+                    "^(?:/images/|/css/|/js/|/robot\\.txt$|/favicon\\.ico$)" 
+                    path)
                   path
                   nil))
       :root *static-directory*)
@@ -100,10 +102,10 @@ Now, inside `src/core.lisp` (I renamed the file from `main` to `core`) I added t
                 (debug nil)
               &allow-other-keys)
   "Starts the server."
-  (unless (null *server*)
+  (when *server*
     (restart-case (error "Server is already running.")
       (restart-server ()
-        :report "Restart the server"
+        :report "Restart the server."
         (stop))))
 
   (setf *server* (apply #'clack:clackup *app*
@@ -116,7 +118,7 @@ Now, inside `src/core.lisp` (I renamed the file from `main` to `core`) I added t
 @export
 (defun stop ()
   "Stops the server."
-  (unless (null *server*)
+  (when *server*
     (clack:stop *server*)
     (format t "Server stopped")
     (setf *server* nil)))
@@ -124,7 +126,7 @@ Now, inside `src/core.lisp` (I renamed the file from `main` to `core`) I added t
 
 `*server*` contains the server instance and is defined as a variable since we will need to redefine it. `*app*` is the web application wrapped with a layer by *Lack*. `start` and `stop` instantiate the server with some logging, or raise errors if the action is not successful.
 
-*Lack* and *Clack* are the two libraries I used to wrap the web application. [The first one](https://github.com/fukamachi/lack) allows to define a series of middlewares in the server, for example I used `:static` to tell the server where to find all the static assets in the project, inside the directory pointed by `*static-directory*`. Other middlewares are available, like logging, managing sessions or providing authentication features, or you can create your own. [*Clack*](https://github.com/fukamachi/clack) instead is an abstraction layer for the server that provides some parameters to customise it, for example, to quickly swap which server to use between development mode (for example `hunchentoot`) and production (maybe `woo`).
+*Lack* and *Clack* are the two libraries I used to wrap the web application. [The first one](https://github.com/fukamachi/lack) allows you to define a series of middlewares in the server; for example, I used `:static` to tell the server where to find all the static assets in the project, inside the directory pointed to by `*static-directory*`. Other middlewares are available, like logging, managing sessions or providing authentication features, or you can create your own. [*Clack*](https://github.com/fukamachi/clack) instead is an abstraction layer for the server that provides some parameters to customise it, for example, to quickly swap which server to use between development mode (`hunchentoot`) and production (`woo`).
 
 ```lisp
 (unless (null *server*)
@@ -134,16 +136,15 @@ Now, inside `src/core.lisp` (I renamed the file from `main` to `core`) I added t
         (stop))))
 ```
 
-In this portion of the code, I defined a restart action for the debugger. The Common Lisp debugger always has `RETRY` and `ABORT` actions for every exception raised. By declaring a `restart-case`, we are signalling an error and adding custom choices to the one offered by default by the debugger. The new option I added is called `restart-server` and if selected, it first `(stop)` the server and then restart the operation, so the function would run again without raising an error. It’s a smart way to interact with the REPL and improve the developer experience using the language directly.
+In this portion of the code, I defined a restart action for the debugger. The Common Lisp debugger always has `RETRY` and `ABORT` actions for every exception raised. By declaring a `restart-case`, we are signalling an error and adding custom choices to the ones offered by default by the debugger. The new option I added is called `restart-server` and, if selected, it first `(stop)`s the server and then restarts the operation, so the function runs again without raising an error. It’s a smart way to interact with the REPL and improve the developer experience using the language directly.
 
 ![](/assets/img/cl-restart-case-server.png)
 
 More on conditions and restart [here](https://gigamonkeys.com/book/beyond-exception-handling-conditions-and-restarts) and [here](https://lispcookbook.github.io/cl-cookbook/error_handling.html).
 
-At the top of `src/core.lisp` I set the package definition, and some initialisation function calls.
+At the top of `src/core.lisp` I set the package definition and some initialisation function calls.
 
-```lisp
-;; portion of src/core.lisp
+```lisp title="src/core.lisp"
 (in-package :cl-user)
 (defpackage guestbook.core
   (:use :cl)
@@ -154,33 +155,37 @@ At the top of `src/core.lisp` I set the package definition, and some initialisat
 (syntax:use-syntax :annot)
 ```
 
-`(syntax:use-syntax :annot)`, from the package `cl-syntax-annot`, allows us to use some special decoration notation at the top of the function. At the top of `start` and `stop` I added an `@export` tag which tells the compiler that a function is exported by the package. 
+`(syntax:use-syntax :annot)`, from the package `cl-syntax-annot`, allows us to use some special decoration notation at the top of the function. At the top of `start` and `stop` I added an `@export` tag, which tells the compiler that a function is exported by the package. 
 ## Configuration
 
-I put the configuration parameters for the app into `src/config.lisp`, there are better ways but they’re not necessary for a project this simple.
+I put the configuration parameters for the app into a config file; there are better ways, but they’re not necessary for a project this simple.
 
-```lisp
-;; portion of src/config.lisp
+```lisp title="src/config.lisp"
 @export
-(defparameter *application-root* (asdf:system-source-directory :guestbook))
+(defparameter *application-root* 
+  (asdf:system-source-directory :guestbook))
 @export
-(defparameter *static-directory* (merge-pathnames #P"static/" *application-root*))
+(defparameter *static-directory* 
+  (merge-pathnames #P"static/" *application-root*))
 @export
-(defparameter *template-directory* (merge-pathnames #P"templates/" *application-root*))
+(defparameter *template-directory* 
+  (merge-pathnames #P"templates/" *application-root*))
 
 @export
 (defvar *config*
-  '(:databases ((:maindb :sqlite3 :database-name "/Users/../guestbook/guestbook.sqlite"))
+  `(:databases 
+      ((:maindb :sqlite3 
+        :database-name ,(namestring (merge-pathnames "guestbook.sqlite"
+                                                     *application-root*))))
     :schema-file "db/schema.sql"))
 ```
 
-The variable `*config*` needs a specific format to be used with `cl-dbi`, which is the library that I used to interface with the database. In a real application, it would be good to differentiate between *dev* or *prod* mode with different configuration used, for example to point to different databases, or to use a different server with *Clack*.
+The variable `*config*` needs a specific format to be used with `cl-dbi`, which is the library that I used to interface with the database. In a real application, it would be good to differentiate between *dev* and *prod* mode with different configurations used, for example to point to different databases or to use a different server with *Clack*.
 ## Database
 
-I created a new file into `db/schema.sql` and put the SQL code to create a message table.
+I created a new file in `db/schema.sql` and put the SQL code to create a message table.
 
-```sql
--- db/schema.sql
+```sql title="db/schema.sql"
 CREATE TABLE message (
     id       INTEGER PRIMARY KEY AUTOINCREMENT,
     username VARCHAR(50) NOT NULL,
@@ -189,12 +194,9 @@ CREATE TABLE message (
 );
 ```
 
-Then I run `sqlite3 guestbook.sqlite --init db/schema.sql` from the terminal to create and initialise a new database in the project root.
+Then I ran `sqlite3 guestbook.sqlite --init db/schema.sql` from the terminal to create and initialise a new database in the project root.
 
-I declared the functions to access the database in a new file `src/db.lisp`.
-
-```lisp
-;; src/db.lisp
+```lisp title="src/db.lisp"
 (in-package :cl-user)
 (defpackage guestbook.db
   (:use :cl)
@@ -210,7 +212,8 @@ I declared the functions to access the database in a new file `src/db.lisp`.
 
 @export
 (defun db (&optional (db :maindb))
-	"Returns a cached database connection for DB (defaults to :maindb). Uses `connection-settings` and `dbi:connect-cached`. 
+	"Returns a cached database connection for DB (defaults to :maindb). 
+  Uses `connection-settings` and `dbi:connect-cached`. 
 	
 	Usage: (db) or (db :testdb)"
   (apply #'dbi:connect-cached (connection-settings db)))
@@ -231,20 +234,62 @@ Usage: (with-connection (db :maindb)
      ,@body))
 ```
 
-The first macro of the project. It’s a simple wrapper that provides a new variable `*connection*` to use inside the `body`. Raises an error if the `conn` value that we passed is not initialised. The function `db` instead returns a valid connection, cached automatically by the library.
+This is the first macro of the project. It’s a simple wrapper that provides a new variable `*connection*` to use inside the `body`. It raises an error if the `conn` value that we passed is not initialised. The function `db` instead returns a valid connection, cached automatically by the library.
+
+Then I defined some functions to perform CRUD operations on the database. `format-timestamp` converts a universal timestamp value into a readable date-time string.
+
+```lisp title="src/db.lisp"
+(defun format-timestamp (universal-time)
+  "Converts a universal time value into a human-readable timestamp string,
+formatted as 'YYYY-MM-DD HH:MM:SS'."
+  (multiple-value-bind (sec min hour day month year)
+      (decode-universal-time universal-time)
+    (format nil "~4,'0D-~2,'0D-~2,'0D ~2,'0D:~2,'0D:~2,'0D" year month day hour min sec)))
+
+(defun add-message (name message)
+  "Inserts a new message into the database with the given NAME and MESSAGE content."
+  (with-connection (db)
+    (let ((sql "INSERT INTO message (username, ts, content) VALUES (?, ?, ?)")
+          (ts (get-universal-time)))
+      (dbi:do-sql *connection* sql (list name ts message)))))
+
+
+(defun delete-message (id)
+  "Deletes the message with the given ID from the database."
+  (with-connection (db)
+    (let ((sql "DELETE FROM message WHERE id = ?"))
+      (dbi:do-sql *connection* sql (list id)))))
+
+
+(defun get-all-messages ()
+  "Retrieves all messages from the database, ordered by timestamp descending.
+Timestamps are formatted as human-readable strings."
+  (with-connection (db)
+    (let* ((sql "SELECT * FROM message ORDER BY ts DESC")
+           (messages (dbi:fetch-all
+                      (dbi:execute
+                       (dbi:prepare *connection* sql)))))
+      (mapcar (lambda (row)
+                (setf (getf row :|ts|) (format-timestamp (getf row :|ts|)))
+                row)
+              messages))))
+```
+
 ## The Web App
 
 Finally we can create the web application which I put inside `src/web.lisp`. It’s a bit longer then the other files so I will break it into chunks.
 
-```lisp
-;; portion of src/web.lisp
+```lisp title="src/web.lisp"
 (in-package :cl-user)
 (defpackage guestbook.web
   (:use :cl
-        :caveman2
-        :guestbook.db)
+        :caveman2)
   (:import-from :guestbook.config
                 :*template-directory*)
+  (:import-from :guestbook.db
+                :add-message
+                :delete-message
+                :get-all-messages)
   (:export :*web*))
 (in-package :guestbook.web)
 
@@ -253,79 +298,34 @@ Finally we can create the web application which I put inside `src/web.lisp`. It�
 (clear-routing-rules *web*)
 ```
 
-The web framework we are using is called *Caveman*, developed by [Eitaro Fukamachi](https://github.com/fukamachi), who is a very prolific *lisper* and the author of multiple libraries that I am using, including *Lack*, *Clack*, *cl-dbi*, all having great integration with each other. `<app>` is a *class* defined by the web framework and I am extending it and instantiating in `*web*`. `clear-routing-rules` is a function inherited from *Ningle*, another web framework, which clears the routes association inside the web app instance.
+The web framework I am using is called *Caveman*, developed by [Eitaro Fukamachi](https://github.com/fukamachi), who is a very prolific *lisper* and the author of multiple libraries that I am using, including *Lack*, *Clack*, and *cl-dbi*, all having great integration with each other. `<app>` is a *class* defined by the web framework, and I am extending it and instantiating it in `*web*`. `clear-routing-rules` is a function inherited from *Ningle*, another web framework, which clears the route associations inside the web app instance.
 ### Templates
 
-Our web app needs to render some static templates with data, and to do that there’s a great library called `djula` which allows to use most of the same tags and filters that [django exposes](https://docs.djangoproject.com/en/5.1/ref/templates/builtins/) in its template engine.
+Our web app needs to render some static templates with data, and to do that there’s a great library called `djula`, which allows us to use most of the same tags and filters that [Django exposes](https://docs.djangoproject.com/en/5.1/ref/templates/builtins/) in its template engine.
 
-I’m not going to include the templates source but you can have a look at them in the repository, inside `templates/` folder.
+I’m not going to include the template source here, but you can have a look at it in the repository, inside the `templates/` folder.
 
-```lisp
-;; portion of src/web.lisp
+```lisp title="src/web.lisp"
 (djula:add-template-directory *template-directory*)
 
-(defparameter *template-registry* (make-hash-table :test 'equal))
-
 (defun render (template-path &optional env)
-  "Renders a Djula template from TEMPLATE-PATH, caching it for reuse.
+  "Renders a Djula template from TEMPLATE-PATH.
 ENV is an optional plist of variables passed to the template."
-  (let ((template (gethash template-path *template-registry*)))
-    (unless template
-      ;; If the template is not already compiled, it is compiled, and stored in *TEMPLATE-REGISTRY*.
-      (setf template (djula:compile-template* (princ-to-string template-path)))
-      (setf (gethash template-path *template-registry*) template))
-    (apply #'djula:render-template*
-           template nil
-           env)))
+  (apply #'djula:render-template*
+         (djula:compile-template* (princ-to-string template-path))
+         nil
+         env))
 ```
 
-The first function call, tells djula where to find the templates in the project. `render` is a function that receives a template path as a parameter and compiles the template for better performance. The first time the template is compiled, it gets stored in a hash table called `*template-registry*`, which will work as a cache the next time we are going to reuse the template. In a more complex application, I would add a way to invalidate the cache automatically if a template changes.
-### Messages
+The first function call tells `djula` where to find the templates in the project. `render` is a function that receives a template path as a parameter and compiles the template for better performance.
 
-I defined some functions to perform CRUD operations on the database. `decode-ts` converts unix timestamp into a readable date-time string.
-
-```lisp
-;; portion of src/web.lisp
-(defun decode-ts (ts)
-  "Converts a universal time value TS into a human-readable timestamp string,
-formatted as 'YYYY-MM-DD HH:MM:SS'."
-  (multiple-value-bind (sec min hour day month year)
-    (decode-universal-time ts)
-   (format nil "~4,'0D-~2,'0D-~2,'0D ~2,'0D:~2,'0D:~2,'0D" year month day hour min sec)))
-
-(defun add-message (name message)
-  (with-connection (db)
-    (let ((sql "INSERT INTO message (username, ts, content) VALUES (?, ?, ?)")
-          (ts (get-universal-time)))
-     (dbi:do-sql *connection* sql (list name ts message)))))
-
-
-(defun delete-message (id)
-  (with-connection (db)
-    (let ((sql "DELETE FROM message WHERE id = ?"))
-      (dbi:do-sql *connection* sql (list id)))))
-
-
-(defun get-all-messages ()
-  (with-connection (db)
-    (let* ((sql "SELECT * FROM message ORDER BY ts DESC")
-           (messages (dbi:fetch-all
-                      (dbi:execute
-                       (dbi:prepare *connection* sql)))))
-      ;; Transform unix timestamp into readable format
-      (mapcar (lambda (row)
-                (setf (getf row :|ts|) (decode-ts (getf row :|ts|)))
-                row)
-              messages))))
-```
 ### Routes
 
-To allow the users to perform CRUD operations, we need to expose a few routes to be called by the web frontend. There are two ways to define routes in Caveman but this one seems a bit more clear to me than using annotations. So `defroute` is a macro that receives the route path, some parameters like `:method` and eventually some arguments, and then defines the body to handle the request. Inside the body, we can access the request object via `*request*` and extract data from using for example the function `request-body-parameters`.
+To allow users to perform CRUD operations, we need to expose a few routes to be called by the web frontend. There are two ways to define routes in Caveman, but this one seems a bit clearer to me than using annotations. `defroute` is a macro that receives the route path, some parameters like `:method` and eventually some arguments, and then defines the body to handle the request. Inside the body, we can access the request object via `*request*` and extract data from it using, for example, the function `request-body-parameters`.
 
-The routes are self-descriptive. `/` render `index.html` passing all the messages from the db, `/message` handles POST requests and insert the message in the database if the parameters conform, and the `/message/delete` deletes a message. 
+The routes are self-descriptive. `/` renders `index.html`, passing all the messages from the db; `/message` handles POST requests and inserts the message in the database if the parameters conform; and `/message/delete` deletes a message. 
 
-```lisp
-;; portion of src/web.lisp
+```lisp title="src/web.lisp"
 (defroute "/" ()
   (render #P"index.html"
           (list :messages (get-all-messages))))
@@ -353,10 +353,9 @@ The routes are self-descriptive. `/` render `index.html` passing all the message
   (redirect "/"))
 ```
 
-I also added another function which defines a method on the web app class. `on-exception` is a generic function called when an exception occurs in the web application. This method is specific on the parameter type since it will run only if the exception has code 404 — not found — and in that case I return a specific custom template.
+I also added another function, which defines a method on the web app class. `on-exception` is a generic function called when an exception occurs in the web application. This method is specific on the parameter type, since it will run only if the exception has code 404 — not found — and in that case I return a specific custom template.
 
-```lisp
-;; portion of src/web.lisp
+```lisp title="src/web.lisp"
 (defmethod on-exception ((app <web>) (code (eql 404)))
   (declare (ignore app code))
   (render #P"404.html"))
@@ -376,7 +375,7 @@ To load "guestbook":
 CL-USER> 
 ```
 
-Then I can start the server and point my browser page to `127.0.0.1:3210`.
+Then I can start the server and point my browser to `127.0.0.1:3210`.
 
 ```lisp
 > (guestbook.core:start)
@@ -387,17 +386,17 @@ Server started
 
 ![](/assets/img/guestbook.png)
 
-I can send messages that get saved with a timestamp, and then delete them. Pretty simple.
+I can send messages that get saved with a timestamp and then delete them. Pretty simple.
+
 ## Reducing boilerplate
 
-When comparing the line of code required in Common Lisp for a guestbook against the Python-flask version, the latter is quicker and simpler to write — 36 lines of Python vs. 229 of Lisp.
+Lisp became popular for a series of reasons, and one of the most cited is its ability to reduce boilerplate thanks to the metaprogramming capabilities of the language. Lisp hackers are proud of being able to code solutions faster and do exploratory programming, reducing the size of the code they need to write to reach a solution.
 
-Lisp is known to be a powerful language. Its strength is its ability to model itself according to the problem the developer is solving. In this case, I am dealing with a simple guestbook demo, but to give a better taste of the language I will try to reduce the size of the program by hiding some code and configuration.
+When comparing the lines-of-code count of my Common Lisp guestbook against the Python-Flask version, the latter seems quicker and simpler to write — 36 lines of Python vs. 229 of Lisp. Lisp’s strength is its ability to model itself according to the problem the developer is solving. In this case, I am dealing with a simple guestbook demo, so it may not be strictly necessary, but to present the language better I will try to reduce the size of the program by hiding some code and configuration.
 
-First let’s have a look at the new guestbook app, written in my new custom web framework called *flashcl*. 29 LOC properly formatted and stripped of all comments, and not too hard to read.
+First, let’s have a look at the new guestbook app, written in my new custom web framework called *flashcl*: 29 LOC, properly formatted and stripped of all comments, and not too hard to read.
 
-```lisp
-;; src/core.lisp
+```lisp title="src/core.lisp"
 (in-package :cl-user)
 (defpackage guestbook.core
   (:use :cl :flashcl))
@@ -429,7 +428,7 @@ First let’s have a look at the new guestbook app, written in my new custom web
   (redirect "/"))
 ```
 
-Where did `start` go? Is now part of the *flashcl* framework, so imported in the package. Here the usage reference.
+Where did `start` go? It is now part of the *flashcl* framework, so it’s imported in the package. Here’s the usage reference.
 
 ```lisp
 ;; --- Run the Application ---
@@ -439,13 +438,13 @@ Where did `start` go? Is now part of the *flashcl* framework, so imported in the
 ;; Example: (guestook::run-app) or just (run-app) inside the package.
 ;; (run-app :port 5000 :server :hunchentoot)
 ```
-Then I modified slightly the template delete button to point to the correct route with `id` parameter.
+Then I slightly modified the template delete button to point to the correct route with the `id` parameter.
 
-This is the code for *flashcl*, and as you can see is quite reusable for other web projects since you can define new database models and routes quickly with supports for static files and templates. I used *mito*, another library from [Eitaro Fukamachi](https://github.com/fukamachi/mito), which is a ORM that works well with SQLite.
+This is the code for *flashcl*, and as you can see it is quite reusable for other web projects, since you can define new database models and routes quickly, with support for static files and templates. I used *mito*, another library from [Eitaro Fukamachi](https://github.com/fukamachi/mito), which is an ORM that works well with SQLite.
 
-First I imported the library and exported only whats needed by the user.
+First I imported the library and exported only what’s needed by the user.
 
-```lisp
+```lisp title="src/flashcl.lisp"
 (defpackage :flashcl
   (:use #:cl)
   (:import-from #:caveman2
@@ -483,9 +482,9 @@ First I imported the library and exported only whats needed by the user.
           #:run-app
           #:stop-app))
 ```
-Then I wrote a initialisation function similar to Flask which setup various variable and create a new instance of the caveman webapp.
+Then I wrote an initialisation function similar to Flask’s, which sets various variables and creates a new instance of the Caveman webapp.
 
-```lisp
+```lisp title="src/flashcl.lisp"
 (defun init-flashcl (db-type db-path &optional (template-dir "templates")
                                                (static-dir "static"))
   "Initializes Flashcl environment. Sets DB/Template paths, connects DB."
@@ -505,9 +504,9 @@ Then I wrote a initialisation function similar to Flask which setup various vari
   (setf flashcl-app (make-instance 'caveman2:<app>)))
 ```
 
-To make it easy to define a new database model for the application, hiding the *mito* library, I created a macro that ensure the table gets created correctly. *mito* automatically adds a few fields to the table definition like `id` and `created_at` or `updated_at` so we don't have to worry about them.
+To make it easy to define a new database model for the application, hiding the *mito* library, I created a macro that ensures the table gets created correctly. *mito* automatically adds a few fields to the table definition, like `id` and `created_at` or `updated_at`, so we don't have to worry about them.
 
-```lisp
+```lisp title="src/flashcl.lisp"
 (defmacro defmodel (name slots &rest options)
   "Defines a Mito DAO class and ensures its table exists.
    Example: (flashcl:defmodel comment
@@ -536,7 +535,7 @@ To make it easy to define a new database model for the application, hiding the *
 ```
 Then I added some database helpers to perform a few CRUD actions on the db.
 
-```lisp
+```lisp title="src/flashcl.lisp"
 (defun db-all (class-name)
   "Selects all records for the given model class."
   (select-dao class-name))
@@ -555,13 +554,13 @@ Then I added some database helpers to perform a few CRUD actions on the db.
 ```
 ## Conclusions
 
-To recap, in this tutorial I used the latest libraries in Common Lisp to create a simple guestbook webapp. Then I wrote a simple reusable wrapper to make our code more concise, aiming to challenge the Flask framework in Python. You can find the full source code of the two versions [here](https://github.com/eliascotto/cl-guestbook) and [here](https://github.com/eliascotto/cl-guestbook-v2).
+To recap, in this tutorial I used some of the latest libraries in Common Lisp to create a simple guestbook webapp. Then I wrote a simple reusable wrapper to make our code more concise, aiming to challenge the Flask framework in Python. You can find the full source code of the two versions [here](https://github.com/eliascotto/cl-guestbook) and [here](https://github.com/eliascotto/cl-guestbook-v2).
 
 Ultimately I would like to give my opinion on using Common Lisp to write a web server. 
 Common Lisp shines when dealing with low-level tasks like [small systems programming](https://blog.funcall.org/lisp%20psychoacoustics/2024/05/01/worlds-loudest-lisp-program/) or performing [intensive computation](https://www.grammarly.com/blog/engineering/running-lisp-in-production/) at scale. When these complex systems need to communicate with the outside world, perhaps via an API, writing a server is the correct way and Common Lisp is capable of delivering that.
 
-But despite the fact that the language it's easily adaptable, and comes with performant server libraries (hunchentooth and woo), I would say that there are better alternatives for developing generic modern web apps. Hot-reloading is now a feature present in many web frameworks and Common Lisp is not really shining for being ergonomic nor comes with many built-ins. Clojure in contrary, is a modern Lisp dialect with great web frameworks with nice documentation and tons of stable libraries. I would definetly choose the latter for a fresh web project since with CL I've a feeling I would end up having to write more code for custom features and middlewares.
+But despite the fact that the language is easily adaptable and comes with performant server libraries (Hunchentoot and Woo), I would say that there are better alternatives for developing generic modern web apps. Hot reloading is now a feature present in many web frameworks, and Common Lisp is not really shining for being ergonomic, nor does it come with many built-ins. Clojure, by contrast, is a modern Lisp dialect with great web frameworks, nice documentation and tons of stable libraries. I would definitely choose the latter for a fresh web project, since with CL I get the feeling that I would end up having to write more code than I should to add custom features and middlewares.
 
-I would like to give a shout-out to [Alive](https://marketplace.visualstudio.com/items?itemName=rheller.alive) which is the only Common Lisp extension for VSCode that implements the REPL with features similar to what SLIME and SLY bring to Emacs. The extension is still under development and not yet a full replacement for Emacs, especially during debugging, but it has great features and a lot of potential thanks to the VSCode web interface.
+I would like to give a shout-out to [Alive](https://marketplace.visualstudio.com/items?itemName=rheller.alive), which is the only Common Lisp extension for VSCode that implements the REPL with features similar to what SLIME and SLY bring to Emacs. The extension is still under development and not yet a full replacement for Emacs, especially during debugging, but it has great features and a lot of potential to introduce Common Lisp to newcomers, thanks to the VSCode web interface.
 
-Feel free to email me if you have any questions, recommendations, or even complains.
+Feel free to email me if you have any questions, recommendations, or even complaints.

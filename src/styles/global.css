@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-main: theme('colors.amber.400');
+  --color-main: theme('colors.orange.400');
+  --color-darkBackground: #112840;
+  --color-lightBackground: #f5f5f5;
 
   --font-sans:
     InterVariable, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
@@ -15,18 +17,19 @@
 
 @utility article {
   a {
+    @apply text-main;
     text-decoration: none;
   }
 
-  a::after {
-    @apply text-red-600;
+  /* a::after {
+    @apply text-main;
     position: relative;
     content: '\FEFF°';
     margin-left: 0.1em;
     top: -0.1em;
     font-feature-settings: 'caps';
     font-variant-numeric: normal;
-  }
+  } */
 
   @media print {
     a::after {
@@ -37,9 +40,14 @@
 
 @utility post {
   a {
+    @apply text-main;
     font-style: normal;
     text-decoration: underline;
   }
+}
+
+@utility video-container {
+  @apply mb-6;
 }
 
 @utility title-heading {
@@ -48,12 +56,12 @@
 
 @layer base {
   body {
-    @apply 
-      /* dark:bg-[#0e0d1e]  */
-      dark:bg-[#112840] 
-      
-      bg-[#f5f5f5]
-    ;
+    @apply dark:bg-darkBackground bg-lightBackground;
+  }
+
+  /* Prevent outline on videos */
+  :focus-visible {
+    @apply outline-none;
   }
 
   /* ================================
@@ -61,7 +69,7 @@
    * ================================
    */
   p {
-    @apply text-[1.1rem] leading-relaxed;
+    @apply text-[1.1rem] text-gray-200 leading-relaxed tracking-normal antialiased max-w-prose;
     margin: 20px 0;
   }
 
@@ -107,15 +115,18 @@
   }
 
   h2 {
-    @apply text-xl font-semibold;
+    font-size: 1.65rem;
+    line-height: 2rem;
+    @apply font-semibold tracking-tight font-title mt-14 mb-5;
   }
 
   h3 {
-    @apply text-lg font-semibold;
+    @apply text-xl font-semibold;
+    @apply font-medium tracking-tight font-title mt-8 mb-5;
   }
 
   h4 {
-    @apply text-base font-semibold;
+    @apply text-lg font-semibold;
   }
 
   /* ================================
@@ -128,7 +139,7 @@
 
   hr::after {
     content: '⟁';
-    @apply dark:text-red-600 relative -top-[15px] p-4 bg-[#f5f5f5] dark:bg-[#0e0d1e];
+    @apply dark:text-main relative -top-[15px] p-4 bg-lightBackground dark:bg-darkBackground;
   }
 
   /* ================================
@@ -189,6 +200,13 @@
    * ================================
    */
 
+  :not(pre)>code {
+    background: var(--ec-frm-edBg);
+    @apply text-sm;
+    padding: 0.2em 0.4em;
+    border-radius: 0.3em;
+    border: var(--ec-brdWd) solid var(--ec-brdCol);
+  }
 }
 
 @layer utilities {
@@ -207,5 +225,12 @@ we still enforce color-scheme: dark, despite the user preference */
     html {
       color-scheme: ligth;
     }
+  }
+}
+
+@media(hover: hover) {
+  .expressive-code .copy button {
+    width: 1.8rem !important;
+    height: 1.8rem !important;
   }
 }
