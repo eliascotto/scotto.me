@@ -22,7 +22,7 @@ So I put together a short tutorial on how to build a simple web app in Common Li
 
 To follow the tutorial, you need a Common Lisp implementation, like [SBCL](https://www.sbcl.org/), with [Quicklisp](https://www.quicklisp.org/index.html), the dependency manager. I also recommend having a REPL integrated with your IDE, like [SLY](https://github.com/joaotavora/sly) for Emacs or [Alive](https://marketplace.visualstudio.com/items?itemName=rheller.alive) for VSCode.
 
-I’ll use more modern CL libraries that have an interface similar to what you can find in other languages, so it might be a bit easier to follow along.
+I’ll use more modern CL libraries that have an interface similar to other languages, so it might be a bit easier to follow along.
 
 ## The server
 
@@ -126,7 +126,7 @@ Now, inside `src/core.lisp` (I renamed the file from `main` to `core`) I added t
 
 `*server*` contains the server instance and is defined as a variable since we will need to redefine it. `*app*` is the web application wrapped with a layer by *Lack*. `start` and `stop` instantiate the server with some logging, or raise errors if the action is not successful.
 
-*Lack* and *Clack* are the two libraries I used to wrap the web application. [The first one](https://github.com/fukamachi/lack) allows you to define a series of middlewares in the server; for example, I used `:static` to tell the server where to find all the static assets in the project, inside the directory pointed to by `*static-directory*`. Other middlewares are available, like logging, managing sessions or providing authentication features, or you can create your own. [*Clack*](https://github.com/fukamachi/clack) instead is an abstraction layer for the server that provides some parameters to customise it, for example, to quickly swap which server to use between development mode (`hunchentoot`) and production (`woo`).
+*Lack* and *Clack* are the two libraries I used to wrap the web application. [The first one](https://github.com/fukamachi/lack) allows to define a series of middlewares in the server; for example, I used `:static` to tell the server where to find all the static assets in the project, inside the directory pointed to by `*static-directory*`. Other middlewares are available, like logging, managing sessions or providing authentication features. [*Clack*](https://github.com/fukamachi/clack) instead is an abstraction layer for the server that provides some parameters to customise it, for example, to quickly swap which server to use between development mode (`hunchentoot`) and production (`woo`).
 
 ```lisp
 (unless (null *server*)
@@ -303,7 +303,7 @@ The web framework I am using is called *Caveman*, developed by [Eitaro Fukamachi
 
 Our web app needs to render some static templates with data, and to do that there’s a great library called `djula`, which allows us to use most of the same tags and filters that [Django exposes](https://docs.djangoproject.com/en/5.1/ref/templates/builtins/) in its template engine.
 
-I’m not going to include the template source here, but you can have a look at it in the repository, inside the `templates/` folder.
+I’m not going to include the templates source here for space reasons, in the repository they're in the `templates/` folder.
 
 ```lisp title="src/web.lisp"
 (djula:add-template-directory *template-directory*)
@@ -440,7 +440,7 @@ Where did `start` go? It is now part of the *flashcl* framework, so it’s impor
 ```
 Then I slightly modified the template delete button to point to the correct route with the `id` parameter.
 
-This is the code for *flashcl*, and as you can see it is quite reusable for other web projects, since you can define new database models and routes quickly, with support for static files and templates. I used *mito*, another library from [Eitaro Fukamachi](https://github.com/fukamachi/mito), which is an ORM that works well with SQLite.
+I'm going to show just some the new code that I added to write *flashcl*. I mostly merged the old code in a new file trying to make it as reusable as I could for other web projects, since it's possible to define new database models and routes quickly, with support for static files and templates. I used *mito*, another library from [Eitaro Fukamachi](https://github.com/fukamachi/mito), which is an ORM that works well with SQLite.
 
 First I imported the library and exported only what’s needed by the user.
 
@@ -513,11 +513,11 @@ To make it easy to define a new database model for the application, hiding the *
               ((name :col-type (:varchar 20))
                (comment :col-type :text)))"
   (let ((class-options options)
-        (table-name (intern (format nil "~aS" (string-downcase name)) *package*))) ; Basic pluralization
+        (table-name (string-downcase name))) ; Use singular name by default
     
     ;; Add table name inference if not present
     (unless (find :table-name options :key #'car)
-      (push `(:table-name ,(string-downcase table-name)) class-options))
+      (push `(:table-name ,table-name) class-options))
 
     `(progn
       (defclass ,name ()
@@ -554,7 +554,7 @@ Then I added some database helpers to perform a few CRUD actions on the db.
 ```
 ## Conclusions
 
-To recap, in this tutorial I used some of the latest libraries in Common Lisp to create a simple guestbook webapp. Then I wrote a simple reusable wrapper to make our code more concise, aiming to challenge the Flask framework in Python. You can find the full source code of the two versions [here](https://github.com/eliascotto/cl-guestbook) and [here](https://github.com/eliascotto/cl-guestbook-v2).
+To recap, in this tutorial I used some of the latest libraries in Common Lisp to create a simple guestbook webapp. Then I wrote a simple reusable wrapper to make our code more concise, aiming to challenge the Flask framework in Python. The full source code of the two versions it's [here](https://github.com/eliascotto/cl-guestbook) and [here](https://github.com/eliascotto/cl-guestbook-v2).
 
 Ultimately I would like to give my opinion on using Common Lisp to write a web server. 
 Common Lisp shines when dealing with low-level tasks like [small systems programming](https://blog.funcall.org/lisp%20psychoacoustics/2024/05/01/worlds-loudest-lisp-program/) or performing [intensive computation](https://www.grammarly.com/blog/engineering/running-lisp-in-production/) at scale. When these complex systems need to communicate with the outside world, perhaps via an API, writing a server is the correct way and Common Lisp is capable of delivering that.
