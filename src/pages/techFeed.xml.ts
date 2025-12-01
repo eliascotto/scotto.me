@@ -1,19 +1,19 @@
 import rss from '@astrojs/rss';
 import { marked } from 'marked';
 import { meta } from '../data/meta';
-import { getAllPosts,  getPostUrl } from '../lib/content';
+import { getTechPosts, getPostUrl } from '../lib/content';
 import type { Context } from 'node:vm';
 
 export async function GET(context: Context) {
-  const posts = await getAllPosts();
-  const latest = posts.slice(0, 5);
+  const techPosts = await getTechPosts();
+  const latestTechPosts = techPosts.slice(0, 10);
 
   return rss({
-    title: 'Elia Scotto',
-    description: 'Essays, reviews, and tech articles',
+    title: 'Elia Scotto - Tech Feed',
+    description: 'Latest programming articles',
     site: context.site ?? meta.url,
     items: await Promise.all(
-      latest.map(async (post) => ({
+      latestTechPosts.map(async (post) => ({
         title: post.data.title,
         description: post.data.description,
         link: getPostUrl(post),
