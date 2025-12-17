@@ -5,22 +5,27 @@ import HeaderSlug from '../components/HeaderSlug.astro';
 ---
 <BaseLayout title="Quotes" currentPath="/quotes/">
   <section>
+    <div class="mt-0">
+      <h2 class="mt-0 title-heading text-gray-400 font-light text-base">Quotes</h2>
+    </div>
 
-    {quotes.map((q) => (
-      <div>
-        <h4 class="mt-9 mb-2">{q.author}</h4>
-        {Array.isArray(q.quotes)
-          ? q.quotes.map((quote) => (
-              <blockquote class="border-l dark:border-gray-600 border-gray-300 rounded-none ml-6 pl-4 py-0 my-2 text-[1.02rem] leading-relaxed mt-5 first:mt-0">
-                {quote}
-              </blockquote>
-            ))
-          : (
-              <blockquote class="border-l dark:border-gray-600 border-gray-300 rounded-none ml-6 pl-4 py-0 mt-4 text-[1.02rem] leading-relaxed">
-                {q.quote}
-              </blockquote>
-            )}
-      </div>
-    ))}
+    <div>
+      {quotes.map((q) => (
+        <div class="mt-9 mb-2 first:mt-0">
+          <h4 class="">{q.author}</h4>
+          {Array.isArray(q.quotes)
+            ? q.quotes.map((quote) => (
+                <blockquote class="border-l dark:border-gray-600 border-gray-300 rounded-none ml-6 pl-4 py-0 my-2 text-[1.02rem] leading-relaxed mt-5 first:mt-0">
+                  {quote}
+                </blockquote>
+              ))
+            : (
+                <blockquote class="border-l dark:border-gray-600 border-gray-300 rounded-none ml-6 pl-4 py-0 mt-4 text-[1.02rem] leading-relaxed">
+                  {q.quote}
+                </blockquote>
+              )}
+        </div>
+      ))}
+    </div>
   </section>
 </BaseLayout>

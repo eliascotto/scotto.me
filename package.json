@@ -1,13 +1,17 @@
 {
-  "name": "scotto.me-astro",
+  "name": "scotto.me",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "clean": "rm -rf dist",
     "astro": "astro",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "new:post": "node scripts/new-content.js post",
+    "new:article": "node scripts/new-content.js article",
+    "new:page": "node scripts/new-content.js page"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.13",
@@ -16,6 +20,7 @@
     "astro-expressive-code": "^0.41.3",
     "luxon": "^3.7.2",
     "marked": "^17.0.0",
+    "rehype-external-links": "^3.0.0",
     "tailwindcss": "^4.1.17"
   },
   "devDependencies": {

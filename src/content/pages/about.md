@@ -14,6 +14,10 @@ eleventyExcludeFromCollections: true
   <figcaption>With my dog Opal</figcaption>
 </div>
 
-I have a passion for programming computers, as well as reading books. In the [blog](/blog) section you can find some tech notes, some reviews, and essays on various topics. 
+I'm a developer specialized in web technologies. In the past I've worked for [Sysdig](https://www.sysdig.com/), CloudAcademy (now [QA](https://www.qa.com/)), [Audience Republic](https://www.audiencerepublic.com/).
 
-I'm not that active on social networks bcause I try to do more interesting things with my free time. You might find me on [Bsky](https://bsky.app/profile/scotto.me) sometimes. I release the code I write for hobby on [Github](https://github.com/eliascotto), and most of it with an open license, or without any license at all.
+I've been reading more seriously lately and I decided to put down some short reviews of not-so-common books that I enjoyed. I'm also writing here to improve my communication skills and to condense ideas I've explored recently. Software and prose are more connected than most people think — we use languages and write in symbols to communicate ideas, we rely on common patterns for good structure in both. What differs between code and books is the reader; *humans* or *machines*.
+
+I don't usually like the influencer/followers relationship that the internet has spawned in every field of our society, so I try to avoid replicating it here.
+
+You might find me on [Bsky](https://bsky.app/profile/scotto.me). Some of my code is on [Github](https://github.com/eliascotto).

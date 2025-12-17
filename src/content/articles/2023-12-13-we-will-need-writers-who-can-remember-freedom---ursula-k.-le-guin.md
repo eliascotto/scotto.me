@@ -8,7 +8,7 @@ tags:
  - freedom
 ---
 
-<div class="video-container">
+<div class="video-container flex justify-center mb-10">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/Et9Nf-rsALk?si=aoV79erEbxLYtAJA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 

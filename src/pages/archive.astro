@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostsList from '../components/PostsList.astro';
+import { getAllPosts } from '../lib/content';
+
+const posts = await getAllPosts();
+---
+<BaseLayout title="Archive" currentPath="/archive/">
+  <section>
+    <div class="mt-0">
+      <h2 class="mt-0 title-heading text-gray-400 font-light text-base">Archive</h2>
+    </div>
+    <div class="flex flex-col">
+      {posts.map((post) => (
+        <PostsList post={post} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

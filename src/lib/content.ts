@@ -7,7 +7,7 @@ const publishedFilter = (entry: BlogEntry | TranslationEntry) => !entry.data.dra
 
 const blogCollections = ['articles', 'posts'] as const;
 
-type BlogCollection = (typeof blogCollections)[number];
+export type BlogCollection = (typeof blogCollections)[number];
 
 // ============================================================================
 // Posts
