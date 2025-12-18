@@ -6,13 +6,19 @@ interface Props {
   description?: string;
   isArticle?: boolean;
   pathname?: string;
+  openGraphImage?: string;
 }
 
-const { title, description, isArticle = false, pathname = '/' } = Astro.props as Props;
+const { title, description, isArticle = false, pathname = '/', openGraphImage } = Astro.props as Props;
+
 const computedTitle = title ?? meta.siteName;
 const computedDescription = description ?? meta.description;
+const computedImage = `${meta.url}${openGraphImage ?? meta.openGraphImage}`;
+
 const canonical = new URL(pathname, meta.url).toString();
+
 ---
+<title>{computedTitle}</title>
 <meta name="description" content={computedDescription} />
 <meta name="author" content={meta.author} />
 
@@ -21,14 +27,22 @@ const canonical = new URL(pathname, meta.url).toString();
 <meta property="og:type" content={isArticle ? 'article' : 'website'} />
 <meta property="og:title" content={computedTitle} />
 <meta property="og:description" content={computedDescription} />
-<meta property="og:image" content={`${meta.url}${meta.imageXS}`} />
+<meta property="og:image:alt" content="scotto.me"/>
+<meta property="og:image:type" content="image/png"/>
+<meta property="og:image" content={computedImage} />
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
 
 <!-- Twitter -->
 <meta property="twitter:domain" content="scotto.me">
 <meta property="twitter:url" content="https://scotto.me">
 <meta name="twitter:title" content={computedTitle} />
 <meta name="twitter:description" content={computedDescription} />
-<meta name="twitter:image" content={`${meta.url}${meta.imageXS}`} />
+<meta name="twitter:image:alt" content="scotto.me"/>
+<meta name="twitter:image:type" content="image/png"/>
+<meta name="twitter:image" content={computedImage} />
+<meta name="twitter:image:width" content="1200"/>
+<meta name="twitter:image:height" content="630"/>
 
 <!-- Favicons -->
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />

@@ -7,6 +7,7 @@ const baseSchema = z.object({
   language: z.string().optional(),
   tags: z.array(z.string()).default([]),
   draft: z.boolean().optional(),
+  openGraphImage: z.string().optional(),
 });
 
 const articleCollection = defineCollection({

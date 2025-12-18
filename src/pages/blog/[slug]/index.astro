@@ -22,7 +22,13 @@ const translation = await getTranslationBySlug(slug);
 const isArticle = post.collection === 'articles';
 const articleClass = isArticle ? 'article' : 'post';
 ---
-<BaseLayout title={post.data.title} description={post.data.description} isArticle currentPath={`/blog/${slug}/`}>
+<BaseLayout 
+  title={post.data.title} 
+  description={post.data.description} 
+  isArticle 
+  currentPath={`/blog/${slug}/`}
+  openGraphImage={post.data.openGraphImage}
+>
   <ArticleContent
     title={post.data.title}
     date={post.data.date}
