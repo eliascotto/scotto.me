@@ -28,7 +28,7 @@ if (!translation) {
 
 const { Content } = await translation.render();
 const originalPost = await getPostBySlug(slug);
-const articleClass = translation.data.tags?.includes('articles') ? 'post article' : 'post';
+const articleClass = 'article';
 ---
 <BaseLayout
   title={translation.data.title}

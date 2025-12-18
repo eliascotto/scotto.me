@@ -2,6 +2,7 @@
 title: Liture, How I Manage My Reading Notes
 description: Liture, How I Manage My Reading Notes
 date: 2025-12-17
+draft: true
 tags:
  - articles
 ---
