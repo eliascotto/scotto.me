@@ -9,7 +9,7 @@ import expressiveCode, { ExpressiveCodeTheme } from 'astro-expressive-code';
 import rehypeExternalLinks from 'rehype-external-links';
 import { rehypeFigureImages } from './src/lib/rehype-figure-images.ts';
 
-const jsoncString = fs.readFileSync(new URL(`./public/assets/idx-xcode-improved.jsonc`, import.meta.url), 'utf-8')
+const jsoncString = fs.readFileSync(new URL(`./public/assets/themes/idx-xcode-improved.jsonc`, import.meta.url), 'utf-8')
 const idxXcodeImprovedTheme = ExpressiveCodeTheme.fromJSONString(jsoncString)
 
 export default defineConfig({

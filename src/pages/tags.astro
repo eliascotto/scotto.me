@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getTagCounts } from '../lib/content';
 import { slugifyTag } from '../lib/slug';
-import HeaderSlug from '../components/HeaderSlug.astro';
 
 const tagCounts = await getTagCounts();
 const tags = Array.from(tagCounts.entries()).sort(([a], [b]) => a.localeCompare(b));

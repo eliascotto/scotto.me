@@ -1,7 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeaderSlug from '../components/HeaderSlug.astro';
 
 const entry = await getEntry('pages', 'about');
 
@@ -13,7 +12,6 @@ const { Content } = await entry.render();
 ---
 <BaseLayout title={entry.data.title} currentPath="/about/">
   <section class="generic">
-    <HeaderSlug />
 
     <div class="normal-text">
       <Content />

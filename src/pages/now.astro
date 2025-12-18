@@ -1,11 +1,10 @@
 ---
-import { getEntryBySlug } from 'astro:content';
+import { getEntry } from 'astro:content';
 import { marked } from 'marked';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { formatDefaultDate } from '../lib/dates';
-import HeaderSlug from '../components/HeaderSlug.astro';
 
-const entry = await getEntryBySlug('pages', 'now');
+const entry = await getEntry('pages', 'now');
 
 if (!entry) {
   throw new Error('Now page content missing');
@@ -17,7 +16,6 @@ const html = await marked.parse(markdown);
 ---
 <BaseLayout title={entry.data.title} currentPath="/now/">
   <section>
-    <HeaderSlug />
 
     <div class="leading-relaxed post" set:html={html} />
   </section>

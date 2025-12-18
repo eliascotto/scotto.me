@@ -23,22 +23,4 @@ const translationHref = translationUrl ?? (isEnglish ? `/blog/${post.slug}/ita/`
 
     <div class="text-xs text-gray-400">{formatHumanDate(post.data.date)}</div>
   </div>
-
-  <!-- <div class="flex flex-row items-center justify-between mt-1.5 mb-0.5">
-    {post.data.description && (
-      <span class="text-xs text-gray-600 dark:text-gray-400 leading-none">
-        {post.data.description}
-      </span>
-    )}
-
-    {post.data.language && translationUrl && (
-      <div class="text-neutral-500 dark:text-gray-300">
-        <p class="m-0" style="line-height: 0">
-          <a title={translationTitle} class="text-xs" href={translationHref}>
-            {translationLabel}
-          </a>
-        </p>
-      </div>
-    )}
-  </div> -->
 </div>

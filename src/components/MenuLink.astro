@@ -8,7 +8,7 @@ const { href, isActive: isCurrentlyActive } = Astro.props;
 ---
 
 <div class="relative w-fit">
-  <a href={href} class=`w-fit ${isCurrentlyActive ? 'text-main' : undefined}`>
+  <a href={href} class=`w-fit ${isCurrentlyActive ? 'text-main' : ''}`>
     <slot />
   </a>
 </div>
