@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-main: theme('colors.amber.400');
+  --color-main: theme('colors.blue.600');
+  --color-main-dark: theme('colors.amber.400');
   --color-darkBackground: #112840;
   --color-lightBackground: #f5f5f5;
 
@@ -17,7 +18,7 @@
 
 @utility article {
   a {
-    @apply text-main;
+    @apply text-main dark:text-main-dark;
     text-decoration: none;
   }
 
@@ -39,14 +40,14 @@
 }
 @utility generic {
   a {
-    @apply text-main;
+    @apply text-main dark:text-main-dark;
     text-decoration: none;
   }
 }
 
 @utility post {
   a {
-    @apply text-main;
+    @apply text-main dark:text-main-dark;
     font-style: normal;
     text-decoration: underline;
   }
@@ -57,7 +58,7 @@
 }
 
 @utility title-heading {
-  @apply leading-snug mb-4 text-white;
+  @apply leading-snug mb-4 dark:text-white text-gray-900;
 }
 
 @layer base {
@@ -75,7 +76,7 @@
    * ================================
    */
   p {
-    @apply text-[1.1rem] text-gray-200 leading-relaxed tracking-normal antialiased max-w-prose;
+    @apply text-[1.1rem] dark:text-gray-200 text-gray-900 leading-relaxed tracking-normal antialiased max-w-prose;
     margin: 20px 0;
   }
 
@@ -96,7 +97,7 @@
   }
 
   a:hover {
-    @apply text-red-600 dark:text-main;
+    @apply text-main dark:text-main-dark;
   }
 
   a:visited,
@@ -233,7 +234,7 @@
       @apply list-decimal list-inside;
 
       p {
-        @apply inline text-[1rem] text-gray-200 leading-snug tracking-normal antialiased;
+        @apply inline text-[1rem] dark:text-gray-200 text-gray-900 leading-snug tracking-normal antialiased;
       }
     }
   }
