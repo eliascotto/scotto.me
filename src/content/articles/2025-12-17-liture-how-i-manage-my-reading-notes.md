@@ -1,6 +1,6 @@
 ---
 title: Liture, How I Manage My Reading Notes
-description: Liture, How I Manage My Reading Notes
+description: On preserving what we write in the margins of ebooks
 date: 2025-12-17
 tags:
  - software

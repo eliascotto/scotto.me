@@ -11,7 +11,7 @@ interface Props {
 
 const { title, description, isArticle = false, pathname = '/', openGraphImage } = Astro.props as Props;
 
-const computedTitle = title ?? meta.siteName;
+const computedTitle = !!title ? `${title} | ${meta.siteName}` : meta.siteName;
 const computedDescription = description ?? meta.description;
 const computedImage = `${meta.url}${openGraphImage ?? meta.openGraphImage}`;
 
