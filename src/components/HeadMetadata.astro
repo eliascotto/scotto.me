@@ -11,7 +11,9 @@ interface Props {
 
 const { title, description, isArticle = false, pathname = '/', openGraphImage } = Astro.props as Props;
 
-const computedTitle = !!title ? `${title} | ${meta.siteName}` : meta.siteName;
+
+const computedTitle = title ?? meta.siteName;
+const computedOpenGraphTitle = !!title ? `${title} | ${meta.siteName}` : meta.siteName;
 const computedDescription = description ?? meta.description;
 const computedImage = `${meta.url}${openGraphImage ?? meta.openGraphImage}`;
 
@@ -25,7 +27,7 @@ const canonical = new URL(pathname, meta.url).toString();
 <!-- Open Graph -->
 <meta property="og:url" content={canonical} />
 <meta property="og:type" content={isArticle ? 'article' : 'website'} />
-<meta property="og:title" content={computedTitle} />
+<meta property="og:title" content={computedOpenGraphTitle} />
 <meta property="og:description" content={computedDescription} />
 <meta property="og:image:alt" content="scotto.me"/>
 <meta property="og:image:type" content="image/png"/>
@@ -36,7 +38,7 @@ const canonical = new URL(pathname, meta.url).toString();
 <!-- Twitter -->
 <meta property="twitter:domain" content="scotto.me">
 <meta property="twitter:url" content="https://scotto.me">
-<meta name="twitter:title" content={computedTitle} />
+<meta name="twitter:title" content={computedOpenGraphTitle} />
 <meta name="twitter:description" content={computedDescription} />
 <meta name="twitter:image:alt" content="scotto.me"/>
 <meta name="twitter:image:type" content="image/png"/>
