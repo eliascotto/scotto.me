@@ -16,11 +16,9 @@ eleventyExcludeFromCollections: true
 
 Developer, reader, occasional writer. Opal's dad.
 
-Software and prose are more connected than most people think — both use languages and symbols to communicate ideas, both rely on patterns for structure. What differs is the reader: humans or machines.
+I'm currently building better software for readers like myself. I write about programming languages, software, and sometimes review uncommon books or movies.
 
-I'm currently building better software for human readers. I write about programming languages, software, and sometimes review uncommon books or movies.
-
-Based in Australia. I've worked with startups across the US and Europe.
+Based in Australia, I've worked with startups across the US and Europe.
 
 Say hello @ scotto.me
 
