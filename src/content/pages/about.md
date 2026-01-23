@@ -14,12 +14,10 @@ eleventyExcludeFromCollections: true
   <figcaption>With my dog Opal</figcaption>
 </div>
 
-Developer, reader, occasional writer. Opal's dad.
+Hi, I'm Elia (pronounced `/eˈli.a/`), an Italian software engineer living in Australia.
 
-I'm currently building better software for readers like myself. I write about programming languages, software, and sometimes review uncommon books or movies.
+I write about programming languages, software, and sometimes I like to review books, movies, games.
 
-Based in Australia, I've worked with startups across the US and Europe.
+I'm currently interested in building better software for readers like myself. 
 
-Say hello @ scotto.me
-
-You can also find me on [Bsky](https://bsky.app/profile/scotto.me) and [Github](https://github.com/eliascotto).
+You can find me at hello@scotto.me or on [Bsky](https://bsky.app/profile/scotto.me) and [Github](https://github.com/eliascotto).
