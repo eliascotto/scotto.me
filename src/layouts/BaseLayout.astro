@@ -37,7 +37,7 @@ const pathname = currentPath ?? Astro.url.pathname;
     <link rel="preload" href="/assets/fonts/InterVariable-Italic.woff2?v=4.1" as="font" type="font/woff2" crossorigin="anonymous" />
   </head>
   <body>
-    <div class="p-6 pt-16 flex flex-col">
+    <div class="p-6 pt-12 md:pt-16 flex flex-col">
       <div class="m-0 md:mx-auto w-full max-w-5xl flex md:flex-row flex-col justify-center gap-8">
         <Menu currentPath={pathname} />
         <main role="main" class="max-w-2xl flex flex-col min-w-0 flex-1">

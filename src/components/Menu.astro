@@ -19,10 +19,11 @@ const isActive = (path: string) => {
 ---
 <nav class="flex flex-col items-center md:items-start xl:sticky xl:top-10 min-w-[100px] pr-8 h-fit">
   <div class="mb-4">
+    <img src="/assets/img/profile2.png" alt="Elia Scotto" class="md:hidden w-12 h-12 object-cover rounded-lg mb-2" />
     <h2 class="text-lg title m-0 font-semibold">Elia Scotto</h2>
   </div>
 
-  <div class="flex flex-row md:flex-col gap-3 md:gap-1 text-base md:text-sm font-normal dark:text-gray-400 font-light">
+  <div class="flex flex-wrap flex-row md:flex-col gap-3 md:gap-1 text-base md:text-sm font-normal dark:text-gray-400 font-light">
     <MenuLink href="/" isActive={isActive('/')}>Home</MenuLink>
     <MenuLink href="/about/" isActive={isActive('/about/')}>About</MenuLink>
     <MenuLink href="/blog/" isActive={isActive('/blog/')}>Blog</MenuLink>
