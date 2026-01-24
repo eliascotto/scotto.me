@@ -35,7 +35,7 @@ const articleClass = 'article';
   description={translation.data.description}
   isArticle
   currentPath={`/blog/${slug}/ita/`}
-  openGraphImage={translation.data.openGraphImage}
+  openGraphImage={translation.data.openGraphImage ?? `/og/${slug}.png`}
 >
   <ArticleContent
     title={translation.data.title}
