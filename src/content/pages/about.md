@@ -14,9 +14,11 @@ eleventyExcludeFromCollections: true
   <figcaption>With my dog Opal</figcaption>
 </div>
 
-Hi, I'm Elia (pronounced `/eˈli.a/`), an Italian software engineer living in Australia.
+Hi, I'm Elia (pronounced `/eˈli.a/`), a product engineer living in Australia.
 
-I write about programming languages, software, and sometimes I like to review books, movies, games.
+I've spent a decade helping B2B startups scaling their product. I care about how things look and I have experience in crafting complex UIs. 
+
+I write about programming languages, personal software projects, and some review of books and movies.
 
 I'm currently interested in building better software for readers like myself. 
 

@@ -14,6 +14,8 @@
   --font-title:
     Sora, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --p-margin-y: 20px;
 }
 
 @utility article {
@@ -77,7 +79,7 @@
    */
   p {
     @apply text-[1.1rem] dark:text-gray-200 text-gray-900 leading-relaxed tracking-normal antialiased max-w-prose;
-    margin: 20px 0;
+    margin: var(--p-margin-y) 0;
   }
 
   p:first-of-type {
@@ -128,12 +130,12 @@
   h2 {
     font-size: 1.65rem;
     line-height: 2rem;
-    @apply font-semibold tracking-tight font-title mt-14 mb-5;
+    @apply font-semibold tracking-normal font-title mt-14 mb-5;
   }
 
   h3 {
     @apply text-xl font-semibold;
-    @apply font-medium tracking-tight font-title mt-8 mb-5;
+    @apply font-medium tracking-normal font-title mt-8 mb-5;
   }
 
   h4 {
@@ -199,7 +201,7 @@
    */
   blockquote {
     @apply text-gray-500 dark:text-gray-300 italic py-2 pl-10 pr-0;
-    margin-top: 20px;
+    margin-top: var(--p-margin-y);
 
     p {
       white-space: break-spaces;
@@ -240,9 +242,15 @@
   }
 }
 
+@layer components {
+  .expressive-code {
+    margin: var(--p-margin-y) 0;
+  }
+}
+
 @layer utilities {
 
-  /* If the user prefers dark mode, 
+  /* If the user prefers dark mode,
 we of course apply color-scheme: dark, as usual */
   @media (prefers-color-scheme: dark) {
     html {
@@ -250,7 +258,7 @@ we of course apply color-scheme: dark, as usual */
     }
   }
 
-  /* If the user prefers light mode, 
+  /* If the user prefers light mode,
 we still enforce color-scheme: dark, despite the user preference */
   @media (prefers-color-scheme: light) {
     html {
