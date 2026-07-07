@@ -14,11 +14,11 @@ eleventyExcludeFromCollections: true
 
 Hi, I'm Elia (pronounced `/eˈli.a/`), a **software engineer** living in Hobart, Australia.
 
-I've been helping B2B startups scale their web applications since 2014. I have experience with software that requires complex UIs, and thanks to that I've grown a sense for good design. Today I collaborate full-stack with early-stage companies, making products that are easy to use and not ugly.
+I've been helping B2B startups scale their web applications since 2014. I have experience with software that requires complex UIs, and thanks to that I've grown a sense for good design. Today I work full-stack, making products that are easy to use and not ugly.
 
 ### Now
 
-Currently available for contract or fractional work, ideally with an early-stage startup. Open to remote roles across Australia or worldwide for the right opportunity.
+Currently available for contract or fractional work, ideally with early-stage startups or bootstrappers. Open to remote roles across Australia or worldwide for the right opportunity.
 
 If your team needs help shipping, or you just want to connect, **drop me an email** at <span id="contact"><span class="email-obf">em.<span class="email-decoy">PLZNO</span>ottocs@<span class="email-decoy">SPAM</span>olleh</span></span> .
 
@@ -43,12 +43,12 @@ If your team needs help shipping, or you just want to connect, **drop me an emai
 
 ### Career
 
-Recently I've helped [VerifiMe](https://www.verifime.com/) build their identity verification platform for businesses. I also worked on the messaging system and analytics at [Audience Republic](https://www.audiencerepublic.com/), a marketing platform based in Sydney. Before that I helped grow the cloud training platform at CloudAcademy (now [QA](https://www.qa.com/)) in Switzerland, where I had the opportunity to learn basic data science and machine learning. During university I was an early employee at [Sysdig](https://www.sysdig.com/). With them I flew to Silicon Valley where I worked on the UI library for the core product and open-source UIs for the monitoring tools. As a freelancer I've collaborated with projects in the fields of video streaming and logistics.
+Recently I've helped [VerifiMe](https://www.verifime.com/) build their identity verification platform for businesses. I also worked on the messaging system and analytics at [Audience Republic](https://www.audiencerepublic.com/), a marketing platform based in Sydney. Before that I helped grow the cloud training platform at CloudAcademy (now [QA](https://www.qa.com/)) in Switzerland, where I had the opportunity to learn basic data science and machine learning. During university I was an early employee at [Sysdig](https://www.sysdig.com/). Thanks to them I flew to Silicon Valley where I worked on the UI library for the core product and a couple of open-source UIs for the monitoring tools. As a freelancer I've collaborated with projects in the fields of video streaming and logistics.
 
 ### More?
 
 In my free time, I enjoy exploring nature, reading books, doing outdoor sports, and eating good food.
 
-You can find me on [BlueSky](https://bsky.app/profile/scotto.me) and [GitHub](https://github.com/eliascotto). Don't forget to subscribe to this blog using [RSS](/feed.xml).
+You can find me on [BlueSky](https://bsky.app/profile/scotto.me) and [GitHub](https://github.com/eliascotto). Don't forget to subscribe to this website using [RSS](/feed.xml).
 
 I have a [now](/now/) page.

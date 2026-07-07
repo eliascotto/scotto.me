@@ -6,6 +6,7 @@ tags:
  - posts
  - common-lisp
  - clojure
+draft: true
 ---
 
 Most programming languages come in a single dialect. You just have to learn the language once, and the toolchains will be compatible with it. Your C/C++ code can be compiled with GCC and Clang, Javascript runs the same in Firefox and Chrome, Java runs on OpenJDK or GraalVM. Lisp is not like that.
