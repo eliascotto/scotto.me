@@ -10,7 +10,7 @@ tags:
 Useful software often comes out of frustration. When a programmer finds themselves wondering about a tool or a library that doesn’t exist yet, they may decide to write it. At least, they know it would be useful for one user, themself, not to mention the fun of coding. In my case, I needed an easy way to navigate my ebook notes, and all I could find were subscription based services that didn’t fit my casual use. This is how [**Liture**](https://liture.co/) started.
 
 > “Readers eat books. Film eats viewers.”
-> — *The Wave in the Mind*, Ursula K. Le Guin
+> — **The Wave in the Mind, Ursula K. Le Guin**
 
 One of the advantages of physical books is that we can write on the margins. That text filling the white space that the page offers has a name, marginalia, and it’s the old analog way to make that book copy feel ours. By writing on it we can enrich the text with our thoughts, and also highlight our favourite passages as well as the most crucial one to help us revise our reading later on. I tend to use a pencil, a ruler, and some coloured tags attached in the margin for quickly jumping to the best parts in the future. 
 
@@ -33,7 +33,7 @@ Annotations on ebooks should mimic those on physical books; they have to be easi
 Kobo, Kindle, Apple Books, none of them facilitates exporting highlights and notes outside of their own platform, no common format exists for that. That’s where [**Liture**](https://liture.co/) comes helpful. It’s a desktop app to import and manage notes and highlights from the main three book platforms. The user can search and edit content, save the favourite items, and also manually add new authors, books, and notes. No cloud or subscriptions, free for all platforms. I’m using it to keep importing new highlights every time I sync my Kobo on my mac, and the content is automatically stored in a SQLite file that I regularly backup.
 
 > “There must be something in books, something we can't imagine, to make a woman stay in a burning house; there must be something there. You don't stay for nothing.”
-> — *Fahrenheit 451*, Ray Bradbury
+> — **Fahrenheit 451, Ray Bradbury**
 
 I think there’s a lot of potential for great software for readers, and still a lot to do. Big tech companies disregard reading and prefer to focus on more lucrative content, so readers are usually left with old platforms, not frequently updated, missing modern features, and often with incompatible formats. But it's not all lost. Some groups of passionate readers are awakening and trying to fix the situation building new platforms and apps. I would like to do my part releasing [Liture](https://github.com/eliascotto/liture-quotes). Enjoy and make good use of it!
 
