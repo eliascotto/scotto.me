@@ -16,6 +16,9 @@ const html = await marked.parse(markdown);
 ---
 <BaseLayout title={entry.data.title} currentPath="/now/">
   <section>
+    <div class="mt-0">
+        <h2 class="mt-0 title-heading text-gray-400 font-light text-base">Now</h2>
+    </div>
 
     <div class="leading-relaxed post" set:html={html} />
   </section>

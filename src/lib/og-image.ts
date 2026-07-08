@@ -1,5 +1,5 @@
 import satori from 'satori';
-import sharp from 'sharp';
+import { Resvg } from '@resvg/resvg-js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { loadFonts } from './fonts';
@@ -177,9 +177,6 @@ export async function generateOGImage(options: OGImageOptions): Promise<Buffer> 
     }
   );
 
-  const png = await sharp(Buffer.from(svg))
-    .png()
-    .toBuffer();
-
-  return png;
+  const resvg = new Resvg(Buffer.from(svg));
+  return resvg.render().asPng();
 }
