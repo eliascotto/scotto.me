@@ -3,6 +3,7 @@ import Menu from "../components/Menu.astro";
 import Footer from "../components/Footer.astro";
 import HeadMetadata from "../components/HeadMetadata.astro";
 import StatsCounter from "../components/StatsCounter.astro";
+import StructuredData from "../components/StructuredData.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -11,6 +12,9 @@ interface Props {
     isArticle?: boolean;
     currentPath?: string;
     openGraphImage?: string;
+    lang?: string;
+    alternateLinks?: { hreflang: string; pathname: string }[];
+    structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
@@ -19,12 +23,15 @@ const {
     isArticle = false,
     currentPath,
     openGraphImage,
+    lang = "en-US",
+    alternateLinks,
+    structuredData,
 } = Astro.props as Props;
 const pathname = currentPath ?? Astro.url.pathname;
 ---
 
 <!doctype html>
-<html lang="en-US">
+<html lang={lang}>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,7 +43,11 @@ const pathname = currentPath ?? Astro.url.pathname;
             isArticle={isArticle}
             pathname={pathname}
             openGraphImage={openGraphImage}
+            alternateLinks={alternateLinks}
         />
+
+        <!-- Structured Data -->
+        {structuredData && <StructuredData data={structuredData} />}
 
         <!-- Sitemap -->
         <link rel="sitemap" href="/sitemap-index.xml" />

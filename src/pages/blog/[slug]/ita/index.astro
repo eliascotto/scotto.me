@@ -1,51 +1,79 @@
 ---
-import BaseLayout from '../../../../layouts/BaseLayout.astro';
-import ArticleContent from '../../../../components/ArticleContent.astro';
-import { getAllPosts, getPostBySlug, getTranslationBySlug } from '../../../../lib/content';
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import ArticleContent from "../../../../components/ArticleContent.astro";
+import {
+    getAllPosts,
+    getPostBySlug,
+    getTranslationBySlug,
+} from "../../../../lib/content";
+import { getBlogPostingSchema } from "../../../../lib/structuredData";
 
 export async function getStaticPaths() {
-  const posts = await getAllPosts();
-  const translations = await Promise.all(
-    posts.map(async (post) => {
-      const translation = await getTranslationBySlug(post.slug);
-      return translation ? post.slug : null;
-    })
-  );
+    const posts = await getAllPosts();
+    const translations = await Promise.all(
+        posts.map(async (post) => {
+            const translation = await getTranslationBySlug(post.slug);
+            return translation ? post.slug : null;
+        }),
+    );
 
-  return translations
-    .filter((slug): slug is string => Boolean(slug))
-    .map((slug) => ({
-      params: { slug },
-    }));
+    return translations
+        .filter((slug): slug is string => Boolean(slug))
+        .map((slug) => ({
+            params: { slug },
+        }));
 }
 
-const slug = Astro.params.slug ?? '';
+const slug = Astro.params.slug ?? "";
 const translation = await getTranslationBySlug(slug);
 
 if (!translation) {
-  throw new Response(null, { status: 404 });
+    throw new Response(null, { status: 404 });
 }
 
 const { Content } = await translation.render();
 const originalPost = await getPostBySlug(slug);
-const articleClass = 'article';
+const articleClass = "article";
+
+const pathname = `/blog/${slug}/ita/`;
+const structuredData = getBlogPostingSchema({
+    title: translation.data.title,
+    description: translation.data.description,
+    date: translation.data.date,
+    pathname,
+    image: translation.data.openGraphImage ?? `/og/${slug}.png`,
+    inLanguage: "it",
+});
+const alternateLinks = originalPost
+    ? [
+          { hreflang: "it", pathname },
+          { hreflang: "en", pathname: `/blog/${slug}/` },
+          { hreflang: "x-default", pathname: `/blog/${slug}/` },
+      ]
+    : undefined;
 ---
+
 <BaseLayout
-  title={translation.data.title}
-  description={translation.data.description}
-  isArticle
-  currentPath={`/blog/${slug}/ita/`}
-  openGraphImage={translation.data.openGraphImage ?? `/og/${slug}.png`}
->
-  <ArticleContent
     title={translation.data.title}
-    date={translation.data.date}
-    content={Content}
-    articleClass={articleClass}
-    translationLink={originalPost ? {
-      href: `/blog/${slug}/`,
-      text: 'English version',
-      title: 'English version'
-    } : undefined}
-  />
+    description={translation.data.description}
+    isArticle
+    currentPath={pathname}
+    openGraphImage={translation.data.openGraphImage ?? `/og/${slug}.png`}
+    lang="it-IT"
+    structuredData={structuredData}
+    alternateLinks={alternateLinks}
+>
+    <ArticleContent
+        title={translation.data.title}
+        date={translation.data.date}
+        content={Content}
+        articleClass={articleClass}
+        translationLink={originalPost
+            ? {
+                  href: `/blog/${slug}/`,
+                  text: "English version",
+                  title: "English version",
+              }
+            : undefined}
+    />
 </BaseLayout>

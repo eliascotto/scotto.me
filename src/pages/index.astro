@@ -6,13 +6,15 @@ import {
     getTranslationsMap,
     getTranslationUrl,
 } from "../lib/content";
+import { getPersonSchema, getWebsiteSchema } from "../lib/structuredData";
 
 const posts = await getAllPosts();
 const translationMap = await getTranslationsMap();
 const latestPosts = posts.slice(0, 7);
+const structuredData = [getPersonSchema(), getWebsiteSchema()];
 ---
 
-<BaseLayout title="Elia Scotto" currentPath="/">
+<BaseLayout title="Elia Scotto" currentPath="/" structuredData={structuredData}>
     <section>
         <h1 class="font-light mb-4 text-4xl">
             Hi there,<br class="sm:hidden" /> I'm <strong class="font-semibold"

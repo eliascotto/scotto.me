@@ -1,43 +1,71 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import ArticleContent from '../../../components/ArticleContent.astro';
-import { getAllPosts, getPostBySlug, getTranslationBySlug, getTranslationUrl } from '../../../lib/content';
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ArticleContent from "../../../components/ArticleContent.astro";
+import {
+    getAllPosts,
+    getPostBySlug,
+    getTranslationBySlug,
+    getTranslationUrl,
+} from "../../../lib/content";
+import { getBlogPostingSchema } from "../../../lib/structuredData";
 
 export async function getStaticPaths() {
-  const posts = await getAllPosts();
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-  }));
+    const posts = await getAllPosts();
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+    }));
 }
 
-const slug = Astro.params.slug ?? '';
+const slug = Astro.params.slug ?? "";
 const post = await getPostBySlug(slug);
 
 if (!post) {
-  throw new Response(null, { status: 404 });
+    throw new Response(null, { status: 404 });
 }
 
 const { Content } = await post.render();
 const translation = await getTranslationBySlug(slug);
-const isArticle = post.collection === 'articles';
-const articleClass = isArticle ? 'article' : 'post';
+const isArticle = post.collection === "articles";
+const articleClass = isArticle ? "article" : "post";
+
+const pathname = `/blog/${slug}/`;
+const structuredData = getBlogPostingSchema({
+    title: post.data.title,
+    description: post.data.description,
+    date: post.data.date,
+    pathname,
+    image: post.data.openGraphImage ?? `/og/${slug}.png`,
+    inLanguage: "en",
+});
+const alternateLinks = translation
+    ? [
+          { hreflang: "en", pathname },
+          { hreflang: "it", pathname: `/blog/${slug}/ita/` },
+          { hreflang: "x-default", pathname },
+      ]
+    : undefined;
 ---
+
 <BaseLayout
-  title={post.data.title}
-  description={post.data.description}
-  isArticle
-  currentPath={`/blog/${slug}/`}
-  openGraphImage={post.data.openGraphImage ?? `/og/${slug}.png`}
->
-  <ArticleContent
     title={post.data.title}
-    date={post.data.date}
-    content={Content}
-    articleClass={articleClass}
-    translationLink={translation ? {
-      href: getTranslationUrl(translation),
-      text: 'Versione italiana',
-      title: 'Versione italiana'
-    } : undefined}
-  />
+    description={post.data.description}
+    isArticle
+    currentPath={pathname}
+    openGraphImage={post.data.openGraphImage ?? `/og/${slug}.png`}
+    structuredData={structuredData}
+    alternateLinks={alternateLinks}
+>
+    <ArticleContent
+        title={post.data.title}
+        date={post.data.date}
+        content={Content}
+        articleClass={articleClass}
+        translationLink={translation
+            ? {
+                  href: getTranslationUrl(translation),
+                  text: "Versione italiana",
+                  title: "Versione italiana",
+              }
+            : undefined}
+    />
 </BaseLayout>
