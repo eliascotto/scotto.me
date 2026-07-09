@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import MenuLayout from '../../layouts/MenuLayout.astro';
 import PostsList from '../../components/PostsList.astro';
 import { getAllPosts, getTagCounts, getTranslationsMap, getTranslationUrl } from '../../lib/content';
 import { slugifyTag } from '../../lib/slug';
@@ -23,7 +23,7 @@ if (posts.length === 0) {
 const translationMap = await getTranslationsMap();
 const resolvedTag = posts[0].data.tags?.find((tag) => slugifyTag(tag) === param) ?? param;
 ---
-<BaseLayout title={`#${resolvedTag}`} currentPath={`/tags/${param}/`}>
+<MenuLayout title={`#${resolvedTag}`} currentPath={`/tags/${param}/`}>
   <section>
     <div class="mb-6">
       <h1 class="title-heading">
@@ -40,4 +40,4 @@ const resolvedTag = posts[0].data.tags?.find((tag) => slugifyTag(tag) === param)
       ))}
     </div>
   </section>
-</BaseLayout>
+</MenuLayout>

@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import MenuLayout from "../layouts/MenuLayout.astro";
 import PostsList from "../components/PostsList.astro";
 import {
     getAllPosts,
@@ -14,7 +14,7 @@ const latestPosts = posts.slice(0, 7);
 const structuredData = [getPersonSchema(), getWebsiteSchema()];
 ---
 
-<BaseLayout title="Elia Scotto" currentPath="/" structuredData={structuredData}>
+<MenuLayout title="Elia Scotto" currentPath="/" structuredData={structuredData}>
     <section>
         <h1 class="font-light mb-4 text-4xl">
             Hi there,<br class="sm:hidden" /> I'm <strong class="font-semibold"
@@ -48,4 +48,4 @@ const structuredData = [getPersonSchema(), getWebsiteSchema()];
             }
         </div>
     </section>
-</BaseLayout>
+</MenuLayout>

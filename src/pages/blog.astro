@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import MenuLayout from "../layouts/MenuLayout.astro";
 import PostsList from "../components/PostsList.astro";
 import {
   getTranslationsMap,
@@ -30,7 +30,7 @@ const reviews = withTranslations(
 const tech = withTranslations(techPosts);
 ---
 
-<BaseLayout title="Blog" currentPath="/blog/">
+<MenuLayout title="Blog" currentPath="/blog/">
   <section>
     <div class="mt-0">
       <h2 class="mt-0 title-heading text-gray-400 font-light text-base">
@@ -67,4 +67,4 @@ const tech = withTranslations(techPosts);
       }
     </div>
   </section>
-</BaseLayout>
+</MenuLayout>

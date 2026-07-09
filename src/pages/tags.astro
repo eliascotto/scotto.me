@@ -1,12 +1,12 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import MenuLayout from '../layouts/MenuLayout.astro';
 import { getTagCounts } from '../lib/content';
 import { slugifyTag } from '../lib/slug';
 
 const tagCounts = await getTagCounts();
 const tags = Array.from(tagCounts.entries()).sort(([a], [b]) => a.localeCompare(b));
 ---
-<BaseLayout title="Tags" currentPath="/tags/">
+<MenuLayout title="Tags" currentPath="/tags/">
   <section>
     <div class="mt-0">
       <h2 class="mt-0 title-heading text-gray-400 font-light text-base">Tags</h2>
@@ -21,4 +21,4 @@ const tags = Array.from(tagCounts.entries()).sort(([a], [b]) => a.localeCompare(
       ))}
     </ul>
   </section>
-</BaseLayout>
+</MenuLayout>

@@ -1,11 +1,11 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import MenuLayout from '../layouts/MenuLayout.astro';
 import PostsList from '../components/PostsList.astro';
 import { getAllPosts } from '../lib/content';
 
 const posts = await getAllPosts();
 ---
-<BaseLayout title="Archive" currentPath="/archive/">
+<MenuLayout title="Archive" currentPath="/archive/">
   <section>
     <div class="mt-0">
       <h2 class="mt-0 title-heading text-gray-400 font-light text-base">Archive</h2>
@@ -16,4 +16,4 @@ const posts = await getAllPosts();
       ))}
     </div>
   </section>
-</BaseLayout>
+</MenuLayout>

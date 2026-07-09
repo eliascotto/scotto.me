@@ -1,7 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import { marked } from 'marked';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import MenuLayout from '../layouts/MenuLayout.astro';
 import { formatDefaultDate } from '../lib/dates';
 
 const entry = await getEntry('pages', 'now');
@@ -14,7 +14,7 @@ const formatted = entry.data.today ? formatDefaultDate(entry.data.today) : '';
 const markdown = entry.body.replace('{{ today | defaultDate }}', formatted);
 const html = await marked.parse(markdown);
 ---
-<BaseLayout title={entry.data.title} currentPath="/now/">
+<MenuLayout title={entry.data.title} currentPath="/now/">
   <section>
     <div class="mt-0">
         <h2 class="mt-0 title-heading text-gray-400 font-light text-base">Now</h2>
@@ -22,4 +22,4 @@ const html = await marked.parse(markdown);
 
     <div class="leading-relaxed post" set:html={html} />
   </section>
-</BaseLayout>
+</MenuLayout>

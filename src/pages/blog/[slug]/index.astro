@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../../layouts/BaseLayout.astro";
+import MenuLayout from "../../../layouts/MenuLayout.astro";
 import ArticleContent from "../../../components/ArticleContent.astro";
 import {
     getAllPosts,
@@ -46,7 +46,7 @@ const alternateLinks = translation
     : undefined;
 ---
 
-<BaseLayout
+<MenuLayout
     title={post.data.title}
     description={post.data.description}
     isArticle
@@ -68,4 +68,4 @@ const alternateLinks = translation
               }
             : undefined}
     />
-</BaseLayout>
+</MenuLayout>

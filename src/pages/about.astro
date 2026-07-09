@@ -1,6 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import MenuLayout from '../layouts/MenuLayout.astro';
 
 const entry = await getEntry('pages', 'about');
 
@@ -10,11 +10,11 @@ if (!entry) {
 
 const { Content } = await entry.render();
 ---
-<BaseLayout title={entry.data.title} currentPath="/about/">
+<MenuLayout title={entry.data.title} currentPath="/about/">
   <section class="generic">
 
     <div class="normal-text">
       <Content />
     </div>
   </section>
-</BaseLayout>
+</MenuLayout>
