@@ -1,4 +1,4 @@
-# [scotto.me](https://www.scotto.me)
+# [scotto.me](https://scotto.me)
 
 A personal website built with 11ty, featuring articles, technical posts, and bilingual content (English/Italian).
 
