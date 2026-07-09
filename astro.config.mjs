@@ -20,6 +20,10 @@ export default defineConfig({
   site: "https://scotto.me",
   trailingSlash: "always",
 
+  build: {
+    inlineStylesheets: "always",
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },
