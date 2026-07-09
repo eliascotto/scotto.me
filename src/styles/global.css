@@ -203,7 +203,7 @@
   }
 
   em {
-    @apply text-em italic;
+    @apply italic;
   }
 
   /* ================================
@@ -211,7 +211,7 @@
    * ================================
    */
   blockquote {
-    @apply text-gray-500 dark:text-gray-300 italic py-2 pl-10 pr-0;
+    @apply text-gray-500 dark:text-gray-300 italic py-2 pl-10 pr-0 border-l dark:border-amber-400;
     margin-top: var(--p-margin-y);
 
     p {
@@ -234,6 +234,7 @@
     padding: 0.2em 0.4em;
     border-radius: 0.3em;
     border: var(--ec-brdWd) solid var(--ec-brdCol);
+    white-space: nowrap;
   }
 
   /* ================================
