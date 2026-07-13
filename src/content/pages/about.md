@@ -12,7 +12,7 @@ eleventyExcludeFromCollections: true
   />
 </div>
 
-Hi, I'm Elia (pronounced `/eˈli.a/`), a **software engineer** living in Hobart, Australia.
+Hi, I'm Elia (pronounced <code class="dark:text-gray-200 text-gray-900">/eˈli.a/</code>), a **software engineer** living in Hobart, Australia.
 
 I've been helping B2B startups scale their web applications since 2014. I have experience with software that requires complex UIs, and thanks to that I've grown a sense for good design. Today I work full-stack, making products that are easy to use and not ugly.
 
