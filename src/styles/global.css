@@ -149,6 +149,32 @@
   }
 
   /* ================================
+   * Heading anchors
+   * ================================
+   */
+   :is(h1, h2, h3, h4, h5, h6) {
+     position: relative;
+   }
+
+   :is(h1, h2, h3, h4, h5, h6)
+     > a[aria-hidden="true"]:has(.icon-link) {
+     position: absolute;
+     right: 100%;
+     padding-right: 0.3em;
+     opacity: 0;
+     transition: opacity 150ms;
+   }
+
+   :is(h1, h2, h3, h4, h5, h6):hover
+     > a[aria-hidden="true"]:has(.icon-link) {
+     opacity: 1;
+   }
+
+   .icon-link::before {
+     content: "#";
+   }
+
+  /* ================================
    * HR
    * ================================
    */

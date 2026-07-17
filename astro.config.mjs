@@ -7,7 +7,9 @@ import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
 import expressiveCode, { ExpressiveCodeTheme } from "astro-expressive-code";
 
+import rehypeSlug from "rehype-slug";
 import rehypeExternalLinks from "rehype-external-links";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { rehypeFigureImages } from "./src/lib/rehype-figure-images.ts";
 
 const jsoncString = fs.readFileSync(
@@ -38,6 +40,8 @@ export default defineConfig({
     },
     rehypePlugins: [
       rehypeFigureImages,
+      rehypeSlug,
+      rehypeAutolinkHeadings,
       [
         rehypeExternalLinks,
         {
