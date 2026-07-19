@@ -111,17 +111,15 @@ For editors, VSCode has [Calva](https://calva.io/), a complete and rich extensio
 
 [Racket](https://racket-lang.org/) is a modern dialect descended of _Scheme_. While other Scheme dialects are generally small languages, Racket has evolved into a fully featured language with its own unique features.
 
-The code is compiled on every major platform and the language has been used in a lot of fields to create web applications, graphical interfaces, databases integration and mostly to quickly develop tools with graphics.
+The code is compiled on every major platform and the language has been used in a lot of fields to create web applications, graphical interfaces, database integrations and mostly to quickly develop tools with graphics.
 
 ![[Racket Logo]](/assets/img/racket-logo.svg "Racket logo.")
 
 Racket is **language-oriented**, which means it’s designed for creating [new programming languages](https://racket-lang.org/languages.html). Every source file begins with `#lang`, which defines the language used by that module. You can create entirely new languages with their own syntax and semantics, while still using the Racket ecosystem underneath. Other Lisp dialects can easily build DSLs, but they are tied to Lisp. Racket advances the concept by making it easy to define completely new languages, without requiring them to use Lisp syntax.
 
-Racket also comes with a wide range of features of features. It includes libraries for cross-platform GUIs, web servers, concurrency and parallelism, regular expressions, pattern matching, classes and objects, and an FFI for calling C code. Its package manager is integrated into the ecosystem, and a large collection of libraries is immediately available. Compared with other Lisp dialects, there is generally less setup required before you can start building something substantial.
+Racket also comes with a wide range of features. It includes libraries for cross-platform GUIs, web servers, concurrency and parallelism, regular expressions, pattern matching, classes and objects, and an FFI for calling C code. Its package manager is integrated into the ecosystem, and a large collection of libraries is immediately available. Compared with other Lisp dialects, there is generally less setup required before you can start building something substantial.
 
 Racket offers an advanced macro system, providing the same kind of macro support as other dialects, plus hygienic macros. _Hygienic_ means that identifiers introduced by a macro don’t accidentally capture those in the surrounding code. This makes macros safer to write, especially for beginners, that don’t have to rely on `gensym` like in the other dialects.
-
-Its macro system is another major strength. Racket supports powerful syntactic extensions, including *hygienic* macros, which prevent identifiers introduced by a macro from accidentally interfering with names in the surrounding code. This removes many of the name collision problems that beginners might struggle to handle manually when writing macros in other Lisps.
 
 Static typing is supported with [Typed Racket](https://docs.racket-lang.org/ts-guide/), a typed variant of the language that lets programmers add type annotations and have their code checked before execution. Typed and untyped Racket modules can also work together, so typing can be introduced where it is useful without requiring an entire program to be rewritten.
 
@@ -135,7 +133,7 @@ The main downsides are its small ecosystem and limited use in the industry. Ther
 
 Racket shines when designing new programming languages, building compilers and interpreters, or experimenting with new language features. This makes it particularly popular in computer science education and university research. Also, since it’s language-oriented, it’s a great choice when a program needs to provide a simple DSL, for example for customisation, without forcing the user to use a Lisp dialect.
 
-Racket is ideal for prototyping, scripting, and projects where having a comprehensive set of libraries and development tools immedtialy available is important. It’s worth noting that other dialects offer GUI support through external libraries and wrappers, while in Racket it is available out of the box.
+Racket is ideal for prototyping, scripting, and projects where having a comprehensive set of libraries and development tools immediately available is important. It’s worth noting that other dialects offer GUI support through external libraries and wrappers, while in Racket it is available out of the box.
 
 ### Learning Resources
 
