@@ -6,14 +6,13 @@ import type { Context } from 'node:vm';
 
 export async function GET(context: Context) {
   const posts = await getAllPosts();
-  const latest = posts.slice(0, 5);
 
   return rss({
     title: 'Elia Scotto',
     description: 'Essays, reviews, and tech articles',
     site: context.site ?? meta.url,
     items: await Promise.all(
-      latest.map(async (post) => ({
+      posts.map(async (post) => ({
         title: post.data.title,
         description: post.data.description,
         link: getPostUrl(post),
