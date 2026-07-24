@@ -47,6 +47,6 @@ Recently I've helped [VerifiMe](https://www.verifime.com/) build their identity 
 
 ### More?
 
-You can find me on [BlueSky](https://bsky.app/profile/scotto.me) and [GitHub](https://github.com/eliascotto). Don't forget to subscribe to this website using [RSS](/feed.xml).
+You can find me on <a href="https://bsky.app/profile/scotto.me" rel="me noopener noreferrer" target="_blank">BlueSky</a> and <a href="https://github.com/eliascotto" rel="me noopener noreferrer" target="_blank">GitHub</a>. Don't forget to subscribe to this website using [RSS](/feed.xml).
 
 I have a [now](/now/) page.
