@@ -1,0 +1,204 @@
+---
+interface Props {
+  content: string;
+  author: string;
+  title?: string;
+  cite: string;
+}
+
+const { content, author, title, cite } = Astro.props;
+
+const citationUrl = URL.canParse(cite) ? new URL(cite) : undefined;
+const source = citationUrl?.hostname.replace(/^www\./, "") || cite;
+
+const favicon = `https://s2.googleusercontent.com/s2/favicons?domain_url=${encodeURIComponent(cite)}&sz=64`;
+---
+
+<figure class="quoteback flex flex-col gap-2 mt-2 mb-4">
+  <blockquote class="m-0" cite={cite} aria-label={`Quotation by ${author}`}>
+    {content}
+  </blockquote>
+
+  <figcaption class="flex flex-row items-center gap-3">
+    <span class="" aria-hidden="true">
+      <img
+        class="quoteback-favicon"
+        src={favicon}
+        alt=""
+        width="24"
+        height="24"
+        loading="lazy"
+        referrerpolicy="no-referrer"
+      />
+    </span>
+
+    <span class="not-italic font-medium">{author}</span> &sdot;
+
+    <a
+      class="quoteback-link"
+      href={cite}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Read the full text on ${source} (opens in a new tab)`}
+    >
+      “{title}”
+    </a>
+  </figcaption>
+</figure>
+
+<style>
+  .quoteback-container {
+    --quoteback-background: #ffffff;
+    --quoteback-border: #d1d5db;
+    --quoteback-focus: #ea580c;
+    --quoteback-text: #1f2937;
+    --quoteback-muted: #6b7280;
+
+    max-width: 100%;
+    margin: 1.75rem 0;
+    overflow: hidden;
+    color: var(--quoteback-text);
+    text-align: left;
+    background: var(--quoteback-background);
+    border: 1px solid var(--quoteback-border);
+    border-radius: 0.65rem;
+  }
+
+  .quoteback-content {
+    margin: 0;
+    padding: 1.15rem 1.25rem;
+    color: var(--quoteback-text);
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.7;
+    white-space: pre-line;
+    border: 0;
+  }
+
+  .quoteback-footer {
+    display: flex;
+    min-width: 0;
+    align-items: stretch;
+    margin: 0;
+    padding: 0 0 0 1rem;
+    color: var(--quoteback-muted);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-style: normal;
+    line-height: 1.35;
+    text-align: left;
+    border-top: 1px solid var(--quoteback-border);
+  }
+
+  .quoteback-avatar {
+    position: relative;
+    width: 2.5rem;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    margin: 0.8rem 0;
+    overflow: hidden;
+    background: var(--quoteback-background);
+    border: 1px solid var(--quoteback-border);
+    border-radius: 999px;
+  }
+
+  .quoteback-favicon {
+    position: absolute;
+    inset: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: auto;
+    border-radius: 0.2rem;
+  }
+
+  .quoteback-metadata {
+    display: flex;
+    min-width: 0;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+  }
+
+  .quoteback-author {
+    margin-bottom: 0.15rem;
+    overflow-wrap: anywhere;
+    color: var(--quoteback-text);
+    font-weight: 650;
+  }
+
+  .quoteback-source {
+    overflow: hidden;
+    color: var(--quoteback-muted);
+    font-weight: 550;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .quoteback-link {
+    display: flex;
+    min-width: 7.3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.8rem 1rem;
+    color: var(--color-main);
+    font-weight: 650;
+    text-decoration: none;
+    border-left: 1px solid var(--quoteback-border);
+  }
+
+  .quoteback-link:hover {
+    color: #9a3412;
+    background: #fff7ed;
+  }
+
+  .quoteback-link:focus-visible {
+    outline: 3px solid
+      color-mix(in srgb, var(--quoteback-focus) 45%, transparent);
+    outline-offset: -3px;
+  }
+
+  @media (max-width: 34rem) {
+    .quoteback-footer {
+      flex-wrap: wrap;
+      padding-left: 0;
+    }
+
+    .quoteback-avatar {
+      margin-left: 1rem;
+    }
+
+    .quoteback-metadata {
+      width: calc(100% - 4.5rem);
+    }
+
+    .quoteback-link {
+      width: 100%;
+      min-height: 2.8rem;
+      border-top: 1px solid var(--quoteback-border);
+      border-left: 0;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .quoteback-container {
+      --quoteback-background: #081f36;
+      --quoteback-border: #39516b;
+      --quoteback-focus: #fbbf24;
+      --quoteback-text: #f3f4f6;
+      --quoteback-muted: #c2cad5;
+    }
+
+    .quoteback-link {
+      color: var(--color-main-dark);
+    }
+
+    .quoteback-link:hover {
+      color: #fde68a;
+      background: #112840;
+    }
+  }
+</style>

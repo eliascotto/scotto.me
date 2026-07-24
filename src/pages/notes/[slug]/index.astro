@@ -1,0 +1,46 @@
+---
+import MenuLayout from "../../../layouts/MenuLayout.astro";
+import NoteContent from "../../../components/NoteContent.astro";
+import { getNotes, getNoteBySlug } from "../../../lib/content";
+import { getBlogPostingSchema } from "../../../lib/structuredData";
+
+export async function getStaticPaths() {
+  const notes = await getNotes();
+  return notes.map((note) => ({
+    params: { slug: note.slug },
+  }));
+}
+
+const slug = Astro.params.slug ?? "";
+const note = await getNoteBySlug(slug);
+
+if (!note) {
+  throw new Response(null, { status: 404 });
+}
+
+const { Content } = await note.render();
+
+const pathname = `/notes/${slug}/`;
+const structuredData = getBlogPostingSchema({
+  title: note.data.title,
+  description: note.data.description,
+  date: note.data.date,
+  pathname,
+  inLanguage: "en",
+});
+---
+
+<MenuLayout
+  title={note.data.title}
+  description={note.data.description}
+  isArticle
+  currentPath={pathname}
+  openGraphImage={note.data.openGraphImage ?? `/og/${slug}.png`}
+  structuredData={structuredData}
+>
+  <NoteContent
+    title={note.data.title}
+    date={note.data.date}
+    content={Content}
+  />
+</MenuLayout>

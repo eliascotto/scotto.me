@@ -1,24 +1,38 @@
 ---
-import type { BlogEntry } from '../lib/content';
-import { getPostUrl } from '../lib/content';
-import { formatHumanDate } from '../lib/dates';
+import type { BlogEntry } from "../lib/content";
+import { getPostUrl, getNoteUrl } from "../lib/content";
+import { formatHumanDate } from "../lib/dates";
 
 interface Props {
   post: BlogEntry;
+  note?: boolean;
   translationUrl?: string;
 }
 
-const { post, translationUrl } = Astro.props as Props;
-const isEnglish = post.data.language === 'eng';
-const isItalian = post.data.language === 'ita';
-const translationLabel = isEnglish ? 'In italiano' : 'English version';
-const translationTitle = isEnglish ? 'Traduzione italiano' : 'English language';
-const translationHref = translationUrl ?? (isEnglish ? `/blog/${post.slug}/ita/` : `/blog/${post.slug}/`);
+const { post, note, translationUrl } = Astro.props as Props;
+const isEnglish = post.data.language === "eng";
+const isItalian = post.data.language === "ita";
+const translationLabel = isEnglish ? "In italiano" : "English version";
+const translationTitle = isEnglish ? "Traduzione italiano" : "English language";
+const translationHref =
+  translationUrl ??
+  (isEnglish ? `/blog/${post.slug}/ita/` : `/blog/${post.slug}/`);
 ---
+
 <div class="my-2 first:mt-0">
   <div class="flex flex-col sm:flex-row justify-between sm:items-start">
-    <div class="flex flex-row flex-1">
-      <a class="font-base text-lg font-title font-medium" href={getPostUrl(post)}>{post.data.title}</a>
+    <div class="flex flex-row flex-1 items-center">
+      <a
+        class="font-base text-lg font-title font-medium"
+        href={note ? getNoteUrl(post) : getPostUrl(post)}>{post.data.title}</a
+      >
+      {
+        note && (
+          <span class="ml-2 text-gray-500 dark:text-gray-400 text-xs">
+            (note)
+          </span>
+        )
+      }
     </div>
 
     <div class="text-xs text-gray-400">{formatHumanDate(post.data.date)}</div>

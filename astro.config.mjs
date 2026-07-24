@@ -1,6 +1,7 @@
 // @ts-check
 import fs from "node:fs";
 
+import mdx from "@astrojs/mdx";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
@@ -67,6 +68,7 @@ export default defineConfig({
         },
       },
     }),
+    mdx(),
     sitemap(),
   ],
 });

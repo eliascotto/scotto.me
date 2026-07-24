@@ -20,6 +20,11 @@ const postCollection = defineCollection({
   schema: baseSchema,
 });
 
+const notesCollection = defineCollection({
+  type: 'content',
+  schema: baseSchema,
+});
+
 const translationCollection = defineCollection({
   type: 'content',
   schema: baseSchema,
@@ -40,6 +45,7 @@ const pageCollection = defineCollection({
 export const collections = {
   articles: articleCollection,
   posts: postCollection,
+  notes: notesCollection,
   translations: translationCollection,
   pages: pageCollection,
 };

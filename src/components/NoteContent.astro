@@ -1,0 +1,42 @@
+---
+import ArticleImage from "./ArticleImage.astro";
+import ArticleFigure from "./ArticleFigure.astro";
+import { formatHumanDate } from "../lib/dates";
+
+interface Props {
+  title: string;
+  date: Date;
+  content: any;
+  url?: string;
+}
+
+const { title, date, content: Content, url } = Astro.props;
+---
+
+<div
+  class="bg-lightBackgroundSecondary dark:bg-darkBackgroundSecondary p-5 rounded-lg"
+>
+  <div class="mb-4 sm:mb-6 flex flex-row justify-between items-end">
+    {
+      !!url ? (
+        <a href={url}>
+          <h1 class="text-xl font-title">{title}</h1>
+        </a>
+      ) : (
+        <h1 class="text-xl font-title">{title}</h1>
+      )
+    }
+
+    <div class="flex flex-col sm:flex-row justify-between">
+      <div
+        class="flex flex-col justify-center text-sm text-gray-500 dark:text-gray-400"
+      >
+        <time>{formatHumanDate(date)}</time>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <Content components={{ img: ArticleImage, figure: ArticleFigure }} />
+  </div>
+</div>

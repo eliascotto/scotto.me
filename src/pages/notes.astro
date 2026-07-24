@@ -1,0 +1,27 @@
+---
+import MenuLayout from "../layouts/MenuLayout.astro";
+import { getNotes, getNoteUrl } from "../lib/content";
+import NoteContent from "../components/NoteContent.astro";
+
+const notes = await getNotes();
+---
+
+<MenuLayout title="Notes" currentPath="/notes/">
+  <section>
+    <div class="flex flex-col gap-6">
+      {
+        notes.map(async (note) => {
+          const { Content } = await note.render();
+          return (
+            <NoteContent
+              url={getNoteUrl(note)}
+              title={note.data.title}
+              date={note.data.date}
+              content={Content}
+            />
+          );
+        })
+      }
+    </div>
+  </section>
+</MenuLayout>

@@ -5,6 +5,8 @@
   --color-main-dark: theme('colors.amber.400');
   --color-darkBackground: #112840;
   --color-lightBackground: #f5f5f5;
+  --color-darkBackgroundSecondary: #081f36;
+  --color-lightBackgroundSecondary: #ebebeb;
   --color-em: theme('colors.orange.400');
 
   --font-sans:

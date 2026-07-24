@@ -1,9 +1,10 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 export type BlogEntry = CollectionEntry<'articles'> | CollectionEntry<'posts'>;
+export type NoteEntry = CollectionEntry<'notes'>;
 export type TranslationEntry = CollectionEntry<'translations'>;
 
-const publishedFilter = (entry: BlogEntry | TranslationEntry) => !entry.data.draft;
+const publishedFilter = (entry: BlogEntry | NoteEntry | TranslationEntry) => !entry.data.draft;
 
 const blogCollections = ['articles', 'posts'] as const;
 
@@ -12,6 +13,19 @@ export type BlogCollection = (typeof blogCollections)[number];
 // ============================================================================
 // Posts
 // ============================================================================
+
+export async function getAllContent() {
+  const collections = await Promise.all(
+    [
+      ...blogCollections.map((name) => getCollection(name, publishedFilter)),
+      getCollection('notes', publishedFilter),
+    ],
+  );
+
+  return collections
+    .flat()
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+}
 
 /**
  * Gets all published posts from articles and posts collections, sorted by date (newest first).
@@ -43,10 +57,25 @@ export async function getArticles() {
 }
 
 /**
+ * Gets all published notes, sorted by date (newest first).
+ */
+export async function getNotes() {
+  const notes = await getCollection('notes', publishedFilter);
+  return notes.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+}
+
+/**
  * Returns the URL path for a blog post.
  */
 export function getPostUrl(entry: BlogEntry) {
   return `/blog/${entry.slug}/`;
+}
+
+/**
+ * Returns the URL path for a note.
+ */
+export function getNoteUrl(entry: CollectionEntry<'notes'>) {
+  return `/notes/${entry.slug}/`;
 }
 
 /**
@@ -55,6 +84,11 @@ export function getPostUrl(entry: BlogEntry) {
 export async function getPostBySlug(slug: string) {
   const posts = await getAllPosts();
   return posts.find((entry) => entry.slug === slug);
+}
+
+export async function getNoteBySlug(slug: string) {
+  const notes = await getNotes();
+  return notes.find((entry) => entry.slug === slug);
 }
 
 // ============================================================================

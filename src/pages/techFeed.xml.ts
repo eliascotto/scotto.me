@@ -8,8 +8,8 @@ export async function GET(context: Context) {
   const techPosts = await getTechPosts();
 
   return rss({
-    title: 'Elia Scotto - Tech Feed',
-    description: 'Latest programming articles',
+    title: 'Elia Scotto',
+    description: 'Latest tech articles',
     site: context.site ?? meta.url,
     items: await Promise.all(
       techPosts.map(async (post) => ({
