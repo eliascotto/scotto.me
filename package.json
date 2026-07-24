@@ -11,6 +11,7 @@
     "test:e2e": "playwright test",
     "new:post": "node scripts/new-content.js post",
     "new:article": "node scripts/new-content.js article",
+    "new:note": "node scripts/new-content.js note",
     "new:page": "node scripts/new-content.js page"
   },
   "dependencies": {
@@ -27,8 +28,5 @@
     "rehype-slug": "^6.0.0",
     "satori": "^0.19.1",
     "tailwindcss": "^4.1.17"
-  },
-  "devDependencies": {
-    "@playwright/test": "^1.57.0"
   }
 }
