@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-main: theme('colors.blue.600');
+  --color-main: theme('colors.orange.600');
   --color-main-dark: theme('colors.amber.400');
   --color-darkBackground: #112840;
   --color-lightBackground: #f5f5f5;
