@@ -1,5 +1,5 @@
 ---
-title: The missing re-frame quick start (with tutorial)
+title: The missing ClojureScript re-frame Quick Start Tutorial
 description: A quick guide to use Clojurescript re-frame
 date: 2023-03-18
 tags:
