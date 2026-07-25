@@ -7,6 +7,8 @@
   --color-lightBackground: #f5f5f5;
   --color-darkBackgroundSecondary: #081f36;
   --color-lightBackgroundSecondary: #ebebeb;
+  --color-inlineCodeBackground: #171f2b;
+  --color-inlineCodeBorder: #333e4f;
   --color-em: theme('colors.orange.400');
 
   --font-sans:
@@ -257,11 +259,11 @@
    */
 
   :not(pre)>code {
-    background: var(--ec-frm-edBg);
+    background: var(--color-inlineCodeBackground);
     @apply text-sm text-white;
     padding: 0.2em 0.4em;
     border-radius: 0.3em;
-    border: var(--ec-brdWd) solid var(--ec-brdCol);
+    border: 1.5px solid var(--color-inlineCodeBorder);
     white-space: nowrap;
   }
 
