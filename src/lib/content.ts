@@ -4,7 +4,11 @@ export type BlogEntry = CollectionEntry<'articles'> | CollectionEntry<'posts'>;
 export type NoteEntry = CollectionEntry<'notes'>;
 export type TranslationEntry = CollectionEntry<'translations'>;
 
-const publishedFilter = (entry: BlogEntry | NoteEntry | TranslationEntry) => !entry.data.draft;
+const publishedFilter = (entry: BlogEntry | NoteEntry | TranslationEntry) => {
+  // Disabled on dev
+  if (import.meta.env.DEV) return true;
+  return !entry.data.draft;
+};
 
 const blogCollections = ['articles', 'posts'] as const;
 
