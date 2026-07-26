@@ -1,36 +1,38 @@
 @import "tailwindcss";
 
 @theme {
-  --color-main: theme('colors.orange.600');
-  --color-main-dark: theme('colors.amber.400');
-  --color-darkBackground: #112840;
-  --color-lightBackground: #f5f5f5;
-  --color-darkBackgroundSecondary: #081f36;
-  --color-lightBackgroundSecondary: #ebebeb;
-  --color-inlineCodeBackground: #171f2b;
-  --color-inlineCodeBorder: #333e4f;
-  --color-em: theme('colors.orange.400');
+    --color-main: theme("colors.orange.600");
+    --color-main-dark: theme("colors.amber.400");
+    --color-darkBackground: #112840;
+    --color-lightBackground: #f5f5f5;
+    --color-darkBackgroundSecondary: #081f36;
+    --color-lightBackgroundSecondary: #ebebeb;
+    --color-inlineCodeBackground: #171f2b;
+    --color-inlineCodeBorder: #333e4f;
+    --color-em: theme("colors.orange.400");
 
-  --font-sans:
-    InterVariable, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-serif:
-    'EB Garamond', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-  --font-title:
-    Sora, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans:
+        InterVariable, ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+    --font-serif:
+        "EB Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times,
+        serif;
+    --font-title:
+        Sora, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-  --p-margin-y: 20px;
-  --li-margin-y: 10px;
+    --p-margin-y: 20px;
+    --li-margin-y: 10px;
 }
 
 @utility article {
-  a {
-    @apply text-main dark:text-main-dark;
-    text-decoration: none;
-  }
+    a {
+        @apply text-main dark:text-main-dark;
+        text-decoration: none;
+    }
 
-  /* a::after {
+    /* a::after {
     @apply text-main;
     position: relative;
     content: '\FEFF°';
@@ -40,278 +42,301 @@
     font-variant-numeric: normal;
   } */
 
-  /* @media print {
+    /* @media print {
     a::after {
       display: none;
     }
   } */
 }
 @utility generic {
-  a {
-    @apply text-main dark:text-main-dark;
-    text-decoration: none;
-  }
+    a {
+        @apply text-main dark:text-main-dark;
+        text-decoration: none;
+    }
 }
 
 @utility post {
-  a {
-    @apply text-main dark:text-main-dark;
-    font-style: normal;
-    text-decoration: underline;
-  }
+    a {
+        @apply text-main dark:text-main-dark;
+        font-style: normal;
+        text-decoration: underline;
+    }
 }
 
 @utility video-container {
-  @apply mb-6;
+    @apply mb-6;
 }
 
 @utility title-heading {
-  @apply leading-snug mb-4 dark:text-white text-gray-900;
+    @apply leading-snug mb-4 dark:text-white text-gray-900;
 }
 
 @layer base {
-  body {
-    @apply dark:bg-darkBackground bg-lightBackground;
-  }
+    body {
+        @apply dark:bg-darkBackground bg-lightBackground;
+    }
 
-  /* Prevent outline on videos */
-  :focus-visible {
-    @apply outline-none;
-  }
+    /* Prevent outline on videos */
+    :focus-visible {
+        @apply outline-none;
+    }
 
-  /* ================================
+    /* ================================
    * PARAGRAPHS
    * ================================
    */
-  p, li {
-    @apply text-[1.1rem] dark:text-gray-200 text-gray-900 leading-relaxed tracking-normal antialiased max-w-prose;
-  }
+    p,
+    li {
+        @apply text-[1.1rem] dark:text-gray-200 text-gray-900 leading-relaxed tracking-normal antialiased max-w-prose;
+    }
 
-  p {
-    margin: var(--p-margin-y) 0;
-  }
+    p {
+        margin: var(--p-margin-y) 0;
+    }
 
-  p:first-of-type {
-    margin: 0;
-  }
+    p:first-of-type {
+        margin: 0;
+    }
 
-  p:empty {
-    display: none;
-  }
+    p:empty {
+        display: none;
+    }
 
-  /* ================================
+    /* ================================
    * ANCHOR
    * ================================
    */
-  a em {
-    @apply text-main dark:text-main-dark;
-    font-style: normal !important;
-  }
+    a em {
+        @apply text-main dark:text-main-dark;
+        font-style: normal !important;
+    }
 
-  a:hover {
-    @apply text-main dark:text-main-dark;
-  }
+    a:hover {
+        @apply text-main dark:text-main-dark;
+    }
 
-  a:visited,
-  a:active,
-  a:focus {
-    outline: none;
-  }
+    a:visited,
+    a:active,
+    a:focus {
+        outline: none;
+    }
 
-  h1 a::after,
-  h2 a::after,
-  h3 a::after {
-    content: none;
-  }
+    h1 a::after,
+    h2 a::after,
+    h3 a::after {
+        content: none;
+    }
 
-  /* FOOTNOTES */
-  a[data-footnote-ref] {
-    @apply ml-[4px];
-  }
+    /* FOOTNOTES */
+    a[data-footnote-ref] {
+        @apply ml-[4px];
+    }
 
-  /* ================================
+    /* ================================
    * HEADINGS
    * ================================
    */
-  h1 {
-    @apply text-3xl font-semibold;
-  }
+    h1 {
+        @apply text-3xl font-semibold;
+    }
 
-  h2 {
-    font-size: 1.65rem;
-    line-height: 2rem;
-    @apply font-semibold tracking-normal font-title mt-14 mb-5;
-  }
+    h2 {
+        font-size: 1.65rem;
+        line-height: 2rem;
+        @apply font-semibold tracking-normal font-title mt-14 mb-5;
+    }
 
-  h3 {
-    @apply text-xl font-semibold;
-    @apply font-medium tracking-normal font-title mt-8 mb-5;
-  }
+    h3 {
+        @apply text-xl font-semibold;
+        @apply font-medium tracking-normal font-title mt-8 mb-5;
+    }
 
-  h4 {
-    @apply text-lg font-semibold;
-  }
+    h4 {
+        @apply text-lg font-semibold;
+    }
 
-  /* ================================
+    /* ================================
    * Heading anchors
    * ================================
    */
-   :is(h1, h2, h3, h4, h5, h6) {
-     position: relative;
-   }
+    :is(h1, h2, h3, h4, h5, h6) {
+        position: relative;
+    }
 
-   :is(h1, h2, h3, h4, h5, h6)
-     > a[aria-hidden="true"]:has(.icon-link) {
-     position: absolute;
-     right: 100%;
-     padding-right: 0.3em;
-     opacity: 0;
-     transition: opacity 150ms;
-   }
+    :is(h1, h2, h3, h4, h5, h6) > a[aria-hidden="true"]:has(.icon-link) {
+        position: absolute;
+        right: 100%;
+        padding-right: 0.3em;
+        opacity: 0;
+        transition: opacity 150ms;
+    }
 
-   :is(h1, h2, h3, h4, h5, h6):hover
-     > a[aria-hidden="true"]:has(.icon-link) {
-     opacity: 1;
-   }
+    :is(h1, h2, h3, h4, h5, h6):hover > a[aria-hidden="true"]:has(.icon-link) {
+        opacity: 1;
+    }
 
-   .icon-link::before {
-     content: "#";
-   }
+    .icon-link::before {
+        content: "#";
+    }
 
-  /* ================================
+    /* ================================
    * HR
    * ================================
    */
-  hr {
-    @apply my-10 mx-10 h-px relative overflow-visible border-none text-center bg-neutral-300 dark:bg-gray-700;
-  }
+    hr {
+        @apply my-10 mx-10 h-px relative overflow-visible border-none text-center bg-neutral-300 dark:bg-gray-700;
+    }
 
-  hr::after {
-    content: '⟁';
-    @apply dark:text-white/60 relative -top-[15px] p-4 bg-lightBackground dark:bg-darkBackground;
-  }
+    hr::after {
+        content: "⟁";
+        @apply dark:text-white/60 relative -top-[15px] p-4 bg-lightBackground dark:bg-darkBackground;
+    }
 
-  /* ================================
+    /* ================================
    * FIGURE
    * ================================
    */
-  figure {
-    @apply my-10;
-  }
+    figure {
+        @apply my-10;
+    }
 
-  figcaption {
-    @apply text-center italic text-sm mt-2 dark:text-gray-400 text-gray-500;
-  }
+    figcaption {
+        @apply text-center italic text-sm mt-2 dark:text-gray-400 text-gray-500;
+    }
 
-  /* ================================
+    /* ================================
    * LISTS
    * ================================
    */
-  ul {
-    @apply list-disc;
-  }
+    ul {
+        @apply list-disc;
+    }
 
-  li {
-    @apply text-[1.1rem] leading-[1.725];
-    margin: var(--li-margin-y) 0;
-  }
+    ol {
+        @apply list-decimal;
+    }
 
-  /* ================================
+    ul,
+    ol {
+        @apply pl-5;
+    }
+
+    li {
+        @apply text-[1.1rem] leading-[1.725];
+        margin: var(--li-margin-y) 0;
+    }
+
+    /* ================================
+   * TABLES
+   * ================================
+   */
+    table {
+        @apply overflow-x-auto border dark:border-gray-700 rounded-lg;
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    tr {
+        @apply px-1;
+    }
+
+    /* ================================
    * IMG
    * ================================
    */
-  img {
-    @apply mx-auto rounded-md;
-  }
+    img {
+        @apply mx-auto rounded-md;
+    }
 
-  /* ================================
+    /* ================================
    * STRONG
    * ================================
    */
-  strong {
-    @apply font-bold;
-  }
+    strong {
+        @apply font-bold;
+    }
 
-  em {
-    @apply italic;
-  }
+    em {
+        @apply italic;
+    }
 
-  /* ================================
+    /* ================================
    * BLOCKQUOTE
    * ================================
    */
-  blockquote {
-    @apply text-gray-500 dark:text-gray-300 italic py-2 pl-10 pr-0 border-l dark:border-amber-400;
-    margin-top: var(--p-margin-y);
+    blockquote {
+        @apply text-gray-500 dark:text-gray-300 italic py-2 pl-10 pr-0 border-l dark:border-amber-400;
+        margin-top: var(--p-margin-y);
 
-    p {
-      white-space: break-spaces;
+        p {
+            white-space: break-spaces;
+        }
     }
-  }
 
-  blockquote p {
-    font-size: 1.1rem;
-  }
+    blockquote p {
+        font-size: 1.1rem;
+    }
 
-  /* ================================
+    /* ================================
    * CODE
    * ================================
    */
 
-  :not(pre)>code {
-    background: var(--color-inlineCodeBackground);
-    @apply text-sm text-white;
-    padding: 0.2em 0.4em;
-    border-radius: 0.3em;
-    border: 1.5px solid var(--color-inlineCodeBorder);
-    white-space: nowrap;
-  }
+    :not(pre) > code {
+        background: var(--color-inlineCodeBackground);
+        @apply text-sm text-white;
+        padding: 0.2em 0.4em;
+        border-radius: 0.3em;
+        border: 1.5px solid var(--color-inlineCodeBorder);
+        white-space: nowrap;
+    }
 
-  /* ================================
+    /* ================================
    * FOOTNOTES
    * ================================
    */
-  section.footnotes {
-    @apply mt-18;
+    section.footnotes {
+        @apply mt-18;
 
-    ol {
-      @apply list-decimal list-inside;
+        ol {
+            @apply list-decimal list-inside;
 
-      p {
-        @apply inline text-[1rem] dark:text-gray-200 text-gray-900 leading-snug tracking-normal antialiased;
-      }
+            p {
+                @apply inline text-[1rem] dark:text-gray-200 text-gray-900 leading-snug tracking-normal antialiased;
+            }
+        }
     }
-  }
 }
 
 @layer components {
-  .expressive-code {
-    margin: var(--p-margin-y) 0;
-  }
+    .expressive-code {
+        margin: var(--p-margin-y) 0;
+    }
 }
 
 @layer utilities {
-
-  /* If the user prefers dark mode,
+    /* If the user prefers dark mode,
 we of course apply color-scheme: dark, as usual */
-  @media (prefers-color-scheme: dark) {
-    html {
-      color-scheme: dark;
+    @media (prefers-color-scheme: dark) {
+        html {
+            color-scheme: dark;
+        }
     }
-  }
 
-  /* If the user prefers light mode,
+    /* If the user prefers light mode,
 we still enforce color-scheme: dark, despite the user preference */
-  @media (prefers-color-scheme: light) {
-    html {
-      color-scheme: ligth;
+    @media (prefers-color-scheme: light) {
+        html {
+            color-scheme: ligth;
+        }
     }
-  }
 }
 
-@media(hover: hover) {
-  .expressive-code .copy button {
-    width: 1.8rem !important;
-    height: 1.8rem !important;
-  }
+@media (hover: hover) {
+    .expressive-code .copy button {
+        width: 1.8rem !important;
+        height: 1.8rem !important;
+    }
 }

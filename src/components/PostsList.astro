@@ -26,6 +26,15 @@ const translationHref =
         class="font-base text-lg font-title font-medium"
         href={note ? getNoteUrl(post) : getPostUrl(post)}>{post.data.title}</a
       >
+      <!-- Draft -->
+      {
+        post.data.draft && (
+          <span class="ml-2 bg-main dark:bg-main-dark text-xs rounded-lg px-1 py-0.3">
+            (draft)
+          </span>
+        )
+      }
+      <!-- Note -->
       {
         note && (
           <span class="ml-2 text-gray-500 dark:text-gray-400 text-xs">
