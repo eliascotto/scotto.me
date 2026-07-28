@@ -1,5 +1,5 @@
 ---
-title: Who's Elia Scotto
+title: About me
 name: About
 eleventyExcludeFromCollections: true
 ---
