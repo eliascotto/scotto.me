@@ -1,5 +1,5 @@
 ---
-title: Liture, How I Manage My Reading Notes
+title: Liture, how I manage my reading notes
 description: On preserving what we write in the margins of ebooks
 date: 2025-12-17
 tags:

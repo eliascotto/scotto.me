@@ -1,5 +1,5 @@
 ---
-title: One Tool to Read Them All
+title: One tool to read them all
 description: Looking for a better way to read content online
 date: 2026-07-23
 tags:

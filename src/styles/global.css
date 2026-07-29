@@ -16,8 +16,7 @@
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
     --font-serif:
-        "EB Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times,
-        serif;
+        "Palatino Linotype", Palatino, "Book Antiqua", Georgia, Cambria, "Times New Roman", Times, serif;
     --font-title:
         Sora, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
         "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -27,26 +26,13 @@
 }
 
 @utility article {
+    /*p {
+        @apply font-serif text-[1.15rem];
+    }*/
     a {
         @apply text-main dark:text-main-dark;
         text-decoration: none;
     }
-
-    /* a::after {
-    @apply text-main;
-    position: relative;
-    content: '\FEFF°';
-    margin-left: 0.1em;
-    top: -0.1em;
-    font-feature-settings: 'caps';
-    font-variant-numeric: normal;
-  } */
-
-    /* @media print {
-    a::after {
-      display: none;
-    }
-  } */
 }
 @utility generic {
     a {
