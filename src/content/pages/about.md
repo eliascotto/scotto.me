@@ -14,13 +14,13 @@ eleventyExcludeFromCollections: true
 
 Hi, I'm Elia (pronounced <code class="dark:text-gray-200 text-gray-900 bg-lightBackground dark:bg-darkBackground border-none">/eˈli.a/</code>), a **software engineer** living in Hobart, Australia.
 
-I've been helping B2B startups scale their web applications since 2014. I have experience with software that requires complex UIs, and thanks to that I've grown a sense for good design. Today I work full-stack, making products that are easy to use and not ugly.
+If want to connect, **drop me an email** at <span id="contact"><span class="email-obf">em.<span class="email-decoy">PLZNO</span>ottocs@<span class="email-decoy">SPAM</span>olleh</span></span> .
 
-### Now
+If you like my writing or find my software helpful, you can support my work by [buying me a coffee](https://ko-fi.com/eliascotto).
+
+### Work
 
 Currently available for contract or fractional work, ideally with early-stage startups or bootstrappers. Open to remote roles across Australia or worldwide for the right opportunity.
-
-If your team needs help shipping, or you just want to connect, **drop me an email** at <span id="contact"><span class="email-obf">em.<span class="email-decoy">PLZNO</span>ottocs@<span class="email-decoy">SPAM</span>olleh</span></span> .
 
 <style>
   .email-obf { unicode-bidi: bidi-override; direction: rtl; }
@@ -47,6 +47,6 @@ Recently I've helped [VerifiMe](https://www.verifime.com/) build their identity 
 
 ### More?
 
-You can find me on <a href="https://bsky.app/profile/scotto.me" rel="me noopener noreferrer" target="_blank">BlueSky</a> and <a href="https://github.com/eliascotto" rel="me noopener noreferrer" target="_blank">GitHub</a>. Don't forget to subscribe to this website using [RSS](/feed.xml).
+You can find me on <a href="https://bsky.app/profile/scotto.me" rel="me noopener noreferrer" target="_blank">BlueSky</a> and <a href="https://github.com/eliascotto" rel="me noopener noreferrer" target="_blank">GitHub</a>. You can subscribe to my posts using [RSS](/feed.xml).
 
 I have a [now](/now/) page.
