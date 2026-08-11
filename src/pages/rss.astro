@@ -9,13 +9,16 @@ import RSSLink from "../components/RSSLink.astro";
       <h2 class="mt-0 title-heading text-gray-400 font-light text-base">RSS</h2>
     </div>
 
-    <p>Subscribe to all content, or choose a feed for a specific category.</p>
+    <p class="mb-6">
+      You can choose the category you'd rather read. If you're not sure which
+      one to pick, start with <strong>All posts</strong>.
+    </p>
 
     <div class="mt-4 flex flex-col gap-4 font-light italic">
       <RSSLink href="/feed.xml" text="All posts" />
       <RSSLink href="/techFeed.xml" text="Tech" />
       <RSSLink href="/articlesFeed.xml" text="Articles" />
-      <RSSLink href="/withNotesFeed.xml" text="All posts + notes" />
+      <RSSLink href="/withNotesFeed.xml" text="All posts + Notes" />
     </div>
   </section>
 </MenuLayout>
