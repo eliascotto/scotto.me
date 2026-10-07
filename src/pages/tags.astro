@@ -1,22 +1,29 @@
 ---
-import MenuLayout from '../layouts/MenuLayout.astro';
-import { getTagCounts } from '../lib/content';
-import { slugifyTag } from '../lib/slug';
+import MenuLayout from "../layouts/MenuLayout.astro";
+import { getTagCounts } from "../lib/content";
+import { slugifyTag } from "../lib/slug";
 
 const tagCounts = await getTagCounts();
-const tags = Array.from(tagCounts.entries()).sort(([a], [b]) => a.localeCompare(b));
+const tags = Array.from(tagCounts.entries()).sort(([a], [b]) =>
+  a.localeCompare(b),
+);
 ---
+
 <MenuLayout title="Tags" currentPath="/tags/">
   <section>
     <div class="mt-0">
-      <h2 class="mt-0 title-heading text-gray-400 font-light text-base">Tags</h2>
+      <h2 class="mt-0 title-heading text-gray-400 font-light text-base">
+        Tags
+      </h2>
     </div>
-    
-    <ul class="list-none">
+
+    <ul class="list-none pl-0">
       {tags.map(([name, count]) => (
         <li class="my-1.5 text-base font-light">
-          <a href={`/tags/${slugifyTag(name)}/`}>#{name}</a> 
-          <span class="text-gray-500 dark:text-gray-400 text-sm">({count})</span>
+          <a href={`/tags/${slugifyTag(name)}/`}>{name}</a>
+          <span class="text-gray-500 dark:text-gray-400 text-sm">
+            ({count})
+          </span>
         </li>
       ))}
     </ul>

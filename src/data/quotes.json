@@ -9,7 +9,10 @@
   },
   {
     "author": "H.P. Lovecraft",
-    "quote": "I know always that I am an outsider: a stranger in this century and among all those who are still men."
+    "quotes": [
+      "I know always that I am an outsider: a stranger in this century and among all those who are still men.",
+      "The oldest and strongest emotion of mankind is fear, and the oldest and strongest kind of fear is fear of the unknown."
+    ]
   },
   {
     "author": "Why The Lucky Stiff",
@@ -50,6 +53,10 @@
   {
     "author": "Suzuki Roshi",
     "quote": "In the beginner’s mind there are many possibilities, but in the expert’s there are few."
+  },
+  {
+    "author": "Albus Dumbledore",
+    "quote": "Words are, in my not-so-humble opinion, our most inexhaustible source of magic. Capable of both inflicting injury, and remedying it."
   },
   {
     "author": "David Foster Wallace",

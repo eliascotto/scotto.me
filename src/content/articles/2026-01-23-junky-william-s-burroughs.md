@@ -3,7 +3,7 @@ title: Junky - William S. Burroughs
 description: Confessions of an Unredeemed Drug Addict
 date: 2026-01-23
 tags:
- - burroughs
+ - william burroughs
  - reviews
  - book
 ---

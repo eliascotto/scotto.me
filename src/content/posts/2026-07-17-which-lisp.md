@@ -5,7 +5,8 @@ date: 2026-07-17
 tags:
  - posts
  - lisp
- - a-road-to-lisp
+ - a road to lisp
+ - programming languages
 ---
 
 Most programming languages evolve as a single language. Python, Java, Javascript, C++, have new versions and standards, multiple implementations, but they still remain the same language. C and C++ can be compiled with GCC or Clang, Python can be compiled with CPython or PyPy, the same JavaScript runs in both Firefox and Chrome, and Java programs can run on JVM or GraalVM.

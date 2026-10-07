@@ -4,7 +4,8 @@ description: How I created TryClojure.org
 date: 2023-03-24
 tags:
  - clojurescript
- - SCI
+ - clojure
+ - REPL
 ---
 
 One of the advantages of working with Clojure is that it can be used on top of the JVM as well as in the browser. This is possible thanks to the Clojurescript compiler, which takes your `.cljs` files and turns them into optimized Javascript with the help of the [Google Closure compiler](https://github.com/google/closure-compiler), ready to be embedded into a webpage. Since Clojurescript translate Clojure code to Javascript, in theory, it should be possible to run Clojurescript directly in the browser, since Javascript interpreter is exposed to the user.

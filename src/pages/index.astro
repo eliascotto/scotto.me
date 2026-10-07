@@ -2,9 +2,9 @@
 import MenuLayout from "../layouts/MenuLayout.astro";
 import PostsList from "../components/PostsList.astro";
 import {
-    getAllPosts,
-    getTranslationsMap,
-    getTranslationUrl,
+  getAllPosts,
+  getTranslationsMap,
+  getTranslationUrl,
 } from "../lib/content";
 import { getPersonSchema, getWebsiteSchema } from "../lib/structuredData";
 
@@ -15,37 +15,40 @@ const structuredData = [getPersonSchema(), getWebsiteSchema()];
 ---
 
 <MenuLayout title="Elia Scotto" currentPath="/" structuredData={structuredData}>
-    <section>
-        <h1 class="font-light mb-4 text-4xl">
-            Hi there,<br class="sm:hidden" /> I'm <strong class="font-semibold"
-                >Elia Scotto</strong
-            >
-        </h1>
+  <section>
+    <h1 class="font-light mb-4 text-4xl">
+      Hi there,
+      <br class="sm:hidden" /> I'm{" "}
+      <strong class="font-semibold">Elia Scotto</strong>
+    </h1>
 
-        <p>
-            <blockquote class="pl-0 border-l-0">
-                "Quot Libros, Quam Breve Tempus." — Augustus
-            </blockquote>
-            So many books, so little time.
-        </p>
+    <p class="pt-2 generic">
+      I'm an Italian software engineer living in Australia. I write about
+      <a href="tags/programming-languages/">programming languages</a>, tech,{" "}
+      <a href="tags/projects/">my side-projects</a>,{" "}
+      <a href="tags/reviews/">book reviews</a> and things I find interesting.
+    </p>
 
-        <h2 class="mb-8">Latest posts</h2>
+    <p>
+      <blockquote class="pl-0 border-l-0">
+        "Quot Libros, Quam Breve Tempus." — Augustus
+      </blockquote>
+      So many books, so little time.
+    </p>
 
-        <div class="flex flex-col">
-            {
-                latestPosts.map((post) => (
-                    <PostsList
-                        post={post}
-                        translationUrl={
-                            translationMap.get(post.slug)
-                                ? getTranslationUrl(
-                                      translationMap.get(post.slug)!,
-                                  )
-                                : undefined
-                        }
-                    />
-                ))
-            }
-        </div>
-    </section>
+    <h2 class="mb-8">Latest posts</h2>
+
+    <div class="flex flex-col">
+      {latestPosts.map((post) => (
+        <PostsList
+          post={post}
+          translationUrl={
+            translationMap.get(post.slug)
+              ? getTranslationUrl(translationMap.get(post.slug)!)
+              : undefined
+          }
+        />
+      ))}
+    </div>
+  </section>
 </MenuLayout>

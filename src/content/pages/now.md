@@ -10,8 +10,6 @@ This is a summary of what's happening in my life right now.
 
 ---
 
-Writing a lot lately, even if not everything ends up on this blog. Other than that, reading and fixing things around the apartment we recently bought.
-
-Less than a month until my Italian holiday.
+I came back from a refreshing holiday and am currently looking for a new job. I've been collecting lots of notes about what to write next, and I'll try to find the time to untangle them into something readable.
 
 <small>Updated: {{ today | defaultDate }}</small>

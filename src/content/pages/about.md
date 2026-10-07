@@ -1,5 +1,5 @@
 ---
-title: About me
+title: About Elia Scotto
 name: About
 eleventyExcludeFromCollections: true
 ---
@@ -20,7 +20,7 @@ If you like my writing or find my software helpful, you can support my work by [
 
 ### Work
 
-Currently available for contract or fractional work, ideally with early-stage startups or bootstrappers. Open to remote roles across Australia or worldwide for the right opportunity.
+Currently available for work, ideally with early-stage startups or bootstrappers. Open to remote roles across Australia or worldwide for the right opportunity.
 
 <style>
   .email-obf { unicode-bidi: bidi-override; direction: rtl; }
@@ -40,7 +40,6 @@ Currently available for contract or fractional work, ideally with early-stage st
   })();
 </script>
 
-
 ### Career
 
 Recently I've helped [VerifiMe](https://www.verifime.com/) build their identity verification platform for businesses. I also worked on the messaging system and analytics at [Audience Republic](https://www.audiencerepublic.com/), a marketing platform based in Sydney. Before that I helped grow the cloud training platform at CloudAcademy (now [QA](https://www.qa.com/)) in Switzerland, where I had the opportunity to learn basic data science and machine learning. During university I was an early employee at [Sysdig](https://www.sysdig.com/). Thanks to them I flew to Silicon Valley where I worked on the UI library for the core product and a couple of open-source UIs for the monitoring tools. As a freelancer I've collaborated with projects in the fields of video streaming and logistics.
@@ -49,4 +48,4 @@ Recently I've helped [VerifiMe](https://www.verifime.com/) build their identity 
 
 You can find me on <a href="https://bsky.app/profile/scotto.me" rel="me noopener noreferrer" target="_blank">BlueSky</a> and <a href="https://github.com/eliascotto" rel="me noopener noreferrer" target="_blank">GitHub</a>. You can subscribe to my posts using [RSS](/feed.xml).
 
-I have a [now](/now/) page.
+I also have a [now](/now/) page that I try to keep updated.

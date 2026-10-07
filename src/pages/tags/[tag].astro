@@ -1,8 +1,13 @@
 ---
-import MenuLayout from '../../layouts/MenuLayout.astro';
-import PostsList from '../../components/PostsList.astro';
-import { getAllPosts, getTagCounts, getTranslationsMap, getTranslationUrl } from '../../lib/content';
-import { slugifyTag } from '../../lib/slug';
+import MenuLayout from "../../layouts/MenuLayout.astro";
+import PostsList from "../../components/PostsList.astro";
+import {
+  getAllPosts,
+  getTagCounts,
+  getTranslationsMap,
+  getTranslationUrl,
+} from "../../lib/content";
+import { slugifyTag } from "../../lib/slug";
 
 export async function getStaticPaths() {
   const counts = await getTagCounts();
@@ -11,9 +16,9 @@ export async function getStaticPaths() {
   }));
 }
 
-const param = Astro.params.tag ?? '';
+const param = Astro.params.tag ?? "";
 const posts = (await getAllPosts()).filter((entry) =>
-  (entry.data.tags ?? []).some((tag) => slugifyTag(tag) === param)
+  (entry.data.tags ?? []).some((tag) => slugifyTag(tag) === param),
 );
 
 if (posts.length === 0) {
@@ -21,21 +26,30 @@ if (posts.length === 0) {
 }
 
 const translationMap = await getTranslationsMap();
-const resolvedTag = posts[0].data.tags?.find((tag) => slugifyTag(tag) === param) ?? param;
+const resolvedTag =
+  posts[0].data.tags?.find((tag) => slugifyTag(tag) === param) ?? param;
+const title = resolvedTag
+  .toLowerCase()
+  .split(" ")
+  .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+  .join(" ");
 ---
-<MenuLayout title={`#${resolvedTag}`} currentPath={`/tags/${param}/`}>
+
+<MenuLayout title={title} currentPath={`/tags/${param}/`}>
   <section>
     <div class="mb-6">
-      <h1 class="title-heading">
-        #{resolvedTag}
-      </h1>
+      <h1 class="title-heading">{title}</h1>
     </div>
 
     <div class="flex flex-col">
       {posts.map((post) => (
         <PostsList
           post={post}
-          translationUrl={translationMap.get(post.slug) ? getTranslationUrl(translationMap.get(post.slug)!) : undefined}
+          translationUrl={
+            translationMap.get(post.slug)
+              ? getTranslationUrl(translationMap.get(post.slug)!)
+              : undefined
+          }
         />
       ))}
     </div>

@@ -4,7 +4,7 @@ description: On preserving what we write in the margins of ebooks
 date: 2025-12-17
 tags:
  - software
- - project
+ - projects
 ---
 
 Useful software often comes out of frustration. When a programmer finds themselves wondering about a tool or a library that doesn’t exist yet, they may decide to write it. At least, they know it would be useful for one user, themself, not to mention the fun of coding. In my case, I needed an easy way to navigate my ebook notes, and all I could find were subscription based services that didn’t fit my casual use. This is how [**Liture**](https://liture.co/) started.
