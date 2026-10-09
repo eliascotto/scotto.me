@@ -13,24 +13,18 @@ interface Props {
 const { title, date, content: Content, url } = Astro.props;
 ---
 
-<div
-  class="bg-lightBackgroundSecondary dark:bg-darkBackgroundSecondary p-5 rounded-lg border border-gray-400 dark:border-gray-700"
->
-  <div class="mb-4 sm:mb-6 flex flex-row justify-between items-end">
-    {
-      !!url ? (
-        <a href={url}>
-          <h1 class="text-xl font-title">{title}</h1>
-        </a>
-      ) : (
-        <h1 class="text-xl font-title">{title}</h1>
-      )
-    }
+<div class="bg-lightBackgroundSecondary dark:bg-darkBackgroundSecondary p-5 rounded-lg border border-gray-400 dark:border-gray-700">
+  <div class="mb-4 sm:mb-6 flex flex-row justify-between items-start">
+    {!!url ? (
+      <a href={url}>
+        <h1 class="text-lg font-title">{title}</h1>
+      </a>
+    ) : (
+      <h1 class="text-lg font-title">{title}</h1>
+    )}
 
     <div class="flex flex-col sm:flex-row justify-between">
-      <div
-        class="flex flex-col justify-center text-sm text-gray-500 dark:text-gray-400"
-      >
+      <div class="flex flex-col justify-center text-sm text-gray-500 dark:text-gray-400 text-nowrap">
         <time>{formatHumanDate(date)}</time>
       </div>
     </div>
