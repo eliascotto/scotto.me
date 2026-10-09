@@ -1,0 +1,15 @@
+---
+title: The privilege of trusting strangers
+description: Reflection on our first house sitting experience
+date: 2026-10-09T06:58:34.666Z
+---
+
+While my wife and I were on holiday in Europe, a relative who was supposed to take care of our dog pulled out at the last minute. What to do? Kennels are quite expensive for a stay of multiple weeks, require full vaccinations, and were almost all already full. Since going back early wasn't ideal, we decided to look for someone who could house sit. We'd done it before for family friends who were on holiday. We stayed at their place and took care of their two dogs and three cats for a week or so. But in this case, we needed to rely on someone outside our circle, since nobody we knew was available. We decided to post an offer on a house-sitting website, where strangers come to live in the house for free in return for pet and house care.
+
+We found out that house sitting is quite an obscure concept in Italy. We talked about our dog issue with family and friends, and when they asked for updates on the matter, they were very surprised that we'd decided to trust a complete stranger to come and live in our house. They all said they would never do such a thing, since they wouldn't trust the other person enough. They said things like, "What if they steal your stuff? You don't even know who they are."
+
+I get it. In Italy, we stayed in a family apartment that was soon going to be used as an Airbnb, so everything was ready. It was nice and located close to one of the two town squares. Two weeks in, we heard that someone had tried to force open the cellar doors in the building, in broad daylight. A petty thief probably looking for bikes and stuff to steal. They didn't take anything, as far as I heard. In Italy, I kept my road bike inside the apartment and, since it was on the first floor, the most exposed windows had grates.
+
+We ended up finding a really nice guy who took care of our dog, followed all the feeding instructions and stayed there the entire time. We exchanged a few messages first and then asked for updates on how everything was going, and we always heard back good news. When we came back, our dog was happy and well fed, our house was clean and everything was left in place. Our car was still parked in the backyard. The keys were hidden in the house, but not impossible to find for someone living there for so long. We where not expecting someone to come in our house, so many things where left visible. Everything went well, and the guy even messaged us that he'd had to buy some extra dog food, which we paid him back for. Yesterday we had a coffee together, met him in person and thanked him once again.
+
+He needed a cheap place to stay while attending classes at the university, and our place was close to it. We needed someone to take care of our dog, and he had previous experience with animals. It was a win-win situation, and I'm really grateful that these kinds of opportunities are possible today. It's sad that, in other parts of the world, the behaviour of a few people prevents such possibilities, which are one of the true advantages of our interconnected world.
