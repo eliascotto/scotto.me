@@ -14,9 +14,7 @@ const source = citationUrl?.hostname.replace(/^www\./, "") || cite;
 const favicon = `https://s2.googleusercontent.com/s2/favicons?domain_url=${encodeURIComponent(cite)}&sz=64`;
 ---
 
-<figure
-  class="flex flex-col mt-2 mb-4 rounded-lg border border-gray-400 dark:border-gray-700"
->
+<figure class="flex flex-col mt-2 mb-4 rounded-lg border border-gray-400 dark:border-gray-700">
   <blockquote
     class="border-0 p-5 m-0 border-b border-gray-400 dark:border-gray-700"
     cite={cite}
@@ -27,13 +25,13 @@ const favicon = `https://s2.googleusercontent.com/s2/favicons?domain_url=${encod
 
   <figcaption class="m-0">
     <a
-      class="flex flex-row items-center gap-3 w-full px-4 py-3"
+      class="flex flex-row items-center gap-1 w-full px-4 py-3"
       href={cite}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Read the full text on ${source} (opens in a new tab)`}
     >
-      <span class="" aria-hidden="true">
+      <span class="mr-2" aria-hidden="true">
         <img
           class=""
           src={favicon}
@@ -44,7 +42,6 @@ const favicon = `https://s2.googleusercontent.com/s2/favicons?domain_url=${encod
           referrerpolicy="no-referrer"
         />
       </span>
-
       <span class="not-italic font-medium">{author}</span> &sdot; “{title}”
     </a>
   </figcaption>
