@@ -12,7 +12,7 @@ eleventyExcludeFromCollections: true
   />
 </div>
 
-Hi, I'm Elia (pronounced <code class="dark:text-gray-200 text-gray-900 bg-lightBackground dark:bg-darkBackground border-none">/eˈli.a/</code>), a **software engineer** living in Hobart, Australia.
+I'm Elia (pronounced <code class="dark:text-gray-200 text-gray-900 bg-lightBackground dark:bg-darkBackground border-none">/eˈli.a/</code>), a **software engineer** living in Hobart, Australia.
 
 If want to connect, **drop me an email** at <span id="contact"><span class="email-obf">em.<span class="email-decoy">PLZNO</span>ottocs@<span class="email-decoy">SPAM</span>olleh</span></span> .
 
@@ -20,7 +20,17 @@ If you like my writing or find my software helpful, you can support my work by [
 
 ### Work
 
-Currently available for work, ideally with early-stage startups or bootstrappers. Open to remote roles across Australia or worldwide for the right opportunity.
+Currently **available for work**, ideally with early-stage startups or bootstrappers. I bring full-stack expertise, with a stronger focus on frontend development and complex UIs, and can work independently across the whole stack, including major cloud services. Open to remote roles across Australia or worldwide for the right opportunity.
+
+### Career
+
+Recently I've helped [VerifiMe](https://www.verifime.com/) build their identity verification platform for businesses. I also worked on the messaging system and analytics at [Audience Republic](https://www.audiencerepublic.com/), a marketing platform based in Sydney. Before that I helped grow the cloud training platform at CloudAcademy (now [QA](https://www.qa.com/)) in Switzerland, where I had the opportunity to learn basic data science and machine learning. During university I was an early employee at [Sysdig](https://www.sysdig.com/). Thanks to them I flew to Silicon Valley where I worked on the UI library for the core product and a couple of open-source UIs for the monitoring tools. As a freelancer I've collaborated with projects in the fields of video streaming and logistics.
+
+### More?
+
+You can find me on <a href="https://bsky.app/profile/scotto.me" rel="me noopener noreferrer" target="_blank">BlueSky</a> and <a href="https://github.com/eliascotto" rel="me noopener noreferrer" target="_blank">GitHub</a>. You can subscribe to my posts using [RSS](/feed.xml).
+
+I also have a [now](/now/) page that I try to keep updated.
 
 <style>
   .email-obf { unicode-bidi: bidi-override; direction: rtl; }
@@ -39,13 +49,3 @@ Currently available for work, ideally with early-stage startups or bootstrappers
     contact.replaceChildren(a);
   })();
 </script>
-
-### Career
-
-Recently I've helped [VerifiMe](https://www.verifime.com/) build their identity verification platform for businesses. I also worked on the messaging system and analytics at [Audience Republic](https://www.audiencerepublic.com/), a marketing platform based in Sydney. Before that I helped grow the cloud training platform at CloudAcademy (now [QA](https://www.qa.com/)) in Switzerland, where I had the opportunity to learn basic data science and machine learning. During university I was an early employee at [Sysdig](https://www.sysdig.com/). Thanks to them I flew to Silicon Valley where I worked on the UI library for the core product and a couple of open-source UIs for the monitoring tools. As a freelancer I've collaborated with projects in the fields of video streaming and logistics.
-
-### More?
-
-You can find me on <a href="https://bsky.app/profile/scotto.me" rel="me noopener noreferrer" target="_blank">BlueSky</a> and <a href="https://github.com/eliascotto" rel="me noopener noreferrer" target="_blank">GitHub</a>. You can subscribe to my posts using [RSS](/feed.xml).
-
-I also have a [now](/now/) page that I try to keep updated.
